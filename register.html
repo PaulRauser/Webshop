@@ -8,6 +8,10 @@
 
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+   
+    <link rel="stylesheet" href="CSS/login_styles.css">
+    <link rel="stylesheet" href="CSS/register.css">
+
     <link rel="stylesheet" href="CSS/general_frontend_styles.css">
   </head>
 <body>
@@ -35,7 +39,78 @@
           </div>
         </div>
       </nav>
+      <div class="container">
+        <div class="row">
+            <div class="col-1">
 
+            </div>
+            <div class="col-10">
+              <div class="register-text">
+                <h1>Register</h1>
+              </div>
+              <form class="register-form">
+                <div class="form-row">
+                  <div class="col form-group spacer">
+                    <label>First name *</label>   
+                      <input required type="text" class="form-control" placeholder="">
+                  </div> <!-- form-group end.// -->
+                  <div class="col form-group spacer">
+                    <label>Last name *</label>
+                      <input required type="text" class="form-control" placeholder=" ">
+                  </div> <!-- form-group end.// -->
+                </div> <!-- form-row end.// -->
+                <div class="form-group spacer">
+                  <label>Email address *</label>
+                  <input required type="email" class="form-control" placeholder="">
+                  <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div> <!-- form-group end.// -->
+                <div class="form-group spacer">
+                    <div class="gender-div">Gender *</div>
+                    <label class="form-check form-check-inline">
+                    <input required class="form-check-input" type="radio" name="gender" value="option1">
+                    <span class="form-check-label"> Male </span>
+                  </label>
+                  <label class="form-check form-check-inline">
+                    <input required class="form-check-input" type="radio" name="gender" value="option2">
+                    <span class="form-check-label"> Female</span>
+                  </label>
+                  <label class="form-check form-check-inline">
+                    <input required class="form-check-input" type="radio" name="gender" value="option2">
+                    <span class="form-check-label"> Other</span>
+                  </label>
+                </div> <!-- form-group end.// -->
+                <div class="form-row">
+                  <div class="form-group spacer col-md-6">
+                    <label>City *</label>
+                    <input required type="text" class="form-control">
+                  </div> <!-- form-group end.// -->
+                  <div class="form-group spacer col-md-6">
+                    <label>Country</label>
+                    <select id="inputState" class="form-control">
+                      <option> Choose...</option>
+                        <option>Germany</option>
+                        <option>Russia</option>
+                        <option selected="">United States</option>
+                        <option>France</option>
+                        <option>UK</option>
+                        <option>Other</option>
+                        <option>Steve</option>
+                        <option>Ein Ford Focus</option>
+                    </select>
+                  </div> <!-- form-group end.// -->
+                </div> <!-- form-row.// -->  
+                  <div class="form-group spacer">
+                      <button type="submit" class="btn btn-success btn-block"> Register  </button>
+                  </div> <!-- form-group// -->      
+                  <div class="text-muted spacer bottom-spacer">By clicking the 'Sign Up' button, you confirm that you accept our <br> Terms of use and Privacy Policy.</div>                                          
+                  <div class="btn btn-success login-instead-button">Login instead</div>
+                </form>
+            </div>
+            <div class="col-1">
+
+            </div>
+        </div>
+      </div>
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>

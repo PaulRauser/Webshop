@@ -1,0 +1,49 @@
+.form-control {
+    position: relative;
+    width: 50%;
+    left: 25%;
+}
+
+.col-md-6 {
+    width: 100%;
+}
+
+.spacer {
+    margin-top: 20px;
+}
+
+.bottom-spacer {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.register-form {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    border: 2px solid rgb(130,130,130);
+    border-radius: 8px;
+    top: 10%;
+    margin-bottom: 100px;
+}
+
+.btn-success {
+    width: 200px;
+}
+
+.login-instead-button {
+    position: relative;
+    width: 260px;
+    margin-bottom: 25px;
+}
+
+.gender-div {
+    margin-bottom: 3px;
+}
+
+.register-text {
+    position: relative;
+    top: 5%;
+    text-align: center;
+}
