@@ -1,0 +1,45 @@
+.forgot-password {
+    font-size: 20px;
+    text-align: center;
+    transition: color .3s;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.forgot-password:hover {
+    color: 	#42ba96;
+}
+
+.login-form {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    border: 2px solid rgb(130,130,130);
+    border-radius: 8px;
+    top: 30%;
+}
+
+.custom-login-input, .custom-button {
+    position: relative;
+    width: 60%;
+    /* max-width: 400px; */
+    left: 20%;
+}
+
+.custom-login-input {
+    margin-top: 5px;
+}
+
+.custom-login-button {
+    margin-bottom: 20px;
+    width: 200px;
+    left: 0;
+}
+
+.control-label {
+    margin-top: 20px;
+}
+
+legend {
+    margin-top: 30px;
+}
