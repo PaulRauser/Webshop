@@ -1,0 +1,13 @@
+#active {
+    color: #42ba96;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    transition: color .3s;
+}
+
+a:hover {
+    color: rgba(255,255,255,.5)
+}

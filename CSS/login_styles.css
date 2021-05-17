@@ -1,12 +1,32 @@
-.forgot-password {
-    font-size: 20px;
+.login-text {
+    font-size: 18px;
     text-align: center;
     transition: color .3s;
     cursor: pointer;
-    margin-bottom: 40px;
 }
 
-.forgot-password:hover {
+.login-text:hover {
+    color: 	#42ba96;
+}
+
+.additional-login-content {
+    margin-bottom: 40px;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+}
+
+.create-account {
+    margin-bottom: 8px;
+}
+
+.register-link {
+    color: black;
+    text-decoration: none;
+}
+
+.register-link:hover {
     color: 	#42ba96;
 }
 
