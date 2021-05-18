@@ -1,5 +1,5 @@
 .product-section-content {
-    margin-top: 80px;
+    margin-top: 170px;
     position: relative;
 }
 
@@ -56,7 +56,7 @@
     position: absolute;
     margin-top: 20px;
     width: 70px;
-    right: 10px;
+    left: 80px;
 }
 
 .product-submit-button {
@@ -81,4 +81,15 @@
     border-color: #cccccc;
     -webkit-box-shadow: none;
     box-shadow: none;
+}
+
+.product-carousel {
+    top: 80px;
+    position: relative;
+    width: 70%;
+    left: 15%;
+}
+
+.carousel-item {
+    cursor: pointer;
 }
