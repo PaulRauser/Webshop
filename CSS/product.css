@@ -61,3 +61,7 @@
 .search-button {
     border-radius: .25rem;
 }
+
+.hidden {
+    opacity: 0;
+}
