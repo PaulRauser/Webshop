@@ -62,7 +62,7 @@
                     <ul class="nav nav-pills">
                       <li class="nav-item">
                         <div class="input-group mb-3">
-                          <input type="text" class="form-control" placeholder="3" aria-label="amount" aria-describedby="updateAmount" maxlength="2" size="3"
+                          <input type="number" class="form-control" placeholder="3" aria-label="amount" aria-describedby="updateAmount" min="0" max="100"
                             onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}">
                           <button class="btn btn-outline-success" type="button" id="updateAmount" name="updateAmount">Update Amount</button>
                           <button class="btn btn-outline-success" type="button">Remove</button>
@@ -90,7 +90,7 @@
                     <ul class="nav nav-pills">
                       <li class="nav-item">
                         <div class="input-group mb-3">
-                          <input type="text" class="form-control" placeholder="3" aria-label="amount" aria-describedby="updateAmount" maxlength="2" size="3"
+                          <input type="number" class="form-control" placeholder="3" aria-label="amount" aria-describedby="updateAmount" min="0" max="100"
                             onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}">
                           <button class="btn btn-outline-success" type="button" id="updateAmount" name="updateAmount">Update Amount</button>
                           <button class="btn btn-outline-success" type="button">Remove</button>
@@ -118,7 +118,7 @@
                     <ul class="nav nav-pills">
                       <li class="nav-item">
                         <div class="input-group mb-3">
-                          <input type="text" class="form-control" placeholder="3" aria-label="amount" aria-describedby="updateAmount" maxlength="2" size="3"
+                          <input type="number" class="form-control" placeholder="3" aria-label="amount" aria-describedby="updateAmount" min="0" max="100" size="2"
                             onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}">
                           <button class="btn btn-outline-success" type="button" id="updateAmount" name="updateAmount">Update Amount</button>
                           <button class="btn btn-outline-success" type="button">Remove</button>
@@ -133,12 +133,14 @@
           </div>         
         </div>
 
-        <div class="shopping-cart-pos-price">
-          <p>Sum:</p>
-          <div id="totalPrice" name="totalPrice">
-            39,00€
+        <div class="container">
+          <div class="row justify-content-end">
+            <div class="col-2 shopping-cart-sum">             
+              <p id="totalPrice" name="totalPrice">Sum: 39,00 €</p> 
+            </div>
           </div>
         </div>
+        
 
         <div class="proceed-to-checkout">
         <a href="payment.php" class="btn btn-warning" role="button" aria-pressed="true">
