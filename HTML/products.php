@@ -94,6 +94,162 @@
             </div>
           </div>
         </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name">Berg</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name">Adrian</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name">Schnee</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name">Groggs</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name">Bonsai</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name">Mona Lisa</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name">Yugioh</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name">Matthias Schlechtbrod</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name">Beulinger</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name">Matthias Schlechtpasta</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name">Tim Leuze</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name">Raffael</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
