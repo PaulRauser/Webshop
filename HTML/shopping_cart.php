@@ -133,12 +133,14 @@
           </div>         
         </div>
 
-        <div class="shopping-cart-pos-price">
-          <p>Sum:</p>
-          <div id="totalPrice" name="totalPrice">
-            39,00€
+        <div class="container">
+          <div class="row justify-content-end">
+            <div class="col-2 shopping-cart-sum">             
+              <p id="totalPrice" name="totalPrice">Sum: 39,00 €</p> 
+            </div>
           </div>
         </div>
+        
 
         <div class="proceed-to-checkout">
         <a href="payment.php" class="btn btn-warning" role="button" aria-pressed="true">

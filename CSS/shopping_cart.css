@@ -39,6 +39,7 @@
    font-weight: bold;     
 }
 
+
 .legend{
    text-align: right;
 }
@@ -62,3 +63,9 @@
     justify-content: center;
     
 }
+
+.shopping-cart-sum{
+    font-weight: bold; 
+    text-align: right;    
+ }
+
