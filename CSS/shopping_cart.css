@@ -28,8 +28,8 @@
 }
 
 .shopping-cart-pos-description{
-    height: 188px;
-    margin-top: 3px;
+    height: 190px;
+    margin-top: 5px;
     margin-bottom: 5px;
     margin-left: 10px;    
 }
@@ -45,4 +45,20 @@
 
 .product-name{
     font-weight: bold;
+}
+
+.card-body{
+   position: relative; 
+}
+
+.nav{
+    position: absolute;
+    left: 17px;
+    bottom: 0;
+}
+
+.proceed-to-checkout{
+    text-align: center;
+    justify-content: center;
+    
 }

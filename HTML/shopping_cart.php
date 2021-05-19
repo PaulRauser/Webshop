@@ -52,20 +52,101 @@
             <div class="col-3 shopping-cart-pos-img-box" id="productImage" name="productImage">
               <img class="img-thumbnail shopping-cart-pos-img" src="../images/Bild1.jpg" alt="Tolles Produkt"/>
             </div>
-            <div class="col-8 shopping-cart-pos-description" id="productText" name="productDescription">
+            <div class="col-8" id="productText" name="productDescription">
               <div class="card shopping-cart-pos-description">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  
+                    <ul class="nav nav-pills">
+                      <li class="nav-item">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" placeholder="3" aria-label="amount" aria-describedby="updateAmount" maxlength="2" size="3"
+                            onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}">
+                          <button class="btn btn-outline-success" type="button" id="updateAmount" name="updateAmount">Update Amount</button>
+                          <button class="btn btn-outline-success" type="button">Remove</button>
+                        </div>
+                      </li>                                        
+                    </ul>
                 </div>
               </div>
             </div>
             <div class="col-1 shopping-cart-pos-price" id="productPrice" name="productPrice">12,89€</div>
           <hr>
-          </div>          
+          </div> 
+          <div class="container-fluid col-12 shopping-cart-pos">
+            <hr>            
+            <div class="col-3 shopping-cart-pos-img-box" id="productImage" name="productImage">
+              <img class="img-thumbnail shopping-cart-pos-img" src="../images/Bild1.jpg" alt="Tolles Produkt"/>
+            </div>
+            <div class="col-8" id="productText" name="productDescription">
+              <div class="card shopping-cart-pos-description">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  
+                    <ul class="nav nav-pills">
+                      <li class="nav-item">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" placeholder="3" aria-label="amount" aria-describedby="updateAmount" maxlength="2" size="3"
+                            onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}">
+                          <button class="btn btn-outline-success" type="button" id="updateAmount" name="updateAmount">Update Amount</button>
+                          <button class="btn btn-outline-success" type="button">Remove</button>
+                        </div>
+                      </li>                                        
+                    </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-1 shopping-cart-pos-price" id="productPrice" name="productPrice">12,89€</div>
+          <hr>
+          </div>
+          <div class="container-fluid col-12 shopping-cart-pos">
+            <hr>            
+            <div class="col-3 shopping-cart-pos-img-box" id="productImage" name="productImage">
+              <img class="img-thumbnail shopping-cart-pos-img" src="../images/Bild1.jpg" alt="Tolles Produkt"/>
+            </div>
+            <div class="col-8" id="productText" name="productDescription">
+              <div class="card shopping-cart-pos-description">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  
+                    <ul class="nav nav-pills">
+                      <li class="nav-item">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" placeholder="3" aria-label="amount" aria-describedby="updateAmount" maxlength="2" size="3"
+                            onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}">
+                          <button class="btn btn-outline-success" type="button" id="updateAmount" name="updateAmount">Update Amount</button>
+                          <button class="btn btn-outline-success" type="button">Remove</button>
+                        </div>
+                      </li>                                        
+                    </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-1 shopping-cart-pos-price" id="productPrice" name="productPrice">12,89€</div>
+          <hr>
+          </div>         
         </div>
+
+        <div class="shopping-cart-pos-price">
+          <p>Sum:</p>
+          <div id="totalPrice" name="totalPrice">
+            39,00€
+          </div>
+        </div>
+
+        <div class="proceed-to-checkout">
+        <a href="payment.php" class="btn btn-warning" role="button" aria-pressed="true">
+        <i class="far fa-credit-card"></i>&nbsp Proceed to Checkout</a>
+        </div>
+
       </div>
+      
 
       <script src="../node_modules/jquery/dist/jquery.js"></script>
       <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
