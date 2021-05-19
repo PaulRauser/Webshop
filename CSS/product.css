@@ -18,7 +18,7 @@
 }
 
 .card {
-    width: fit-content
+    width: 200px;
 }
 
 .card-body {
@@ -63,5 +63,10 @@
 }
 
 .hidden {
-    opacity: 0;
+    display: none;
+}
+
+.item-row {
+    display: flex;
+    justify-content: flex-start;
 }
