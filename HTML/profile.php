@@ -89,15 +89,16 @@
         <div class="buy-again-header">
           Order recent products again
         </div>
-        <div class="row">
+        <div class="row profile-row">
           <div class="buy-again-heading"></div>
           <div class="col-12 buy-again-container">
+            <div class="row"></div>
             <div class="buy-again-item">
               <div class="buy-again-image-box">
                 <img class="buy-again-image" src="../images/GTR.jpg" alt="GTR">
               </div>
               <div class="buy-again-text-box">
-                <div class="buy-again-title">Fuggin GTR</div>
+                <div class="buy-again-title">Fuggin Holy GTR</div>
                 <div class="buy-again-text">Who doesn't want to own a GTR? (Non Nissan Edition)</div>
                 <div class="buy-again-text additional-info-buy-again">To order a different amount you need to place a new order.</div>
                 <div class="buy-again-amount">Amount: 7</div>
@@ -109,7 +110,7 @@
                 <img class="buy-again-image" src="../images/GTR.jpg" alt="GTR">
               </div>
               <div class="buy-again-text-box">
-                <div class="buy-again-title">Fuggin GTR</div>
+                <div class="buy-again-title">GODZILLA</div>
                 <div class="buy-again-text">Who doesn't want to own a GTR? (Non Nissan Edition)</div>
                 <div class="buy-again-text additional-info-buy-again">To order a different amount you need to place a new order.</div>
                 <div class="buy-again-amount">Amount: 7</div>
@@ -121,89 +122,7 @@
                 <img class="buy-again-image" src="../images/GTR.jpg" alt="GTR">
               </div>
               <div class="buy-again-text-box">
-                <div class="buy-again-title">Fuggin GTR</div>
-                <div class="buy-again-text">Who doesn't want to own a GTR? (Non Nissan Edition)</div>
-                <div class="buy-again-text additional-info-buy-again">To order a different amount you need to place a new order.</div>
-                <div class="buy-again-amount">Amount: 7</div>
-                <div class="buy-again-button">Buy again</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="buy-again-heading"></div>
-          <div class="col-12 buy-again-container">
-            <div class="buy-again-item">
-              <div class="buy-again-image-box">
-                <img class="buy-again-image" src="../images/GTR.jpg" alt="GTR">
-              </div>
-              <div class="buy-again-text-box">
-                <div class="buy-again-title">Fuggin GTR</div>
-                <div class="buy-again-text">Who doesn't want to own a GTR? (Non Nissan Edition)</div>
-                <div class="buy-again-text additional-info-buy-again">To order a different amount you need to place a new order.</div>
-                <div class="buy-again-amount">Amount: 7</div>
-                <div class="buy-again-button">Buy again</div>
-              </div>
-            </div>
-            <div class="buy-again-item">
-              <div class="buy-again-image-box">
-                <img class="buy-again-image" src="../images/GTR.jpg" alt="GTR">
-              </div>
-              <div class="buy-again-text-box">
-                <div class="buy-again-title">Fuggin GTR</div>
-                <div class="buy-again-text">Who doesn't want to own a GTR? (Non Nissan Edition)</div>
-                <div class="buy-again-text additional-info-buy-again">To order a different amount you need to place a new order.</div>
-                <div class="buy-again-amount">Amount: 7</div>
-                <div class="buy-again-button">Buy again</div>
-              </div>
-            </div>
-            <div class="buy-again-item">
-              <div class="buy-again-image-box">
-                <img class="buy-again-image" src="../images/GTR.jpg" alt="GTR">
-              </div>
-              <div class="buy-again-text-box">
-                <div class="buy-again-title">Fuggin GTR</div>
-                <div class="buy-again-text">Who doesn't want to own a GTR? (Non Nissan Edition)</div>
-                <div class="buy-again-text additional-info-buy-again">To order a different amount you need to place a new order.</div>
-                <div class="buy-again-amount">Amount: 7</div>
-                <div class="buy-again-button">Buy again</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="buy-again-heading"></div>
-          <div class="col-12 buy-again-container">
-            <div class="buy-again-item">
-              <div class="buy-again-image-box">
-                <img class="buy-again-image" src="../images/GTR.jpg" alt="GTR">
-              </div>
-              <div class="buy-again-text-box">
-                <div class="buy-again-title">Fuggin GTR</div>
-                <div class="buy-again-text">Who doesn't want to own a GTR? (Non Nissan Edition)</div>
-                <div class="buy-again-text additional-info-buy-again">To order a different amount you need to place a new order.</div>
-                <div class="buy-again-amount">Amount: 7</div>
-                <div class="buy-again-button">Buy again</div>
-              </div>
-            </div>
-            <div class="buy-again-item">
-              <div class="buy-again-image-box">
-                <img class="buy-again-image" src="../images/GTR.jpg" alt="GTR">
-              </div>
-              <div class="buy-again-text-box">
-                <div class="buy-again-title">Fuggin GTR</div>
-                <div class="buy-again-text">Who doesn't want to own a GTR? (Non Nissan Edition)</div>
-                <div class="buy-again-text additional-info-buy-again">To order a different amount you need to place a new order.</div>
-                <div class="buy-again-amount">Amount: 7</div>
-                <div class="buy-again-button">Buy again</div>
-              </div>
-            </div>
-            <div class="buy-again-item">
-              <div class="buy-again-image-box">
-                <img class="buy-again-image" src="../images/GTR.jpg" alt="GTR">
-              </div>
-              <div class="buy-again-text-box">
-                <div class="buy-again-title">Fuggin GTR</div>
+                <div class="buy-again-title">Fuggin GTR 3</div>
                 <div class="buy-again-text">Who doesn't want to own a GTR? (Non Nissan Edition)</div>
                 <div class="buy-again-text additional-info-buy-again">To order a different amount you need to place a new order.</div>
                 <div class="buy-again-amount">Amount: 7</div>

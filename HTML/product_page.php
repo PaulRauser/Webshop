@@ -95,17 +95,18 @@
                         porro laboriosam alias, natus minus error adipisci 
                         accusamus? A esse culpa veritatis repudiandae porro
                     </div>
-                    <form class="product-quantity" action="">
+                    <form class="product-quantity" action="#">
                         <span class="quantity-text">Quantity:</span>
                         <div class="form-outline number-input">
                             <input type="number" id="typeNumber" class="form-control shadow-none" value="1" min="1" max="100" onkeydown="if(event.key==='.' | event.key===','){event.preventDefault();}"/>
                           </div>
-                        <div class="product-submit-button">Add to cart</div>
+                        <button type="submit" class="product-submit-button">Add to cart</button>
                     </form>
                 </div>
             </div>
           </div>
       </div>
+
 
       <script src="../node_modules/jquery/dist/jquery.js"></script>
       <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
