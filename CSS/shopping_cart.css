@@ -1,4 +1,16 @@
-.shopping-cart-heading{
+.shopping-cart-heading {
     margin-top: 30px;
-    text-align: center;
+    text-align: center;    
+}
+
+.shopping-cart-pos {
+    text-align: start;
+    max-height: 400px;
+    
+}
+
+.shopping-cart-pos-img{
+   object-fit: contain;
+   max-width: 300px;
+   max-height: 200px;   
 }

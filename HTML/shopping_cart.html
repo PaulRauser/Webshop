@@ -10,6 +10,7 @@
     <link href="../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
 
     <link rel="stylesheet" href="../CSS/general_frontend_styles.css">
+    <link rel="stylesheet" href="../CSS/shopping_cart.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,13 +41,15 @@
             <i class="fas fa-shopping-cart"></i>&nbsp Shopping Cart</a>
         </div>
       </nav>
-
+     
       <div class="container">
-        <div class="row">
-          <div class="col-9">
-            <h1 class="shopping-cart-heading">Your Shopping Cart</h1>
-          </div>
-          <div class="col-4">.col-4<br>Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.</div>
+        <h1 class="shopping-cart-heading">Your Shopping Cart</h1>
+        <div class="row">          
+          <div class="col-12 shopping-cart-pos"><hr>
+            <div class="col-3 shopping-cart-pos" id="productImage" name="productImage">
+              <img class="shopping-cart-pos-img" src="../images/Wald.jpg" width="auto" height="auto" alt="Tolles Produkt"/>
+            </div>
+          <hr></div>
           <div class="col-6">.col-6<br>Subsequent columns continue along the new line.</div>
           <div class="col-6">.col-6<br>Subsequent columns continue along the new line.</div>
         </div>
