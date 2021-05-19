@@ -10,6 +10,7 @@
     <link href="../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
 
     <link rel="stylesheet" href="../CSS/general_frontend_styles.css">
+    <link rel="stylesheet" href="../CSS/shopping_cart.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,12 +35,30 @@
               </li>
             </ul>
           </div>
-          <a href="#" class="btn btn-outline-success left" role="button" aria-pressed="true" style="margin-right: 10px;">
-            <i class="fas fa-user"></i>&nbsp Konto</a>         
+          <a href="profile.html" class="btn btn-outline-success left" role="button" aria-pressed="true" style="margin-right: 10px;">
+            <i class="fas fa-user"></i>&nbsp Account</a>         
           <a href="shopping_cart.html" class="btn btn-outline-success" role="button" aria-pressed="true">
-            <i class="fas fa-shopping-cart"></i>&nbsp Warenkorb</a>
+            <i class="fas fa-shopping-cart"></i>&nbsp Shopping Cart</a>
         </div>
       </nav>
+     
+      <div class="container">
+        <h1 class="shopping-cart-heading">Your Shopping Cart</h1>
+        <div class="row">
+          <div class="legend">Preis</div>
+                   
+          <div class="container-fluid col-12 shopping-cart-pos">
+            <hr>            
+            <div class="col-3 shopping-cart-pos-img-box" id="productImage" name="productImage">
+              <img class="img-fluid shopping-cart-pos-img" src="../images/Bild1.jpg" alt="Tolles Produkt"/>
+            </div>
+            <div class="col-8 shopping-cart-pos-description" id="productText" name="productDescription">
+              <p>Beschreibung</p>
+            </div>
+          <hr>
+          </div>          
+        </div>
+      </div>
 
       <script src="../node_modules/jquery/dist/jquery.js"></script>
       <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>

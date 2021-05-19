@@ -1,0 +1,63 @@
+.change-password-section {
+    margin-top: 50px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.change-password-section::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    width: 80%;
+    left: 10%;
+    height: 2px;
+    background-color: rgb(120,120,120);
+
+}
+
+.change-password-heading {
+    text-align: center;
+}
+
+.change-password {
+    position: relative;
+    width: 60%;
+    left: 20%;
+    min-width: 400px;
+}
+
+.forgot-password-button {
+    width: 30%;
+    position: relative;
+    left: 35%;
+    margin-top: 30px;
+}
+
+.copyright {
+    position: absolute;
+    top: 10000px;
+    width: 400px;
+    left: calc(50% - 200px);
+}
+
+.pw-change {
+    position: relative;
+    top: 10px;
+}
+
+.pw-info {
+    position: relative;
+    top: 5px;
+    left: 215px;
+    color: red;
+}
+
+.input-description {
+    margin-top: 30px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+body {
+    overflow-x: hidden;
+}
