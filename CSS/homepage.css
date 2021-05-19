@@ -57,3 +57,7 @@
 .no-hover:hover {
     color: white;
 }
+
+.carousel-item {
+    cursor: pointer;
+}
