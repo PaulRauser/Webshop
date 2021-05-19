@@ -3,14 +3,17 @@
     text-align: center;    
 }
 
-.shopping-cart-pos {
-    text-align: start;
-    max-height: 400px;
-    
+.shopping-cart-pos-img-box {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    max-height: 200px;
+    min-height: 200px; 
+    max-width: 300px;      
 }
 
 .shopping-cart-pos-img{
    object-fit: contain;
    max-width: 300px;
-   max-height: 200px;   
+   max-height: 200px;      
 }
