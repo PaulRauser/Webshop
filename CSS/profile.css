@@ -53,11 +53,29 @@
 }
 
 .input-description {
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 8px;
     text-align: center;
 }
 
 body {
     overflow-x: hidden;
+}
+
+
+.buy-again-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.buy-again-item {
+    width: 25%;
+}
+
+
+.buy-again-button {
+    width: 60%;
+    padding: 5px;
+    border: 1px solid black;
+    text-align: center;
 }
