@@ -1,0 +1,28 @@
+body {
+    background-color: #42ba96;
+    color: white;
+}
+
+h1 {
+    margin-top: 30vh;
+    font-size: 60px;
+    text-align: center;
+}
+
+.to-login, .to-products {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: color .3s;
+}
+
+.to-login:hover, .to-products:hover {
+    color: #28705b;
+}
+
+.alternatives {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}

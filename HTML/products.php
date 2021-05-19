@@ -18,29 +18,29 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">Webshop</a>
+          <a class="navbar-brand" href="index.php">Webshop</a>
           <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.html">Homepage</a>
+                <a class="nav-link" aria-current="page" href="index.php">Homepage</a>
               </li>
               <li class="nav-item">
-                <a id="active" class="nav-link active" href="products.html">Products</a>
+                <a id="active" class="nav-link active" href="products.php">Products</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
+                <a class="nav-link" href="login.php">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="register.html" tabindex="-1" aria-disabled="true">Register</a>
+                <a class="nav-link" href="register.php" tabindex="-1" aria-disabled="true">Register</a>
               </li>
             </ul>
           </div>
-          <a href="profile.html" class="btn btn-outline-success left" role="button" aria-pressed="true" style="margin-right: 10px;">
+          <a href="profile.php" class="btn btn-outline-success left" role="button" aria-pressed="true" style="margin-right: 10px;">
             <i class="fas fa-user"></i>&nbsp Account</a>         
-          <a href="shopping_cart.html" class="btn btn-outline-success" role="button" aria-pressed="true">
+          <a href="shopping_cart.php" class="btn btn-outline-success" role="button" aria-pressed="true">
             <i class="fas fa-shopping-cart"></i>&nbsp Shopping Cart</a>
         </div>
     </nav>
@@ -56,81 +56,40 @@
     <div class="container product-container">
       <div class="row">
         <div class="col-4">
-          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Bild1.jpg" width="auto" height="auto" />
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
                     <h5 class="card-title font-weight-bold">Very nice Product</h5>
                     <p class="card-text">$299</p> 
-                    <a href="product_page.html" class="btn details px-auto shadow-none">view details</a>
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
                     <br/> 
-                    <a href="product_page.html" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
                 </div>
             </div>
           </div>
         </div>
         <div class="col-4">
-          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Bild1.jpg" width="auto" height="auto" />
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
                     <h5 class="card-title font-weight-bold">Very nice Product</h5>
                     <p class="card-text">$299</p> 
-                    <a href="product_page.html" class="btn details px-auto shadow-none">view details</a>
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
                     <br/> 
-                    <a href="product_page.html" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
                 </div>
             </div>
           </div>
         </div>
         <div class="col-4">
-          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Bild1.jpg" width="auto" height="auto" />
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
                     <h5 class="card-title font-weight-bold">Very nice Product</h5>
                     <p class="card-text">$299</p> 
-                    <a href="product_page.html" class="btn details px-auto shadow-none">view details</a>
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
                     <br/> 
-                    <a href="product_page.html" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4">
-          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Bild1.jpg" width="auto" height="auto" />
-            <div class="card-body text-center mx-auto">
-                <div class='cvp'>
-                    <h5 class="card-title font-weight-bold">Very nice Product</h5>
-                    <p class="card-text">$299</p> 
-                    <a href="product_page.html" class="btn details px-auto shadow-none">view details</a>
-                    <br/> 
-                    <a href="product_page.html" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Bild1.jpg" width="auto" height="auto" />
-            <div class="card-body text-center mx-auto">
-                <div class='cvp'>
-                    <h5 class="card-title font-weight-bold">Very nice Product</h5>
-                    <p class="card-text">$299</p> 
-                    <a href="product_page.html" class="btn details px-auto shadow-none">view details</a>
-                    <br/> 
-                    <a href="product_page.html" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Bild1.jpg" width="auto" height="auto" />
-            <div class="card-body text-center mx-auto">
-                <div class='cvp'>
-                    <h5 class="card-title font-weight-bold">Very nice Product</h5>
-                    <p class="card-text">$299</p> 
-                    <a href="product_page.html" class="btn details px-auto shadow-none">view details</a>
-                    <br/> 
-                    <a href="product_page.html" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
                 </div>
             </div>
           </div>
@@ -138,81 +97,40 @@
       </div>
       <div class="row">
         <div class="col-4">
-          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Bild1.jpg" width="auto" height="auto" />
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
                     <h5 class="card-title font-weight-bold">Very nice Product</h5>
                     <p class="card-text">$299</p> 
-                    <a href="product_page.html" class="btn details px-auto shadow-none">view details</a>
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
                     <br/> 
-                    <a href="product_page.html" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
                 </div>
             </div>
           </div>
         </div>
         <div class="col-4">
-          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Bild1.jpg" width="auto" height="auto" />
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
                     <h5 class="card-title font-weight-bold">Very nice Product</h5>
                     <p class="card-text">$299</p> 
-                    <a href="product_page.html" class="btn details px-auto shadow-none">view details</a>
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
                     <br/> 
-                    <a href="product_page.html" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
                 </div>
             </div>
           </div>
         </div>
         <div class="col-4">
-          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Bild1.jpg" width="auto" height="auto" />
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
                     <h5 class="card-title font-weight-bold">Very nice Product</h5>
                     <p class="card-text">$299</p> 
-                    <a href="product_page.html" class="btn details px-auto shadow-none">view details</a>
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
                     <br/> 
-                    <a href="product_page.html" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4">
-          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Bild1.jpg" width="auto" height="auto" />
-            <div class="card-body text-center mx-auto">
-                <div class='cvp'>
-                    <h5 class="card-title font-weight-bold">Very nice Product</h5>
-                    <p class="card-text">$299</p> 
-                    <a href="product_page.html" class="btn details px-auto shadow-none">view details</a>
-                    <br/> 
-                    <a href="product_page.html" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Bild1.jpg" width="auto" height="auto" />
-            <div class="card-body text-center mx-auto">
-                <div class='cvp'>
-                    <h5 class="card-title font-weight-bold">Very nice Product</h5>
-                    <p class="card-text">$299</p> 
-                    <a href="product_page.html" class="btn details px-auto shadow-none">view details</a>
-                    <br/> 
-                    <a href="product_page.html" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Bild1.jpg" width="auto" height="auto" />
-            <div class="card-body text-center mx-auto">
-                <div class='cvp'>
-                    <h5 class="card-title font-weight-bold">Very nice Product</h5>
-                    <p class="card-text">$299</p> 
-                    <a href="product_page.html" class="btn details px-auto shadow-none">view details</a>
-                    <br/> 
-                    <a href="product_page.html" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
                 </div>
             </div>
           </div>
@@ -220,40 +138,122 @@
       </div>
       <div class="row">
         <div class="col-4">
-          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Bild1.jpg" width="auto" height="auto" />
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
                     <h5 class="card-title font-weight-bold">Very nice Product</h5>
                     <p class="card-text">$299</p> 
-                    <a href="product_page.html" class="btn details px-auto shadow-none">view details</a>
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
                     <br/> 
-                    <a href="product_page.html" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
                 </div>
             </div>
           </div>
         </div>
         <div class="col-4">
-          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Bild1.jpg" width="auto" height="auto" />
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
                     <h5 class="card-title font-weight-bold">Very nice Product</h5>
                     <p class="card-text">$299</p> 
-                    <a href="product_page.html" class="btn details px-auto shadow-none">view details</a>
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
                     <br/> 
-                    <a href="product_page.html" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
                 </div>
             </div>
           </div>
         </div>
         <div class="col-4">
-          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Bild1.jpg" width="auto" height="auto" />
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
                     <h5 class="card-title font-weight-bold">Very nice Product</h5>
                     <p class="card-text">$299</p> 
-                    <a href="product_page.html" class="btn details px-auto shadow-none">view details</a>
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
                     <br/> 
-                    <a href="product_page.html" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold">Very nice Product</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold">Very nice Product</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold">Very nice Product</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold">Very nice Product</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold">Very nice Product</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold">Very nice Product</h5>
+                    <p class="card-text">$299</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+                    <br/> 
+                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
                 </div>
             </div>
           </div>

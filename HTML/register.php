@@ -8,162 +8,89 @@
 
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
-    
-    <link rel="stylesheet" href="../CSS/payment.css">
+   
+    <link rel="stylesheet" href="../CSS/login_styles.css">
+    <link rel="stylesheet" href="../CSS/register.css">
+
     <link rel="stylesheet" href="../CSS/general_frontend_styles.css">
-</head>
+  </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">Webshop</a>
+          <a class="navbar-brand" href="index.php">Webshop</a>
           <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a id="##active##" class="nav-link" aria-current="page" href="index.html">Homepage</a>
+                <a class="nav-link" aria-current="page" href="index.php">Homepage</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="products.html">Products</a>
+                <a class="nav-link" href="products.php">Products</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
+                <a class="nav-link" href="login.php">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="register.html" tabindex="-1" aria-disabled="true">Register</a>
+                <a id="active" class="nav-link active" href="register.php" tabindex="-1" aria-disabled="true">Register</a>
               </li>
             </ul>
           </div>
-          <a href="profile.html" class="btn btn-outline-success left" role="button" aria-pressed="true" style="margin-right: 10px;">
+          <a href="profile.php" class="btn btn-outline-success left" role="button" aria-pressed="true" style="margin-right: 10px;">
             <i class="fas fa-user"></i>&nbsp Account</a>         
-          <a href="shopping_cart.html" class="btn btn-outline-success" role="button" aria-pressed="true">
+          <a href="shopping_cart.php" class="btn btn-outline-success" role="button" aria-pressed="true">
             <i class="fas fa-shopping-cart"></i>&nbsp Shopping Cart</a>
         </div>
       </nav>
       <div class="container">
-        <main>
-          <div class="py-5 text-center">
-            <!-- Hier könnte ein Bild stehen! -->
-            <h2>Checkout</h2>
-            <p class="lead">Please fill in the  </p>
-          </div>
-      
-          <div class="row g-5">
-            <div class="col-md-5 col-lg-4 order-md-last">
-              <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-success">Your cart</span>
-                <span class="badge bg-success rounded-pill">3</span>
-              </h4>
-              <ul class="list-group mb-3">
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                  <div>
-                    <h6 class="my-0">Product name</h6>
-                    <small class="text-muted">Brief description</small>
-                  </div>
-                  <span class="text-muted">$12</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                  <div>
-                    <h6 class="my-0">Second product</h6>
-                    <small class="text-muted">Brief description</small>
-                  </div>
-                  <span class="text-muted">$8</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                  <div>
-                    <h6 class="my-0">Third item</h6>
-                    <small class="text-muted">Brief description</small>
-                  </div>
-                  <span class="text-muted">$5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between bg-light">
-                  <div class="text-success">
-                    <h6 class="my-0">Promo code</h6>
-                    <small>EXAMPLECODE</small>
-                  </div>
-                  <span class="text-success">−$5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                  <div>
-                    <h6 class="my-0">Shipping</h6>
-                    <small class="text-muted">Hier soll die ausgewählte Zahlungsmethode auftauchen</small>
-                  </div>
-                  <span class="text-muted">5€<!-- Hier stehen die Kosten der ausgewählten Zahlungsmethode  --></span> 
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <span>Total (USD)</span>
-                  <strong>$20</strong>
-                </li>
-              </ul>
-      
-              <form class="card p-2">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Promo code">
-                  <button type="submit" class="btn btn-outline-success">Redeem</button>
-                </div>
-              </form>
+        <div class="row">
+            <div class="col-1">
 
-            <div class="card p-2 buynowpromo sidebutton">
-              <!-- Hier wird ein Buy now hingeschrieben -->
-              <button class="w-100 btn btn-success" type="submit" name="button1" value="1">Buy now</button> 
             </div>
-
-
-              
-            </div>
-            <div class="col-md-7 col-lg-8">
-              <h4 class="mb-3">Billing & shipping address</h4>
-              <form class="needs-validation" novalidate>
-                <div class="row g-3">
-                  <div class="col-sm-6">
-                    <label for="firstName" class="form-label">First name</label>
-                    <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                    <div class="invalid-feedback">
-                      Valid first name is required.
-                    </div>
-                  </div>
-      
-                  <div class="col-sm-6">
-                    <label for="lastName" class="form-label">Last name</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                    <div class="invalid-feedback">
-                      Valid last name is required.
-                    </div>
-                  </div>
-      
-                  <div class="col-12">
-                    <label for="username" class="form-label">Username (Kann man ja dann automatisch einfügen) </label> 
-                    <div class="input-group has-validation">
-                      <span class="input-group-text">@</span>
-                      <input type="text" class="form-control" id="username" placeholder="Username" required>
-                    <div class="invalid-feedback">
-                        Your username is required.
-                      </div>
-                    </div>
-                  </div>
-      
-                  <div class="col-12">
-                    <label for="email" class="form-label">Email (Wäre auch gut wenn das automatisch ist) <!-- <span class="text-muted">(Optional)</span> --></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
-                    <div class="invalid-feedback">
-                      Please enter a valid email address for your shipping information.
-                    </div>
-                  </div>
-      
-                  <div class="col-12">
-                    <label for="address" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="Baker St 5" required>
-                    <div class="invalid-feedback">
-                      Please enter your shipping address.
-                    </div>
-                  </div>
-                         
-                  <div class="col-md-5">
-                    <label for="country" class="form-label">Country</label>
-                    <select class="form-select" id="country" required>
-                      <option value="">Choose...</option>
+            <div class="col-10">
+              <div class="register-text">
+                <h1>Register</h1>
+              </div>
+              <form class="register-form">
+                <div class="form-row">
+                  <div class="col form-group spacer">
+                    <label>First name *</label>   
+                      <input required type="text" class="form-control" placeholder="">
+                  </div> <!-- form-group end.// -->
+                  <div class="col form-group spacer">
+                    <label>Last name *</label>
+                      <input required type="text" class="form-control" placeholder=" ">
+                  </div> <!-- form-group end.// -->
+                </div> <!-- form-row end.// -->
+                <div class="form-group spacer">
+                  <label>Email address *</label>
+                  <input required type="email" class="form-control" placeholder="">
+                  <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div> <!-- form-group end.// -->
+                <div class="form-group spacer">
+                    <div class="gender-div">Gender *</div>
+                    <label class="form-check form-check-inline">
+                    <input required class="form-check-input" type="radio" name="gender" value="option1">
+                    <span class="form-check-label"> Male </span>
+                  </label>
+                  <label class="form-check form-check-inline">
+                    <input required class="form-check-input" type="radio" name="gender" value="option2">
+                    <span class="form-check-label"> Female</span>
+                  </label>
+                  <label class="form-check form-check-inline">
+                    <input required class="form-check-input" type="radio" name="gender" value="option2">
+                    <span class="form-check-label"> Other</span>
+                  </label>
+                </div> <!-- form-group end.// -->
+                <div class="form-row">
+                  <div class="form-group spacer col-md-6">
+                    <label>City *</label>
+                    <input required type="text" class="form-control">
+                  </div> <!-- form-group end.// -->
+                  <div class="form-group spacer col-md-6">
+                    <label>Country</label>
+                    <select id="inputState" class="form-control">
                       <option> Choose...</option>
                       <option value="Afghanistan">Afghanistan</option>
                       <option value="Åland Islands">Åland Islands</option>
@@ -411,167 +338,22 @@
                       <option value="Zambia">Zambia</option>
                       <option value="Zimbabwe">Zimbabwe</option>
                     </select>
-                    <div class="invalid-feedback">
-                      Please select a valid country.
-                    </div>
-                  </div>
-      
-                  <div class="col-md-4">
-                    <label for="city" class="form-label">City</label>
-                    <input type="text" class="form-control" id="city" placeholder="Munich" required>
-                    <div class="invalid-feedback">
-                      Please provide a valid state.
-                    </div>
-                  </div>
-      
-                  <div class="col-md-3">
-                    <label for="zip" class="form-label">Zip</label>
-                    <input type="text" class="form-control" id="zip" placeholder="80331" required>
-                    <div class="invalid-feedback">
-                      Zip code required.
-                    </div>
-                  </div>
-                </div>
-      
-                <hr class="my-4">
-      
-                <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="same-address" required>
-                  <label class="form-check-label" for="same-address" >By placing your order you agree to Skibble´s Conditions of Use & Sale. <br> Please see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.</label>
-                </div>
-      
-                <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="save-info">
-                  <label class="form-check-label" for="save-info">Save this information for next time</label>
-                </div>
-      
-                <hr class="my-4">
-
-                <h4 class="mb-3">Select your shipping method</h4>
-      
-                <div class="my-3">
-                  <div class="form-check">
-                    <input id="dpd" name="shippingMethod" type="radio" class="form-check-input" checked required>
-                    <label class="form-check-label" for="dpd"><i class="fab fa-fedex"></i> FedEx (3.99€) <!-- DPD hat leider kein Symbol --> </label> 
-               
-                  </div>
-                  <div class="form-check">
-                    <input id="dhl" name="shippingMethod" type="radio" class="form-check-input" required>
-                    <label class="form-check-label" for="dhl"><i class="fab fa-dhl"></i> DHL (8.99€)</label>
-                  </div>
-                  <div class="form-check">
-                    <input id="dhl-express" name="shippingMethod" type="radio" class="form-check-input" required>
-                    <label class="form-check-label" for="dhl-express"><i class="fab fa-dhl"></i> DHL Express (23.99€)</label>
-                  </div>
-                </div>
-
-                <hr class="my-4">
-      
-                <h4 class="mb-3">Payment</h4>
-      
-                <div class="my-3">
-                  <div class="form-check">
-                    <input id="credit" name="paymentMethod" type="radio" class="form-check-input creditRadio" required>
-                    <label class="form-check-label" for="credit"><i class="fas fa-credit-card"></i> Credit card</label>
-                  </div>
-                  <div class="credit collapse  creditCollapse" id="credit">
-                    <div class="card card-body">
-                      <!-- Credit Card -->
-                        <div class="row gy-3">
-                        <div class="col-md-6">
-                          <label for="cc-name" class="form-label ">Name on card</label>
-                          <input type="text" class="form-control creditInputs" id="cc-name" placeholder="" required >
-                          <small class="text-muted">Full name as displayed on card</small>
-                          <div class="invalid-feedback">
-                            Name on card is required
-                          </div>
-                        </div>
-            
-                        <div class="col-md-6">
-                          <label for="cc-number" class="form-label ">Credit card number</label>
-                          <input type="text" class="form-control creditInputs" id="cc-number" placeholder="" >
-                          <div class="invalid-feedback">
-                            Credit card number is required
-                          </div>
-                        </div>
-            
-                        <div class="col-md-3">
-                          <label for="cc-expiration" class="form-label ">Expiration</label>
-                          <input type="text" class="form-control creditInputs" id="cc-expiration" placeholder="" >
-                          <div class="invalid-feedback">
-                            Expiration date required
-                          </div>
-                        </div>
-            
-                        <div class="col-md-3">
-                          <label for="cc-cvv" class="form-label">CVV</label>
-                          <input type="text" class="form-control creditInputs" id="cc-cvv" placeholder=""  >
-                          <div class="invalid-feedback">
-                            Security code required
-                          </div>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="form-check">
-                  <input id="paypal" name="paymentMethod" type="radio" class="form-check-input paypalRadio" required>
-                  <label class="form-check-label" for="paypal"><i class="fab fa-paypal"></i> PayPal </label>
-                </div>
-                  
-                  <div class="paypal collapse  paypalCollapse" id="credit">
-                    <div class="card card-body">                        
-                      <!-- Paypal -->
-                        <!-- Credit Card -->
-                          <div class="row gy-3">
-                          <div class="col-md-6">
-                            <label for="cc-name" class="form-label ">Email address </i> </label>
-                            <input type="email" class="form-control paypalInputs" id="cc-name" placeholder="">
-                            <!-- <small class="text-muted">Paypal-Email</small> -->
-                            <div class="invalid-feedback">
-                              Enter your Paypal email address
-                            </div>
-                          </div>
-              
-                          <div class="col-md-6">
-                            <label for="cc-number" class="form-label ">Password</label>
-                            <input type="password" class="form-control paypalInputs" id="cc-number" placeholder="">
-                            <div class="invalid-feedback">
-                              Password is required
-                            </div>
-                          </div>               
-                  </div>
-                        
-                  </div>
-      
-
-                </div>
-      
-                <hr class="my-4">
-      
-                <button class="w-100 btn btn-success btn-lg" type="submit" name="button2" value="2">Buy now</button>
-
-              </form>
+                  </div> <!-- form-group end.// -->
+                </div> <!-- form-row.// -->  
+                  <div class="form-group spacer">
+                      <button type="submit" class="btn btn-success btn-block"> Register  </button>
+                  </div> <!-- form-group// -->      
+                  <div class="text-muted spacer bottom-spacer">By clicking the 'Sign Up' button, you confirm that you accept our <br> Terms of use and Privacy Policy.</div>                                          
+                  <div class="btn btn-success login-instead-button"><a href="login.php">Login instead</a></div>
+                </form>
             </div>
-          </div>
-        </main>
-      
-        <footer class="my-5 pt-5 text-muted text-center text-small">
-          <p class="mb-1">&copy; 2021 Skibble</p>
-          <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
-          </ul>
-        </footer>
+            <div class="col-1">
+
+            </div>
+        </div>
       </div>
-
-      <!-- <script src="../assets/dist/js/bootstrap.bundle.min.js"></script> -->
-
-      <script src="../JavaScript/payment.js"></script>
-
-      <script src="../node_modules/jquery/dist/jquery.js"></script>
-      <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
-      <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
 </body>
 </html>

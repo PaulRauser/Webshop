@@ -1,5 +1,10 @@
 .home-heading, .custom-lead, .homepage-sub-heading {
     text-align: center;
+    color: #42ba96;
+}
+
+.custom-lead {
+    color: rgb(120,120,120);
 }
 
 .custom-lead {
@@ -15,15 +20,15 @@
 }
 
 .details {
-    border: 1.5px solid grey;
-    color: #212121;
+    border: 1.5px solid #42ba96;
+    color: #42ba96;
     width: 100%;
     height: auto;
     outline: none;
 }
 
 .cart {
-    background-color: #212121;
+    background-color: #42ba96;
     color: white;
     margin-top: 10px;
     font-size: 12px;
@@ -34,11 +39,12 @@
 }
 
 .card {
-    width: fit-content
+    width: 80%;
+    margin-bottom: 50px;
 }
 
 .card-body {
-    width: fit-content
+    width: fit-content;
 }
 
 .btn {
@@ -52,6 +58,10 @@
 .card {
     border-radius: 5px;
     padding-bottom: 10px
+}
+
+.card-title, .card-text {
+    color: rgb(120,120,120);
 }
 
 .no-hover:hover {
