@@ -45,16 +45,23 @@
       <div class="container">
         <h1 class="shopping-cart-heading">Your Shopping Cart</h1>
         <div class="row">
-          <div class="legend">Preis</div>
+          <div class="col-12 legend">Preis</div>
                    
           <div class="container-fluid col-12 shopping-cart-pos">
             <hr>            
             <div class="col-3 shopping-cart-pos-img-box" id="productImage" name="productImage">
-              <img class="img-fluid shopping-cart-pos-img" src="../images/Bild1.jpg" alt="Tolles Produkt"/>
+              <img class="img-thumbnail shopping-cart-pos-img" src="../images/Bild1.jpg" alt="Tolles Produkt"/>
             </div>
             <div class="col-8 shopping-cart-pos-description" id="productText" name="productDescription">
-              <p>Beschreibung</p>
+              <div class="card shopping-cart-pos-description">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
             </div>
+            <div class="col-1 shopping-cart-pos-price" id="productPrice" name="productPrice">12,89€</div>
           <hr>
           </div>          
         </div>
