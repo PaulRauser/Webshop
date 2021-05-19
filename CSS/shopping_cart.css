@@ -22,16 +22,27 @@
 .shopping-cart-pos-img{
    object-fit: contain;
    max-width: 100%;
-   height: auto;       
+   height: auto;  
+   margin-top: 5px;
+   margin-bottom: 5px;
 }
 
 .shopping-cart-pos-description{
-    border: 1px solid black;
-    height: 180px;
-    margin-top: 10px;
-    margin-left: 10px;
+    height: 188px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    margin-left: 10px;    
+}
+
+.shopping-cart-pos-price{
+   text-align: right; 
+   font-weight: bold;     
 }
 
 .legend{
    text-align: right;
+}
+
+.product-name{
+    font-weight: bold;
 }
