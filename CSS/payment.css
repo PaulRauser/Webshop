@@ -16,3 +16,8 @@
     margin-top: 20px;
 }
 
+.sidebutton {
+  position: absolute;
+  right: -100px;
+}
+
