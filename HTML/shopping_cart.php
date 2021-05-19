@@ -118,10 +118,12 @@
                     <ul class="nav nav-pills">
                       <li class="nav-item">
                         <div class="input-group mb-3">
-                          <input type="number" class="form-control" placeholder="3" aria-label="amount" aria-describedby="updateAmount" min="0" max="100" size="2"
-                            onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}">
-                          <button class="btn btn-outline-success" type="button" id="updateAmount" name="updateAmount">Update Amount</button>
-                          <button class="btn btn-outline-success" type="button">Remove</button>
+                          <form action="">
+                            <input type="number" class="form-control" placeholder="3" aria-label="amount" aria-describedby="updateAmount" min="0" max="100" 
+                              onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}">
+                            <button class="btn btn-outline-success" type="submit" id="updateAmount" name="updateAmount">Update Amount</button>
+                            <button class="btn btn-outline-success" type="button">Remove</button>
+                          </form>
                         </div>
                       </li>                                        
                     </ul>
