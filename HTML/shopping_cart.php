@@ -63,8 +63,9 @@
                       <li class="nav-item">
                         <div class="input-group mb-3">
                           <form action="">
-                            <input type="number" class="form-control" style="width: 60px; float: left;" placeholder="3" aria-label="amount" aria-describedby="updateAmount" min="0" max="100" 
-                              onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}">
+                            <input type="number" class="form-control" style="width: 80px; float: left;" placeholder="3" aria-label="amount" aria-describedby="updateAmount" min="0" max="100" 
+                              onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}"
+                              oninput="if (this.value.length > 2) {this.value = this.value.slice(0,2);}">
                             <button class="btn btn-outline-success" type="submit" id="updateAmount" name="updateAmount">Update Amount</button>
                             <button class="btn btn-outline-success" type="button">Remove</button>
                           </form>
@@ -93,8 +94,9 @@
                       <li class="nav-item">
                         <div class="input-group mb-3">
                           <form action="">
-                            <input type="number" class="form-control" style="width: 60px; float: left;" placeholder="3" aria-label="amount" aria-describedby="updateAmount" min="0" max="100" 
-                              onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}">
+                            <input type="number" class="form-control" style="width: 80px; float: left;" placeholder="3" aria-label="amount" aria-describedby="updateAmount" min="0" max="100" 
+                              onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}"
+                              oninput="if (this.value.length > 2) {this.value = this.value.slice(0,2);}">
                             <button class="btn btn-outline-success" type="submit" id="updateAmount" name="updateAmount">Update Amount</button>
                             <button class="btn btn-outline-success" type="button">Remove</button>
                           </form>
@@ -123,8 +125,9 @@
                       <li class="nav-item">
                         <div class="input-group mb-3">
                           <form action="">
-                            <input type="number" class="form-control" style="width: 60px; float: left;" placeholder="3" aria-label="amount" aria-describedby="updateAmount" min="0" max="100" 
-                              onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}">
+                            <input type="number" class="form-control" style="width: 80px; float: left;" placeholder="3" aria-label="amount" aria-describedby="updateAmount" min="0" max="100" 
+                              onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}"
+                              oninput="if (this.value.length > 2) {this.value = this.value.slice(0,2);}">
                             <button class="btn btn-outline-success" type="submit" id="updateAmount" name="updateAmount">Update Amount</button>
                             <button class="btn btn-outline-success" type="button">Remove</button>
                           </form>
