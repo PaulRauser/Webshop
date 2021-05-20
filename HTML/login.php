@@ -4,7 +4,7 @@ var_dump($_POST);
 
 
 
-if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and isset($_POST['os-input']) and isset($_POST['datetime-input']))) {
+if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and isset($_POST['os-input']) and isset($_POST['datetime-input']) and isset($_POST['hash-input']))) {
   try {
     // Datenbank settings
     $datenbankname = "timl";
@@ -20,6 +20,8 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
 
     $sDatetime = $_POST['datetime-input'];
 
+    $sPwdHash = $_POST["hash-input"];
+
 
     // Verbindung zur Datenbank
     $conn = new PDO("mysql:host=$servername;dbname=$datenbankname", $benutzername, $benutzerpasswort);
@@ -30,7 +32,20 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     // SQL
     // Login Daten überprüfen
     $sqlGetUserInfo = "SELECT (email,pwd) FROM user WHERE email=?";
-    
+    $stmt = $conn->prepare($sqlGetUserInfo);
+    $stmt->execute([$sEmail]);
+
+    if($stmt -> rowCount() == 0) {
+      echo "user gibt es nciht";
+      exit();
+    }
+
+    $userRow = $stmt -> fetch();
+
+    if($userRow["pwd"] != $sPwdHash) {
+      echo "Pasword stimmt nicht überein!";
+      exit();
+    }
 
 
     // Login-Daten werden ausgegeben
