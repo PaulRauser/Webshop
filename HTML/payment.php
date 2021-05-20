@@ -59,68 +59,6 @@
           </div>
       
           <div class="row g-5">
-            <div class="col-md-5 col-lg-4 order-md-last">
-              <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-success">Your cart</span>
-                <span class="badge bg-success rounded-pill">3</span>
-              </h4>
-              <ul class="list-group mb-3">
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                  <div>
-                    <h6 class="my-0">Product name</h6>
-                    <small class="text-muted">Brief description</small>
-                  </div>
-                  <span class="text-muted">$12</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                  <div>
-                    <h6 class="my-0">Second product</h6>
-                    <small class="text-muted">Brief description</small>
-                  </div>
-                  <span class="text-muted">$8</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                  <div>
-                    <h6 class="my-0">Third item</h6>
-                    <small class="text-muted">Brief description</small>
-                  </div>
-                  <span class="text-muted">$5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between bg-light">
-                  <div class="text-success">
-                    <h6 class="my-0">Promo code</h6>
-                    <small>EXAMPLECODE</small>
-                  </div>
-                  <span class="text-success">−$5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                  <div>
-                    <h6 class="my-0">Shipping</h6>
-                    <small class="text-muted">Hier soll die ausgewählte Zahlungsmethode auftauchen</small>
-                  </div>
-                  <span class="text-muted">5€<!-- Hier stehen die Kosten der ausgewählten Zahlungsmethode  --></span> 
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <span>Total (USD)</span>
-                  <strong>$20</strong>
-                </li>
-              </ul>
-      
-              <form class="card p-2">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Promo code">
-                  <button type="submit" class="btn btn-outline-success">Redeem</button>
-                </div>
-              </form>
-
-            <div class="card p-2 buynowpromo sidebutton">
-              <!-- Hier wird ein Buy now hingeschrieben -->
-              <button class="w-100 btn btn-success" type="submit" name="button1" value="1">Buy now</button> 
-            </div>
-
-
-              
-            </div>
             <div class="col-md-7 col-lg-8">
               <h4 class="mb-3">Billing & shipping address</h4>
               <form class="needs-validation" novalidate>
@@ -557,21 +495,77 @@
       
                 <hr class="my-4">
       
-                <button class="w-100 btn btn-success btn-lg" type="submit" name="button2" value="2">Buy now</button>
+                <button class="w-100 btn btn-success btn-lg bottom-button" type="submit" name="button2" value="2">Buy now</button>
+
+                <div class="col-md-5 col-lg-4 order-md-last side-thing">
+              <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-success">Your cart</span>
+                <span class="badge bg-success rounded-pill">3</span>
+              </h4>
+              <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                  <div>
+                    <h6 class="my-0">Product name</h6>
+                    <small class="text-muted">Brief description</small>
+                  </div>
+                  <span class="text-muted">$12</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                  <div>
+                    <h6 class="my-0">Second product</h6>
+                    <small class="text-muted">Brief description</small>
+                  </div>
+                  <span class="text-muted">$8</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                  <div>
+                    <h6 class="my-0">Third item</h6>
+                    <small class="text-muted">Brief description</small>
+                  </div>
+                  <span class="text-muted">$5</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                  <div class="text-success">
+                    <h6 class="my-0">Promo code</h6>
+                    <small>EXAMPLECODE</small>
+                  </div>
+                  <span class="text-success">−$5</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                  <div>
+                    <h6 class="my-0">Shipping</h6>
+                    <small class="text-muted">Hier soll die ausgewählte Zahlungsmethode auftauchen</small>
+                  </div>
+                  <span class="text-muted">5€<!-- Hier stehen die Kosten der ausgewählten Zahlungsmethode  --></span> 
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Total (USD)</span>
+                  <strong>$20</strong>
+                </li>
+              </ul>
+      
+              <form class="card p-2">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Promo code">
+                  <button type="submit" class="btn btn-outline-success">Redeem</button>
+                </div>
+              </form>
+
+            <div class="card p-2 buynowpromo sidebutton">
+              <!-- Hier wird ein Buy now hingeschrieben -->
+              <button class="w-100 btn btn-success" type="submit" name="button1" value="1">Buy now</button> 
+            </div>
+
+
+              
+            </div>
+
 
               </form>
             </div>
           </div>
         </main>
-      
-        <footer class="my-5 pt-5 text-muted text-center text-small">
-          <p class="mb-1">&copy; 2021 Skibble</p>
-          <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
-          </ul>
-        </footer>
+    
       </div>
 
       <!-- <script src="../assets/dist/js/bootstrap.bundle.min.js"></script> -->

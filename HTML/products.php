@@ -49,7 +49,6 @@
       <form action="">
         <div class="input-group mb-3 search-input">
           <input id="bumsen" type="text" class="form-control shadow-none search-text-input" placeholder="Search in Products">
-          <button class="btn btn-outline-secondary shadow-none search-button" type="button" id="button-addon2">Search</button>
         </div>
       </form>
     </div>
