@@ -31,7 +31,7 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
 
     // SQL
     // Login Daten überprüfen
-    $sqlGetUserInfo = "SELECT (email,pwd) FROM user WHERE email=?";
+    $sqlGetUserInfo = "SELECT email,pwd FROM user WHERE email=?";
     $stmt = $conn->prepare($sqlGetUserInfo);
     $stmt->execute([$sEmail]);
 

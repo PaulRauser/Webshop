@@ -1,5 +1,16 @@
 <?php
 
+function randomPassword() {
+  $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+  $pass = array(); //remember to declare $pass as an array
+  $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+  for ($i = 0; $i < 8; $i++) {
+      $n = rand(0, $alphaLength);
+      $pass[] = $alphabet[$n];
+  }
+  return implode($pass); //turn the array into a string
+}
+
 if ((isset($_POST['email-input']) and  isset($_POST['first-name-input']) and isset($_POST['last-name-input']) 
 and isset($_POST['gender-input']) and isset($_POST['city-input']) and isset($_POST['country-input']))) {
   
@@ -26,6 +37,8 @@ and isset($_POST['gender-input']) and isset($_POST['city-input']) and isset($_PO
     // $sZip = $_POST['zip-input'];
     // $sStreet = $_POST['street-input'];
 
+    
+
 
     // Verbindung zur Datenbank
     $conn = new PDO("mysql:host=$servername;dbname=$datenbankname", $benutzername, $benutzerpasswort);
@@ -33,19 +46,34 @@ and isset($_POST['gender-input']) and isset($_POST['city-input']) and isset($_PO
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+
+    $sqlCheckForEmailDuplicates = "SELECT count (*) AS c FROM user WHERE email=?";
+    $stmt = $conn->prepare($sqlCheckForEmailDuplicates);
+    $stmt->execute([$sEmail]);
+
+    $rowCount = $stmt->fetch();
+    var_dump($rowCount);
+    exit();
+
+    if((int)($rowCount["c"]) != 0) {
+      echo "Email gibt es schon";
+      exit();
+    }
+
+    $generatedPassword = randomPassword();
     // SQL
     // Login Daten überprüfen
     // $sqlGetUserInfo = "SELECT (email,pwd) FROM user WHERE email=?";
 
 
     // Login-Daten werden ausgegeben
-    $sqlUpdateUser = "INSERT into user (email, first_name, last_name, gender, city, country) VALUES (?,?,?,?,?,?)";
+    $sqlUpdateUser = "INSERT into user (email, first_name, last_name, gender, city, country, pwd) VALUES (?,?,?,?,?,?,?)";
     $stmt = $conn->prepare($sqlUpdateUser);
-    $stmt->execute([$sEmail, $sFirstName, $sLastName, $sGender, $sCity, $sCountry]);
+    $stmt->execute([$sEmail, $sFirstName, $sLastName, $sGender, $sCity, $sCountry, hash("sha512", $generatedPassword)]);
 
 
     // header('Location: products.php');
-
+    echo "Das generierte Passwort ist " . $generatedPassword;
     //Close connection
     $conn = null;
 
