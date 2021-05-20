@@ -30,6 +30,7 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     // SQL
     // Login Daten überprüfen
     $sqlGetUserInfo = "SELECT (email,pwd) FROM user WHERE email=?";
+    
 
 
     // Login-Daten werden ausgegeben
