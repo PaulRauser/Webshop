@@ -1,8 +1,10 @@
 <?php
 //SQL
-var_dump($_POST);
 
+session_name("timlshop");
+session_start();
 
+var_dump($_SESSION);
 
 if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and isset($_POST['os-input']) and isset($_POST['datetime-input']) and isset($_POST['hash-input']))) {
   try {
@@ -13,13 +15,9 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     $servername = "chelex.life";
 
     $sEmail = $_POST['email-input'];
-
     $sResolution = $_POST['resolution-input'];
-
     $sOs = $_POST['os-input'];
-
     $sDatetime = $_POST['datetime-input'];
-
     $sPwdHash = $_POST["hash-input"];
 
 
@@ -53,7 +51,9 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     $stmt = $conn->prepare($sqlUpdateLoginInfo);
     $stmt->execute([$sOs, $sResolution, $sDatetime, $sEmail]);
 
+    // TODO : Session variable setzen!!!
 
+      $_SESSION['logged_in'] = true;
 
     //Close connection
     $conn = null;
@@ -101,12 +101,30 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
           <li class="nav-item">
             <a class="nav-link" href="products.php">Products</a>
           </li>
-          <li class="nav-item">
-            <a id="active" class="nav-link active" href="login.php">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="register.php" tabindex="-1" aria-disabled="true">Register</a>
-          </li>
+
+            <?php
+
+            if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+                ?>
+
+                <li class="nav-item">
+                    <a id="active" class="nav-link active" href="logout.php">Logout</a>
+                </li>
+                <?php
+            } else {
+                ?>
+
+                <li class="nav-item">
+                    <a id="active" class="nav-link active" href="login.php">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.php" tabindex="-1" aria-disabled="true">Register</a>
+                </li>
+                <?php
+            }
+            ?>
+
+
         </ul>
       </div>
       <a href="profile.php" class="btn btn-outline-success left" role="button" aria-pressed="true" style="margin-right: 10px;">
