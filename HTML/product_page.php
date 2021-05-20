@@ -98,7 +98,9 @@
                     <form class="product-quantity" action="#">
                         <span class="quantity-text">Quantity:</span>
                         <div class="form-outline number-input">
-                            <input type="number" id="typeNumber" class="form-control shadow-none" value="1" min="1" max="100" onkeydown="if(event.key==='.' | event.key===','){event.preventDefault();}"/>
+                            <input type="number" id="typeNumber" class="form-control shadow-none" value="1" min="1" max="100" 
+                              onkeydown="if(event.key==='.' | event.key===','){event.preventDefault();}"
+                              oninput="if (this.value.length > 2) {this.value = this.value.slice(0,2);}"/>
                           </div>
                         <button type="submit" class="product-submit-button">Add to cart</button>
                     </form>
