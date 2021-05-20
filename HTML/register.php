@@ -1,3 +1,65 @@
+<?php
+
+if ((isset($_POST['email-input']) and  isset($_POST['first-name-input']) and isset($_POST['last-name-input']) 
+and isset($_POST['gender-input']) and isset($_POST['city-input']) and isset($_POST['country-input']))) {
+  
+  // array(6) { ["first-name-input"]=> string(3) "ghg" ["city-name-input"]=> string(5) "ghjgh" ["email-input"]=> s
+  // tring(11) "ghhjghjh@dg" ["gender-input"]=> string(7) "option2" ["city-input"]=> string(4) "jghh" 
+  // ["country-input"]=> string(6) "France" }
+  
+  try {
+    // Datenbank settings
+    $datenbankname = "timl";
+    $benutzername = "tim";
+    $benutzerpasswort = "q9Xlx6Hk7Vpl";
+    $servername = "chelex.life";
+
+    $sEmail = $_POST['email-input'];
+
+    $sFirstName = $_POST['first-name-input'];
+
+    $sLastName = $_POST['last-name-input'];
+
+    $sGender = $_POST['gender-input'];
+    $sCity = $_POST['city-input'];
+    $sCountry = $_POST['country-input'];
+    // $sZip = $_POST['zip-input'];
+    // $sStreet = $_POST['street-input'];
+
+
+    // Verbindung zur Datenbank
+    $conn = new PDO("mysql:host=$servername;dbname=$datenbankname", $benutzername, $benutzerpasswort);
+
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // SQL
+    // Login Daten überprüfen
+    // $sqlGetUserInfo = "SELECT (email,pwd) FROM user WHERE email=?";
+
+
+    // Login-Daten werden ausgegeben
+    $sqlUpdateUser = "INSERT into user (email, first_name, last_name, gender, city, country) VALUES (?,?,?,?,?,?)";
+    $stmt = $conn->prepare($sqlUpdateUser);
+    $stmt->execute([$sEmail, $sFirstName, $sLastName, $sGender, $sCity, $sCountry]);
+
+
+    // header('Location: products.php');
+
+    //Close connection
+    $conn = null;
+
+    //header("Location: index.php");
+  } catch (PDOException $e) {
+    $handle = fopen("error_addfriend.txt", "w");
+    fwrite($handle, $e->getMessage());
+    fclose($handle);
+  }
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,45 +114,45 @@
               <div class="register-text">
                 <h1>Register</h1>
               </div>
-              <form class="register-form">
+              <form class="register-form" method="POST" action="#">
                 <div class="form-row">
                   <div class="col form-group spacer">
                     <label>First name *</label>   
-                      <input required type="text" class="form-control" placeholder="">
+                      <input name="first-name-input" required type="text" class="form-control" placeholder="">
                   </div> <!-- form-group end.// -->
                   <div class="col form-group spacer">
                     <label>Last name *</label>
-                      <input required type="text" class="form-control" placeholder=" ">
+                      <input name="last-name-input" required type="text" class="form-control" placeholder=" ">
                   </div> <!-- form-group end.// -->
                 </div> <!-- form-row end.// -->
                 <div class="form-group spacer">
                   <label>Email address *</label>
-                  <input required type="email" class="form-control" placeholder="">
+                  <input required type="email" name="email-input" class="form-control" placeholder="">
                   <small class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div> <!-- form-group end.// -->
                 <div class="form-group spacer">
                     <div class="gender-div">Gender *</div>
                     <label class="form-check form-check-inline">
-                    <input required class="form-check-input" type="radio" name="gender" value="option1">
+                    <input name="gender-input" required class="form-check-input" type="radio" name="gender" value="option1">
                     <span class="form-check-label"> Male </span>
                   </label>
                   <label class="form-check form-check-inline">
-                    <input required class="form-check-input" type="radio" name="gender" value="option2">
+                    <input name="gender-input" required class="form-check-input" type="radio" name="gender" value="option2">
                     <span class="form-check-label"> Female</span>
                   </label>
                   <label class="form-check form-check-inline">
-                    <input required class="form-check-input" type="radio" name="gender" value="option2">
+                    <input name="gender-input" required class="form-check-input" type="radio" name="gender" value="option2">
                     <span class="form-check-label"> Other</span>
                   </label>
                 </div> <!-- form-group end.// -->
                 <div class="form-row">
                   <div class="form-group spacer col-md-6">
                     <label>City *</label>
-                    <input required type="text" class="form-control">
+                    <input name="city-input" required type="text" class="form-control">
                   </div> <!-- form-group end.// -->
                   <div class="form-group spacer col-md-6">
                     <label>Country</label>
-                    <select id="inputState" class="form-control">
+                    <select name="country-input" id="inputState" class="form-control">
                       <option> Choose...</option>
                       <option value="Afghanistan">Afghanistan</option>
                       <option value="Åland Islands">Åland Islands</option>

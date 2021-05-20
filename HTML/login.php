@@ -146,14 +146,6 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
           <input type="hidden" value="" id="datetime-input" name="datetime-input">
           <input type="hidden" value="" id="hash-input" name="hash-input">
 
-
-          <?php
-          // echo $_POST['passwordinput'];
-          // echo hash("sha512", $_POST['passwordinput'], false);
-          // Hier js verwenden
-
-          ?>
-
         </form>
 
       </div>
