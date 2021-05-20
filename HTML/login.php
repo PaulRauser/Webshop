@@ -49,7 +49,7 @@
 
             </div>
             <div class="col-10">
-            <form class="form-horizontal login-form" method="POST" action="../PHP/loginValidation.php" onsubmit="return false">
+            <form class="form-horizontal login-form" method="POST" action="#" >
                 <fieldset>
                 
                 <!-- Form Name -->
@@ -57,10 +57,9 @@
                 
                 <!-- Text input-->
                 <div class="form-group">
-                  <label class=" control-label" for="textinput">Enter your Username:</label>  
+                  <label class=" control-label" for="textinput">Enter your Email:</label>  
                   <div class="">
-                  <input id="textinput" name="textinput" type="text" placeholder="email-address" class="form-control input-md custom-login-input">
-                    
+                  <input id="textinput" required name="textinput" type="email" placeholder="email-address" class="form-control input-md custom-login-input" >
                   </div>
                 </div>
                 
@@ -68,8 +67,7 @@
                 <div class="form-group">
                   <label class=" control-label" for="passwordinput">Enter your Password:</label>
                   <div class="">
-                    <input id="passwordinput" name="passwordinput" type="password" placeholder="password" class="form-control input-md custom-login-input">
-                    
+                    <input id="passwordinput" required name="passwordinput" type="password" placeholder="password" class="form-control input-md custom-login-input">
                   </div>
                 </div>
                 
@@ -86,6 +84,12 @@
                   <div class="create-account login-text"><a class="register-link" href="register.php">Register Now</a></div>
                   <div class="forgot-password login-text"><a class="register-link" href="forgot_password.php">Forgot your Password?</a></div>
                 </div>
+
+                <?php
+                  echo $_POST['passwordinput']; 
+                  echo hash ( "sha512", $_POST['passwordinput'] , false ) ;
+                ?>
+
                 </form>
                 
         </div>
@@ -93,10 +97,6 @@
 
           </div>
         </div>
-        <form action="../PHP/loginValidation.php" method="POST">
-          <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
-          <button type="submit" class="btn btn-success">Login</button>
-        </form>
       </div>
 
     <script src="../node_modules/jquery/dist/jquery.js"></script>
