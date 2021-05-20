@@ -1,3 +1,11 @@
+<?php
+  //Check if user is logged in
+  $logged_in = true;
+  if($logged_in != true) {
+    header('Location: no_access.php');
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
