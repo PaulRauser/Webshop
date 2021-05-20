@@ -16,7 +16,7 @@ loginSubmit.addEventListener('click', () => {
     }
 });
 
-loginSubmit.addEventListener('click', () => {
-    console.log("Hi");
-    //console.info(`${ screen.width } × ${ screen.height }`);
-});
+// loginSubmit.addEventListener('click', () => {
+//     console.log("Hi");
+//     //console.info(`${ screen.width } × ${ screen.height }`);
+// });
