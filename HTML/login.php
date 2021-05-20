@@ -86,7 +86,7 @@
                 </div>
 
                 <?php
-                  echo $_POST['passwordinput']; 
+                  //echo $_POST['passwordinput']; 
                   echo hash ( "sha512", $_POST['passwordinput'] , false ) ;
                 ?>
 
