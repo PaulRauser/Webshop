@@ -36,7 +36,7 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     $sqlUpdateLoginInfo = "INSERT into login_info (os,resolution,date_time,fk_email) VALUES (?,?,?,?)";
     $stmt = $conn->prepare($sqlUpdateLoginInfo);
     $stmt->execute([$sOs, $sResolution, $sDatetime, $sEmail]);
-    
+
 
 
     //Close connection
