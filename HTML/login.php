@@ -1,19 +1,75 @@
+<?php
+//SQL
+var_dump($_POST);
+
+
+
+if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and isset($_POST['os-input']) and isset($_POST['datetime-input']))) {
+  try {
+    // Datenbank settings
+    $datenbankname = "timl";
+    $benutzername = "tim";
+    $benutzerpasswort = "q9Xlx6Hk7Vpl";
+    $servername = "chelex.life";
+
+    $sEmail = $_POST['email-input'];
+
+    $sResolution = $_POST['resolution-input'];
+
+    $sOs = $_POST['os-input'];
+
+    $sDatetime = $_POST['datetime-input'];
+
+
+    // Verbindung zur Datenbank
+    $conn = new PDO("mysql:host=$servername;dbname=$datenbankname", $benutzername, $benutzerpasswort);
+
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // SQL
+    // Login Daten überprüfen
+    $sqlGetUserInfo = "SELECT (email,pwd) FROM user WHERE email=?";
+
+
+    // Login-Daten werden ausgegeben
+    $sqlUpdateLoginInfo = "INSERT into login_info (os,resolution,date_time,fk_email) VALUES (?,?,?,?)";
+    $stmt = $conn->prepare($sqlUpdateLoginInfo);
+    $stmt->execute([$sOs, $sResolution, $sDatetime, $sEmail]);
+    
+
+
+    //Close connection
+    $conn = null;
+
+    //header("Location: index.php");
+  } catch (PDOException $e) {
+    $handle = fopen("error_addfriend.txt", "w");
+    fwrite($handle, $e->getMessage());
+    fclose($handle);
+  }
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webshop</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webshop</title>
 
-    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+  <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../CSS/login_styles.css">
+  <link rel="stylesheet" href="../CSS/login_styles.css">
 
-    <link rel="stylesheet" href="../CSS/general_frontend_styles.css">
+  <link rel="stylesheet" href="../CSS/general_frontend_styles.css">
 
 </head>
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -38,70 +94,81 @@
         </ul>
       </div>
       <a href="profile.php" class="btn btn-outline-success left" role="button" aria-pressed="true" style="margin-right: 10px;">
-        <i class="fas fa-user"></i>&nbsp Account</a>         
+        <i class="fas fa-user"></i>&nbsp Account</a>
       <a href="shopping_cart.php" class="btn btn-outline-success" role="button" aria-pressed="true">
         <i class="fas fa-shopping-cart"></i>&nbsp Shopping Cart</a>
     </div>
   </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-1">
 
-            </div>
-            <div class="col-10">
-            <form class="form-horizontal login-form" method="POST" action="#" >
-                <fieldset>
-                
-                <!-- Form Name -->
-                <legend class="login-legend">Login </legend>
-                
-                <!-- Text input-->
-                <div class="form-group">
-                  <label class=" control-label" for="textinput">Enter your Email:</label>  
-                  <div class="">
-                  <input id="textinput" required name="textinput" type="email" placeholder="email-address" class="form-control input-md custom-login-input" >
-                  </div>
-                </div>
-                
-                <!-- Password input-->
-                <div class="form-group">
-                  <label class=" control-label" for="passwordinput">Enter your Password:</label>
-                  <div class="">
-                    <input id="passwordinput" required name="passwordinput" type="password" placeholder="password" class="form-control input-md custom-login-input">
-                  </div>
-                </div>
-                
-                <!-- Button -->
-                <div class="form-group">
-                  <label class=" control-label" for="singlebutton"></label>
-                  <div class="">
-                    <button id="singlebutton" name="singlebutton" type="submit" class="btn btn-success custom-login-button">Login</button>                 
-                  </div>
-                </div>
-                
-                </fieldset>
-                <div class="additional-login-content">
-                  <div class="create-account login-text"><a class="register-link" href="register.php">Register Now</a></div>
-                  <div class="forgot-password login-text"><a class="register-link" href="forgot_password.php">Forgot your Password?</a></div>
-                </div>
-
-                <?php
-                  echo $_POST['passwordinput']; 
-                  echo hash ( "sha512", $_POST['passwordinput'] , false ) ;
-                ?>
-
-                </form>
-                
-        </div>
-          <div class="col-1">
-
-          </div>
-        </div>
       </div>
+      <div class="col-10">
+        <form class="form-horizontal login-form" method="POST" action="#">
+          <fieldset>
 
-    <script src="../node_modules/jquery/dist/jquery.js"></script>
-    <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
-    <script src="../JavaScript/login.js"></script>
+            <!-- Form Name -->
+            <legend class="login-legend">Login </legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class=" control-label" for="email-input">Enter your Email:</label>
+              <div class="">
+                <input id="email-input" required name="email-input" type="email" placeholder="email-address" class="form-control input-md custom-login-input">
+              </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="form-group">
+              <label class=" control-label" for="passwordinput">Enter your Password:</label>
+              <div class="">
+                <input id="password-input" required type="password" placeholder="password" class="form-control input-md custom-login-input">
+              </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+              <label class=" control-label" for="login-button"></label>
+              <div class="">
+                <button id="login-button" name="singlebutton" type="submit" class="btn btn-success custom-login-button">Login</button>
+              </div>
+            </div>
+
+          </fieldset>
+          <div class="additional-login-content">
+            <div class="create-account login-text"><a class="register-link" href="register.php">Register Now</a></div>
+            <div class="forgot-password login-text"><a class="register-link" href="forgot_password.php">Forgot your Password?</a></div>
+          </div>
+
+          <input type="hidden" value="" id="os-input" name="os-input">
+          <input type="hidden" value="" id="resolution-input" name="resolution-input">
+          <input type="hidden" value="" id="datetime-input" name="datetime-input">
+          <input type="hidden" value="" id="hash-input" name="hash-input">
+
+
+          <?php
+          // echo $_POST['passwordinput'];
+          // echo hash("sha512", $_POST['passwordinput'], false);
+          // Hier js verwenden
+
+          ?>
+
+        </form>
+
+      </div>
+      <div class="col-1">
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../JavaScript/sha512.js"></script>
+  <script src="../JavaScript/login.js"></script>
+
 </body>
+
 </html>

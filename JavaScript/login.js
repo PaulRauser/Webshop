@@ -16,7 +16,41 @@ loginSubmit.addEventListener('click', () => {
     }
 });
 
-// loginSubmit.addEventListener('click', () => {
-//     console.log("Hi");
-//     //console.info(`${ screen.width } × ${ screen.height }`);
-// });
+  document.getElementById("login-button").addEventListener('click', () => {
+    document.getElementById("os-input").setAttribute("value", getOS());
+    
+    document.getElementById("resolution-input").setAttribute("value", `${ screen.width } × ${ screen.height }`);
+
+    document.getElementById("datetime-input").setAttribute("value", today);
+
+    var sd = sha512($("#password-input").val());
+    console.log(sd);
+
+    $('#hash-input').val(sha512($("#password-input").val())); // In Ehren von Michael Zink
+    
+  });
+
+  var today = new Date();  
+
+  function getOS() {
+    var userAgent = window.navigator.userAgent,
+        platform = window.navigator.platform,
+        macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+        windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+        iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+        os = null;
+
+    if (macosPlatforms.indexOf(platform) !== -1) {
+      os = 'Mac OS';
+    } else if (iosPlatforms.indexOf(platform) !== -1) {
+      os = 'iOS';
+    } else if (windowsPlatforms.indexOf(platform) !== -1) {
+      os = 'Windows';
+    } else if (/Android/.test(userAgent)) {
+      os = 'Android';
+    } else if (!os && /Linux/.test(platform)) {
+      os = 'Linux';
+    }
+
+    return os;
+  }
