@@ -66,9 +66,9 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
         $stmt = $conn->prepare($sqlUpdateUser);
         $stmt->execute([$sEmail, $sFirstName, $sLastName, $sGender, $sCity, $sCountry, hash("sha512", $generatedPassword)]);
 
-
+        header('Location: index.html');
         // header('Location: products.php');
-        echo "Das generierte Passwort ist " . $generatedPassword;
+        // echo "Das generierte Passwort ist " . $generatedPassword;
         //Close connection
         $conn = null;
 

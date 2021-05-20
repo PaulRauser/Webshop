@@ -3,8 +3,13 @@
 
 session_name("timlshop");
 session_start();
+// $logged_in = $_SESSION['logged_in'];
+// if($logged_in == true) {
+//   header('Location: index.php');
+// }
+//Wie kann man das Lösen?
 
-var_dump($_SESSION);
+// var_dump($_SESSION);
 
 if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and isset($_POST['os-input']) and isset($_POST['datetime-input']) and isset($_POST['hash-input']))) {
   try {
@@ -41,9 +46,11 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     $userRow = $stmt -> fetch();
 
     if($userRow["pwd"] != $sPwdHash) {
-      echo "Pasword stimmt nicht überein!";
+      header('Location: login.php');
       exit();
     }
+    //Was machen wenn das der Fall ist?
+    //Was bei falscher Email?
 
 
     // Login-Daten werden ausgegeben
@@ -51,10 +58,11 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     $stmt = $conn->prepare($sqlUpdateLoginInfo);
     $stmt->execute([$sOs, $sResolution, $sDatetime, $sEmail]);
 
-    // TODO : Session variable setzen!!!
 
-      $_SESSION['logged_in'] = true;
+    $_SESSION['logged_in'] = true;
 
+
+    header('Location: index.php');
     //Close connection
     $conn = null;
 

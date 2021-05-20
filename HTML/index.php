@@ -1,6 +1,8 @@
 <?php
+session_name("timlshop");
+session_start();
   //Check if user is logged in
-  $logged_in = true;
+  $logged_in = $_SESSION['logged_in'];
   if($logged_in != true) {
     header('Location: no_access.php');
   }
@@ -35,12 +37,27 @@
               <li class="nav-item">
                 <a class="nav-link" href="products.php">Products</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="login.php">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="register.php" tabindex="-1" aria-disabled="true">Register</a>
-              </li>
+              <?php
+
+                if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+                    ?>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="logout.php">Logout</a>
+                    </li>
+                    <?php
+                } else {
+                    ?>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="login.php">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.php" tabindex="-1" aria-disabled="true">Register</a>
+                    </li>
+                    <?php
+                }
+                ?>
             </ul>
           </div> 
           <a href="profile.php" class="btn btn-outline-success left" role="button" aria-pressed="true" style="margin-right: 10px;">

@@ -7,6 +7,65 @@ session_start();
     header('Location: no_access.php');
   }
 ?>
+<?php
+
+if ((isset($_POST['new-password']))) {
+  try {
+    // Datenbank settings
+    $datenbankname = "timl";
+    $benutzername = "tim";
+    $benutzerpasswort = "q9Xlx6Hk7Vpl";
+    $servername = "chelex.life";
+
+    $sNewPassword = $_POST['new-password-input'];
+
+
+    // Verbindung zur Datenbank
+    $conn = new PDO("mysql:host=$servername;dbname=$datenbankname", $benutzername, $benutzerpasswort);
+
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // SQL
+    // Login Daten überprüfen
+    $sqlGetUserInfo = "SELECT email,pwd FROM user WHERE email=?";
+    $stmt = $conn->prepare($sqlGetUserInfo);
+    $stmt->execute([$sEmail]);
+
+    if($stmt -> rowCount() == 0) {
+      echo "user gibt es nciht";
+      exit();
+    }
+
+    $userRow = $stmt -> fetch();
+
+    if($userRow["pwd"] != $sPwdHash) {
+      header('Location: login.php');
+      exit();
+    }
+    //Was machen wenn das der Fall ist?
+    //Was bei falscher Email?
+
+    $sNewPasswordHash = hash("sha512", $sNewPassword); 
+
+    // Login-Daten werden ausgegeben
+    $sqlUpdatePassword = "INSERT into user (pwd) VALUES (?)";
+    //Richtige Update Query!
+    $stmt = $conn->prepare($sqlUpdatePassword);
+    $stmt->execute([$sNewPassword]);
+
+    //Close connection
+    $conn = null;
+
+    //header("Location: index.php");
+  } catch (PDOException $e) {
+    $handle = fopen("error_addfriend.txt", "w");
+    fwrite($handle, $e->getMessage());
+    fclose($handle);
+  }
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,12 +97,27 @@ session_start();
               <li class="nav-item">
                 <a class="nav-link" href="products.php">Products</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="login.php">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="register.php" tabindex="-1" aria-disabled="true">Register</a>
-              </li>
+              <?php
+
+            if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+                ?>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="logout.php">Logout</a>
+                </li>
+                <?php
+            } else {
+                ?>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="login.php">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.php" tabindex="-1" aria-disabled="true">Register</a>
+                </li>
+                <?php
+            }
+            ?>
             </ul>
           </div> 
           <a href="profile.php" class="btn btn-success left" role="button" aria-pressed="true" style="margin-right: 10px;">
@@ -67,19 +141,19 @@ session_start();
                 </div>
                 <div class="old-password-info pw-info"></div>
 
-                <div class="input-description" id="g">Enter new Password:</div>
+                <div name="new-password-input" class="input-description" id="g">Enter new Password:</div>
                 <div class="input-group flex-nowrap change-password">
                 <input type="password" class="form-control new-password" aria-label="Username" aria-describedby="addon-wrapping">
                 </div>
                 <div class="new-password-info pw-info"></div>
 
-                <div class="input-description" id="g">Repeat new Password:</div>
+                <div  class="input-description" id="g">Repeat new Password:</div>
                 <div class="input-group flex-nowrap change-password">
                   <input id="" type="password" class="form-control repeat-password" aria-label="Username" aria-describedby="addon-wrapping">
                 </div>
                 <div class="repeat-password-info pw-info"></div>
 
-                <button type="button" class="btn btn-success forgot-password-button">Submit</button>
+                <button type="submit" class="btn btn-success forgot-password-button">Submit</button>
               </form>
             </div>
             
