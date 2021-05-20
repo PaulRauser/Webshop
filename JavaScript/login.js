@@ -15,3 +15,8 @@ loginSubmit.addEventListener('click', () => {
         legend.innerHTML = "Login";
     }
 });
+
+// loginSubmit.addEventListener('click', () => {
+//     console.log("Hi");
+//     //console.info(`${ screen.width } × ${ screen.height }`);
+// });
