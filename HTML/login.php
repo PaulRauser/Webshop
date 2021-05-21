@@ -60,12 +60,7 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
   
     $userRow = $stmt -> fetch();
     
-    if($userRow['first_login'] == 1) {
-      $firstLogin = "UPDATE user SET first_login = 0  WHERE email=?";
-      $stmt = $conn->prepare($firstLogin);
-      $stmt->execute([$sEmail]);
-      header('Location: first_login.php');
-    }
+
     //Wichtig: Erst wenn beim neuen Passwort bestätigt wird, wird first_login auf false gesetzt!
 
 
@@ -97,12 +92,16 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
         // Weitere Daten können hier hinzugefügt werden
     }
 
-
-    header('Location: index.php');
+    
     //Close connection
     $conn = null;
 
-    //header("Location: index.php");
+    if($userRow['first_login'] == 1) {
+      header('Location: first_login.php');
+      exit();
+    }
+
+    header("Location: index.php");
   } catch (PDOException $e) {
     $handle = fopen("error_addfriend.txt", "w");
     fwrite($handle, $e->getMessage());

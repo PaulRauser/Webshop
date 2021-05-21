@@ -1,4 +1,7 @@
 <?php
+session_name("timlshop");
+session_start();
+
 // Verhindern, dass man auf die Seite kommt wenn man schonmal eingeloggt war
 if ((isset($_POST['new-password-input']))) {
   try {
@@ -8,7 +11,7 @@ if ((isset($_POST['new-password-input']))) {
     $benutzerpasswort = "q9Xlx6Hk7Vpl";
     $servername = "chelex.life";
 
-    $sEmail = $_POST['email-input']; //Was muss hier hin?
+    $sEmail = $_SESSION['email']; 
     $sNewPassword = $_POST["new-password-input"];
 
 
@@ -19,28 +22,35 @@ if ((isset($_POST['new-password-input']))) {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-    //Password updaten
-    $updatedPassword = "UPDATE user SET pwd = '$'  WHERE email=?";
+    // SQL
+    $sNewPasswordHash = hash("sha512", $sNewPassword); 
+
+    // Neues Password
+    $sqlUpdatePassword = "UPDATE user SET pwd=?  WHERE email=?";
+    $stmt = $conn->prepare($sqlUpdatePassword);
+    $stmt->execute([$sNewPasswordHash,$sEmail]);
+
+    //Prüfen ob User schonmal logged in war
+    $firstLogin = "SELECT email,first_login FROM user WHERE email=?";
     $stmt = $conn->prepare($firstLogin);
-    $stmt->execute([$sEmail]);
-
-
-
-    if($firstLogin == true) {
-      $firstLogin = "UPDATE user SET first_login = 'false'  WHERE email=?";
+    $stmt->execute([$sEmail]); //--> Der Fehler ist hier! Ich bekomme nicht den Wert!
+  
+    $userRow = $stmt -> fetch();
+    
+    if($userRow['first_login'] == 1) {
+      $firstLogin = "UPDATE user SET first_login = 0, active = 0  WHERE email=?";
       $stmt = $conn->prepare($firstLogin);
       $stmt->execute([$sEmail]);
-      header('Location: first_login.php');
+      
     }
-    //Wichtig: Erst wenn beim neuen Passwort bestätigt wird, wird first_login auf false gesetzt
 
-
-    // header('Location: index.php');
+ 
     //Close connection
     $conn = null;
 
-    //header("Location: index.php");
+    header("Location: login.php");
   } catch (PDOException $e) {
+    echo $e -> getMessage();
     $handle = fopen("error_addfriend.txt", "w");
     fwrite($handle, $e->getMessage());
     fclose($handle);
@@ -49,6 +59,7 @@ if ((isset($_POST['new-password-input']))) {
 
 
 ?>
+
 
 
 <!DOCTYPE html>
@@ -74,7 +85,7 @@ if ((isset($_POST['new-password-input']))) {
             <input type="password" name="new-password-input" class="first-password"  placeholder="Enter new Password" required>
             <input type="password" name="new-password-repeat" class="first-password" placeholder="Repeat new Password" required>
         </div>
-    <button class="submit-button-first-login" type="button">
+    <button class="submit-button-first-login" type="submit">
         Confirm
     </button>
     <div class="info"></div>
