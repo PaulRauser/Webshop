@@ -9,8 +9,9 @@ session_start();
 
 ?>
 <?php
-
-if ((isset($_POST['new-password']))) {
+echo $_SESSION['email'];
+echo $_POST['new-password-input'];
+if ((isset($_POST['new-password-input']))) {
   try {
     // Datenbank settings
     $datenbankname = "timl";
@@ -39,9 +40,9 @@ if ((isset($_POST['new-password']))) {
     $sNewPasswordHash = hash("sha512", $sNewPassword); 
 
     // Login-Daten werden ausgegeben
-    $sqlUpdatePassword = "UPDATE user SET pwd = $sNewPasswordHash  WHERE email=?";
+    $sqlUpdatePassword = "UPDATE user SET pwd=?  WHERE email=?";
     $stmt = $conn->prepare($sqlUpdatePassword);
-    $stmt->execute([$sEmail]);
+    $stmt->execute([$sNewPasswordHash,$sEmail]);
 
 
 
@@ -126,16 +127,16 @@ if ((isset($_POST['new-password']))) {
           <div class="col-10">
             <div class="change-password-section">
               <h3 class="change-password-heading">Change your Password</h3>
-              <form class="change-password-form" action="">
+              <form class="change-password-form" action="" method="POST">
                 <div class="input-description" id="g">Enter old Password:</div>
                 <div class="input-group flex-nowrap change-password">
                     <input type="password" class="form-control input-md old-password" aria-label="Username" aria-describedby="addon-wrapping">
                 </div>
                 <div class="old-password-info pw-info"></div>
 
-                <div name="new-password-input" class="input-description" id="g">Enter new Password:</div>
+                <div class="input-description" id="g">Enter new Password:</div>
                 <div class="input-group flex-nowrap change-password">
-                <input type="password" class="form-control new-password" aria-label="Username" aria-describedby="addon-wrapping">
+                <input name="new-password-input" id="new-password-input" type="password" class="form-control new-password" aria-label="Username" aria-describedby="addon-wrapping">
                 </div>
                 <div class="new-password-info pw-info"></div>
 
