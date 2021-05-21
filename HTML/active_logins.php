@@ -21,7 +21,7 @@ $stmt = $conn->query($sqlGetActive);
 $count = $stmt->fetchColumn();
 
 echo $count;
-echo "hi";
+
 
 
 
