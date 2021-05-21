@@ -7,7 +7,7 @@ if ($logged_in != true) {
   header('Location: no_access.php');
 }
 
-print_r($_SESSION);
+
 ?>
 
 <!DOCTYPE html>
