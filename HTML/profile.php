@@ -6,6 +6,7 @@ session_start();
   if($logged_in != true) {
     header('Location: no_access.php');
   }
+
 ?>
 <?php
 
@@ -19,7 +20,9 @@ if ((isset($_POST['new-password']))) {
 
     $sNewPassword = $_POST['new-password-input'];
 
-    $sEmail = //Wie bekommt man Mail von User der Gerade logged in ist?
+
+
+    $sEmail = $_SESSION['email'];
 
 
     // Verbindung zur Datenbank

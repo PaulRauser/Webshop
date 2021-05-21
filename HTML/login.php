@@ -78,8 +78,18 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     $stmt = $conn->prepare($sqlUpdateLoginInfo);
     $stmt->execute([$sOs, $sResolution, $sDatetime, $sEmail]);
 
+    //Hier alle Daten sammeln
+    $sqlGetSessionInfo = "SELECT * FROM user WHERE email='$sEmail'";
 
-    $_SESSION['logged_in'] = true;
+    // Hier können der Session die Attribute vom Login übergeben werden // Neu von Tim
+    foreach ($conn->query($sqlGetSessionInfo) as $row)
+    {
+        $bLoginSuccess=true;
+        $_SESSION['logged_in'] = true;
+        $_SESSION['email'] = $row["email"];
+        $_SESSION['pwd'] = $row["pwd"];
+        // Weitere Daten können hier hinzugefügt werden
+    }
 
 
     // header('Location: index.php');
