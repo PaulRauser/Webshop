@@ -52,12 +52,13 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
 
 
     //Prüfen ob User schonmal logged in war
-    $firstLogin = "SELECT first_login FROM user WHERE email=?";
+    $firstLogin = "SELECT email,first_login FROM user WHERE email=?";
     $stmt = $conn->prepare($firstLogin);
-    $stmt->execute([$sEmail]);
-
-
-    if($firstLogin == 1) {
+    $stmt->execute([$sEmail]); //--> Der Fehler ist hier! Ich bekomme nicht den Wert!
+  
+    $userRow = $stmt -> fetch();
+    
+    if($userRow['first_login'] == 1) {
       $firstLogin = "UPDATE user SET first_login = 0  WHERE email=?";
       $stmt = $conn->prepare($firstLogin);
       $stmt->execute([$sEmail]);

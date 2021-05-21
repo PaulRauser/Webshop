@@ -19,6 +19,8 @@ if ((isset($_POST['new-password']))) {
 
     $sNewPassword = $_POST['new-password-input'];
 
+    $sEmail = //Wie bekommt man Mail von User der Gerade logged in ist?
+
 
     // Verbindung zur Datenbank
     $conn = new PDO("mysql:host=$servername;dbname=$datenbankname", $benutzername, $benutzerpasswort);
@@ -28,31 +30,18 @@ if ((isset($_POST['new-password']))) {
 
     // SQL
     // Login Daten überprüfen
-    $sqlGetUserInfo = "SELECT email,pwd FROM user WHERE email=?";
-    $stmt = $conn->prepare($sqlGetUserInfo);
-    $stmt->execute([$sEmail]);
-
-    if($stmt -> rowCount() == 0) {
-      echo "user gibt es nciht";
-      exit();
-    }
-
-    $userRow = $stmt -> fetch();
-
-    if($userRow["pwd"] != $sPwdHash) {
-      header('Location: login.php');
-      exit();
-    }
     //Was machen wenn das der Fall ist?
     //Was bei falscher Email?
 
     $sNewPasswordHash = hash("sha512", $sNewPassword); 
 
     // Login-Daten werden ausgegeben
-    $sqlUpdatePassword = "INSERT into user (pwd) VALUES (?)";
-    //Richtige Update Query!
+    $sqlUpdatePassword = "UPDATE user SET pwd = $sNewPasswordHash  WHERE email=?";
     $stmt = $conn->prepare($sqlUpdatePassword);
-    $stmt->execute([$sNewPassword]);
+    $stmt->execute([$sEmail]);
+
+
+
 
     //Close connection
     $conn = null;
