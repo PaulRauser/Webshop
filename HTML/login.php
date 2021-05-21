@@ -98,7 +98,7 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     }
 
 
-    // header('Location: index.php');
+    header('Location: index.php');
     //Close connection
     $conn = null;
 
