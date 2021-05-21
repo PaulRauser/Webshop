@@ -141,7 +141,7 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
                       }, 1000);
                   });
             </script>
-            <button class="btn btn-outline-success"><div><i class="fas fa-users"></i> Users Online: <div id="active-users" style="display: inline;"></div></button>
+            <button class="btn btn-outline-success" style="margin-right: 10px;"><div><i class="fas fa-users"></i> Users Online: <div id="active-users" style="display: inline;"></div></button>
             <a href="profile.php" class="btn btn-outline-success left" role="button" aria-pressed="true"
             style="margin-right: 10px;">
                 <i class="fas fa-user"></i>&nbsp Account</a>
