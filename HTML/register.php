@@ -62,13 +62,13 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
 
 
         // Login-Daten werden ausgegeben
-        $sqlUpdateUser = "INSERT into user (email, first_name, last_name, gender, city, country, pwd) VALUES (?,?,?,?,?,?,?)";
+        $sqlUpdateUser = "INSERT into user (email, first_name, last_name, gender, city, country, pwd, first_login) VALUES (?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($sqlUpdateUser);
-        $stmt->execute([$sEmail, $sFirstName, $sLastName, $sGender, $sCity, $sCountry, hash("sha512", $generatedPassword)]);
+        $stmt->execute([$sEmail, $sFirstName, $sLastName, $sGender, $sCity, $sCountry, hash("sha512", $generatedPassword), "1"]);
 
-        header('Location: index.html');
         // header('Location: products.php');
-        // echo "Das generierte Passwort ist " . $generatedPassword;
+        // header('Location: products.php');
+        echo "Das generierte Passwort ist " . $generatedPassword;
         //Close connection
         $conn = null;
 

@@ -49,6 +49,24 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
       header('Location: login.php');
       exit();
     }
+
+
+    //Prüfen ob User schonmal logged in war
+    $firstLogin = "SELECT first_login FROM user WHERE email=?";
+    $stmt = $conn->prepare($firstLogin);
+    $stmt->execute([$sEmail]);
+
+
+    if($firstLogin == "1") {
+      $firstLogin = "UPDATE user SET first_login = '0'  WHERE email=?";
+      $stmt = $conn->prepare($firstLogin);
+      $stmt->execute([$sEmail]);
+      header('Location: first_login.php');
+    }
+    //Wichtig: Erst wenn beim neuen Passwort bestätigt wird, wird first_login auf false gesetzt!
+
+
+
     //Was machen wenn das der Fall ist?
     //Was bei falscher Email?
 
@@ -62,7 +80,7 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     $_SESSION['logged_in'] = true;
 
 
-    header('Location: index.php');
+    // header('Location: index.php');
     //Close connection
     $conn = null;
 

@@ -1,3 +1,56 @@
+<?php
+
+if ((isset($_POST['new-password-input']))) {
+  try {
+    // Datenbank settings
+    $datenbankname = "timl";
+    $benutzername = "tim";
+    $benutzerpasswort = "q9Xlx6Hk7Vpl";
+    $servername = "chelex.life";
+
+    $sEmail = $_POST['email-input']; //Was muss hier hin?
+    $sNewPassword = $_POST["new-password-input"];
+
+
+    // Verbindung zur Datenbank
+    $conn = new PDO("mysql:host=$servername;dbname=$datenbankname", $benutzername, $benutzerpasswort);
+
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+    //Password updaten
+    $updatedPassword = "UPDATE user SET pwd = '$'  WHERE email=?";
+    $stmt = $conn->prepare($firstLogin);
+    $stmt->execute([$sEmail]);
+
+
+
+    if($firstLogin == true) {
+      $firstLogin = "UPDATE user SET first_login = 'false'  WHERE email=?";
+      $stmt = $conn->prepare($firstLogin);
+      $stmt->execute([$sEmail]);
+      header('Location: first_login.php');
+    }
+    //Wichtig: Erst wenn beim neuen Passwort bestätigt wird, wird first_login auf false gesetzt
+
+
+    // header('Location: index.php');
+    //Close connection
+    $conn = null;
+
+    //header("Location: index.php");
+  } catch (PDOException $e) {
+    $handle = fopen("error_addfriend.txt", "w");
+    fwrite($handle, $e->getMessage());
+    fclose($handle);
+  }
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +69,10 @@
 </head>
 <body>
     <h1>Please change your password for first Login</h1>
-    <form action="">
+    <form method="POST" action="">
         <div class="password-section">
-            <input type="password" class="first-password"  placeholder="Enter new Password" required>
-            <input type="password" class="first-password" placeholder="Repeat new Password" required>
+            <input type="password" name="new-password-input" class="first-password"  placeholder="Enter new Password" required>
+            <input type="password" name="new-password-repeat" class="first-password" placeholder="Repeat new Password" required>
         </div>
     <button class="submit-button-first-login" type="button">
         Confirm
