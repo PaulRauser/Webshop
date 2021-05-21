@@ -98,7 +98,7 @@ session_start();
           <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
-                    <h5 class="card-title font-weight-bold product-search-name">Apple</h5>
+                    <h5 class="card-title font-weight-bold product-search-name">Äpple</h5>
                     <p class="card-text">$299</p> 
                     <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
                     <br/> 

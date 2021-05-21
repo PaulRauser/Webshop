@@ -128,7 +128,7 @@ if ($logged_in != true) {
         <h1 class="display-1 home-heading">Welcome to Skibble</h1>
         <p class="lead custom-lead">
           <?php
-          echo "Herzlich Willkommen ";
+          echo "Welcome ";
           if ($_SESSION['gender'] == "option1") {
             echo "Mr. ";
           } elseif ($_SESSION['gender'] == "option2") {
