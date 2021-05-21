@@ -24,6 +24,7 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     $sOs = $_POST['os-input'];
     $sDatetime = $_POST['datetime-input'];
     $sPwdHash = $_POST["hash-input"];
+    $sActive = 1;
 
 
     // Verbindung zur Datenbank
@@ -71,6 +72,11 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
 
     //Was machen wenn das der Fall ist?
     //Was bei falscher Email?
+
+    // Login Anzahl: Login Variable
+    $sqlUpdateActive =  "UPDATE user SET active=?  WHERE email=?";
+    $stmt = $conn->prepare($sqlUpdateActive);
+    $stmt->execute([$sActive,$sEmail]);
 
 
     // Login-Daten werden ausgegeben

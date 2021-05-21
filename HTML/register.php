@@ -34,7 +34,8 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
         $sCountry = $_POST['country-input'];
         // $sZip = $_POST['zip-input'];
         // $sStreet = $_POST['street-input'];
-        $sDuplicate = true;
+        $sDuplicate = false;
+        $sActive = 0;
 
 
         // Verbindung zur Datenbank
@@ -52,7 +53,7 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
 
         if ((int)($rowCount["c"]) != 0) {
             echo "Email gibt es schon";
-            $sDuplicate = false;
+            $sDuplicate = true;
         }
 
         $generatedPassword = randomPassword();
@@ -62,10 +63,10 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
 
 
         // Login-Daten werden ausgegeben
-        if($sDuplicate == true) {
-            $sqlUpdateUser = "INSERT into user (email, first_name, last_name, gender, city, country, pwd, first_login) VALUES (?,?,?,?,?,?,?,?)";
+        if($sDuplicate == false) {
+            $sqlUpdateUser = "INSERT into user (email, first_name, last_name, gender, city, country, pwd, first_login, active) VALUES (?,?,?,?,?,?,?,?,?)";
             $stmt = $conn->prepare($sqlUpdateUser);
-            $stmt->execute([$sEmail, $sFirstName, $sLastName, $sGender, $sCity, $sCountry, hash("sha512", $generatedPassword), 1]);
+            $stmt->execute([$sEmail, $sFirstName, $sLastName, $sGender, $sCity, $sCountry, hash("sha512", $generatedPassword), 1, $sActive]);
         }
 
 
