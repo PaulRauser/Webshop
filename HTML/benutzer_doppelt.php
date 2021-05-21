@@ -14,11 +14,11 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $sqlCheckForEmailDuplicates = "SELECT COUNT(*) AS c FROM user WHERE email=?";
 $stmt = $conn->prepare($sqlCheckForEmailDuplicates);
-$stmt->execute([$sEmail]);
+$stmt->execute([$_GET["email"]]);
 
 $rowCount = $stmt->fetch();
 
 if ((int)($rowCount["c"]) != 0) {
-    echo "Email gibt es schon";
+    echo "This email is already in use";
     $sDuplicate = true;
 }

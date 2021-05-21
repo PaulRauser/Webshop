@@ -171,8 +171,8 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
                 </div> <!-- form-row end.// -->
                 <div class="form-group spacer">
                     <label>Email address *</label>
-                    <input required type="email" name="email-input" class="form-control" placeholder="">
-                    <small class="form-text text-muted"><?php echo"Diese Email wird schon verwendet"; ?></small>
+                    <input required type="email" name="email-input" id="email-input" value="" class="form-control" placeholder="">
+                    <small class="form-text text-muted"> <div id="duplicate-user"></div> </small>
                     
                 </div> <!-- form-group end.// -->
                 <div class="form-group spacer">
@@ -473,6 +473,18 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
         </div>
     </div>
 </div>
+<script type="text/javascript">
+        $(document).ready(function() {
+            setInterval(function() {
+                $.get("benutzer_doppelt.php", {
+                    email: $("#email-input").val()
+                    },
+                    function(daten) {
+                        $('#duplicate-user').html(daten);
+                    });
+            }, 1000);
+        });
+</script>
 <script src="../node_modules/jquery/dist/jquery.js"></script>
 <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
