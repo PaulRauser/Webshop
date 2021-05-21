@@ -61,7 +61,7 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
         // Login Daten überprüfen
         // $sqlGetUserInfo = "SELECT (email,pwd) FROM user WHERE email=?";
 
-
+        
         // Login-Daten werden ausgegeben
         if ($sDuplicate == false) {
             $sqlUpdateUser = "INSERT into user (email, first_name, last_name, gender, city, country, pwd, first_login, active) VALUES (?,?,?,?,?,?,?,?,?)";
@@ -74,6 +74,10 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
         // header('Location: products.php');
         // header('Location: products.php');
         echo "Das generierte Passwort ist " . $generatedPassword;
+
+         //Hier probier ich in mail_test.php zu übergeben, klappt aber noch nicht. Checkt mal warum
+        session_start();
+        $_SESSION['generatedPassword'] = $generatedPassword;
         //Close connection
         $conn = null;
 

@@ -4,6 +4,11 @@
 session_name("timlshop");
 session_start();
 
+// include('register.php');
+// echo $generatedPassword;
+$generatedPassword = $_SESSION["generatedPassword"];
+echo $generatedPassword;
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
