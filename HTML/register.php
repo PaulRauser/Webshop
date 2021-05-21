@@ -64,7 +64,7 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
         // Login-Daten werden ausgegeben
         $sqlUpdateUser = "INSERT into user (email, first_name, last_name, gender, city, country, pwd, first_login) VALUES (?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($sqlUpdateUser);
-        $stmt->execute([$sEmail, $sFirstName, $sLastName, $sGender, $sCity, $sCountry, hash("sha512", $generatedPassword), "1"]);
+        $stmt->execute([$sEmail, $sFirstName, $sLastName, $sGender, $sCity, $sCountry, hash("sha512", $generatedPassword), 1]);
 
         // header('Location: products.php');
         // header('Location: products.php');
