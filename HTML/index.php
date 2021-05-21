@@ -59,11 +59,25 @@ session_start();
                 }
                 ?>
             </ul>
-          </div> 
-          <a href="profile.php" class="btn btn-outline-success left" role="button" aria-pressed="true" style="margin-right: 10px;">
-            <i class="fas fa-user"></i>&nbsp Account</a>         
-          <a href="shopping_cart.php" class="btn btn-outline-success" role="button" aria-pressed="true">
-            <i class="fas fa-shopping-cart"></i>&nbsp Shopping Cart</a>
+          </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+              <script type="text/javascript">
+                  $(document).ready(function() {
+                      setInterval(function() {
+                          $.get("active_logins.php", {
+                                  auswahl: 1 * new Date()
+                              },
+                              function(daten) {
+                                  $('#active-users').html(daten);
+                              });
+                      }, 1000);
+                  });
+            </script>
+            <button class="btn btn-outline-success"><div><i class="fas fa-users"></i> Users Online: <div id="active-users" style="display: inline;"></div></button>
+            <a href="profile.php" class="btn btn-outline-success left" role="button" aria-pressed="true" style="margin-right: 10px;">
+              <i class="fas fa-user"></i>&nbsp Account</a>         
+            <a href="shopping_cart.php" class="btn btn-outline-success" role="button" aria-pressed="true">
+              <i class="fas fa-shopping-cart"></i>&nbsp Shopping Cart</a>
         </div>      
       </nav>
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
