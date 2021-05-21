@@ -3,8 +3,13 @@
 
 session_name("timlshop");
 session_start();
+// $logged_in = $_SESSION['logged_in'];
+// if($logged_in == true) {
+//   header('Location: index.php');
+// }
+//Wie kann man das Lösen?
 
-var_dump($_SESSION);
+// var_dump($_SESSION);
 
 if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and isset($_POST['os-input']) and isset($_POST['datetime-input']) and isset($_POST['hash-input']))) {
   try {
@@ -42,8 +47,30 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
 
     if($userRow["pwd"] != $sPwdHash) {
       echo "Password stimmt nicht überein!";
+      header('Location: login.php');
       exit();
     }
+
+
+    //Prüfen ob User schonmal logged in war
+    $firstLogin = "SELECT email,first_login FROM user WHERE email=?";
+    $stmt = $conn->prepare($firstLogin);
+    $stmt->execute([$sEmail]); //--> Der Fehler ist hier! Ich bekomme nicht den Wert!
+  
+    $userRow = $stmt -> fetch();
+    
+    if($userRow['first_login'] == 1) {
+      $firstLogin = "UPDATE user SET first_login = 0  WHERE email=?";
+      $stmt = $conn->prepare($firstLogin);
+      $stmt->execute([$sEmail]);
+      header('Location: first_login.php');
+    }
+    //Wichtig: Erst wenn beim neuen Passwort bestätigt wird, wird first_login auf false gesetzt!
+
+
+
+    //Was machen wenn das der Fall ist?
+    //Was bei falscher Email?
 
 
     // Login-Daten werden ausgegeben
@@ -51,10 +78,11 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     $stmt = $conn->prepare($sqlUpdateLoginInfo);
     $stmt->execute([$sOs, $sResolution, $sDatetime, $sEmail]);
 
-    // TODO : Session variable setzen!!!
 
-      $_SESSION['logged_in'] = true;
+    $_SESSION['logged_in'] = true;
 
+
+    // header('Location: index.php');
     //Close connection
     $conn = null;
 
