@@ -41,10 +41,9 @@ if ((isset($_POST['new-password-input']))) {
       $firstLogin = "UPDATE user SET first_login = 0, active = 0  WHERE email=?";
       $stmt = $conn->prepare($firstLogin);
       $stmt->execute([$sEmail]);
-      
     }
 
- 
+    $_SESSION['logged_in'] = false;
     //Close connection
     $conn = null;
 

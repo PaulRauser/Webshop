@@ -12,6 +12,7 @@ session_start();
 // var_dump($_SESSION);
 
 if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and isset($_POST['os-input']) and isset($_POST['datetime-input']) and isset($_POST['hash-input']))) {
+
   try {
     // Datenbank settings
     $datenbankname = "timl";
@@ -39,14 +40,14 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     $stmt = $conn->prepare($sqlGetUserInfo);
     $stmt->execute([$sEmail]);
 
-    if($stmt -> rowCount() == 0) {
+    if ($stmt->rowCount() == 0) {
       echo "user gibt es nciht";
       exit();
     }
 
-    $userRow = $stmt -> fetch();
+    $userRow = $stmt->fetch();
 
-    if($userRow["pwd"] != $sPwdHash) {
+    if ($userRow["pwd"] != $sPwdHash) {
       echo "Password stimmt nicht überein!";
       header('Location: login.php');
       exit();
@@ -55,11 +56,11 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
 
     //Prüfen ob User schonmal logged in war
     $firstLogin = "SELECT email,first_login FROM user WHERE email=?";
-    $stmt = $conn->prepare($firstLogin);
-    $stmt->execute([$sEmail]); //--> Der Fehler ist hier! Ich bekomme nicht den Wert!
-  
-    $userRow = $stmt -> fetch();
-    
+    $firstLoginstmt = $conn->prepare($firstLogin);
+    $firstLoginstmt->execute([$sEmail]); //--> Der Fehler ist hier! Ich bekomme nicht den Wert!
+
+    $userRow = $firstLoginstmt->fetch();
+
 
     //Wichtig: Erst wenn beim neuen Passwort bestätigt wird, wird first_login auf false gesetzt!
 
@@ -71,32 +72,45 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     // Login Anzahl: Login Variable
     $sqlUpdateActive =  "UPDATE user SET active=?  WHERE email=?";
     $stmt = $conn->prepare($sqlUpdateActive);
-    $stmt->execute([$sActive,$sEmail]);
+    $stmt->execute([$sActive, $sEmail]);
 
+
+
+
+    // Hier alle Daten sammeln
+    $sqlGetSessionInfo = "SELECT email, pwd, first_name, last_name, gender FROM user WHERE email=?";
+    $t = $conn->prepare($sqlGetSessionInfo);
+    $t->execute([$sEmail]);
+
+    // Hier können der Session die Attribute vom Login übergeben werden
+    foreach ($t->fetchAll() as $row) {
+      $_SESSION['logged_in'] = true;
+      $_SESSION['email'] = $row["email"];
+      $_SESSION['pwd'] = $row["pwd"];
+      $_SESSION['first_name'] = $row["first_name"];
+      $_SESSION['last_name'] = $row["last_name"];
+      $_SESSION['gender'] = $row["gender"];
+      // Weitere Daten können hier hinzugefügt werden
+    }
+
+
+    $sqlGetSessionInfo2 = "SELECT date_time FROM login_info WHERE fk_email=? ORDER BY id DESC LIMIT 1";
+    $t2 = $conn->prepare($sqlGetSessionInfo2);
+    $t2->execute([$sEmail]);
+
+    foreach ($t2->fetchAll() as $row) {
+      $_SESSION['date_time'] =  $row['date_time'];
+      // Weitere Daten können hier hinzugefügt werden
+    }
 
     // Login-Daten werden ausgegeben
     $sqlUpdateLoginInfo = "INSERT into login_info (os,resolution,date_time,fk_email) VALUES (?,?,?,?)";
     $stmt = $conn->prepare($sqlUpdateLoginInfo);
     $stmt->execute([$sOs, $sResolution, $sDatetime, $sEmail]);
-
-    //Hier alle Daten sammeln
-    $sqlGetSessionInfo = "SELECT * FROM user WHERE email='$sEmail'";
-
-    // Hier können der Session die Attribute vom Login übergeben werden // Neu von Tim
-    foreach ($conn->query($sqlGetSessionInfo) as $row)
-    {
-        $bLoginSuccess=true;
-        $_SESSION['logged_in'] = true;
-        $_SESSION['email'] = $row["email"];
-        $_SESSION['pwd'] = $row["pwd"];
-        // Weitere Daten können hier hinzugefügt werden
-    }
-
-    
     //Close connection
     $conn = null;
 
-    if($userRow['first_login'] == 1) {
+    if ($userRow['first_login'] == 1) {
       header('Location: first_login.php');
       exit();
     }
@@ -145,49 +159,51 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
             <a class="nav-link" href="products.php">Products</a>
           </li>
 
-            <?php
+          <?php
 
-            if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
-                ?>
+          if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+          ?>
 
-                <li class="nav-item">
-                    <a id="active" class="nav-link active" href="logout.php">Logout</a>
-                </li>
-                <?php
-            } else {
-                ?>
+            <li class="nav-item">
+              <a id="active" class="nav-link active" href="logout.php">Logout</a>
+            </li>
+          <?php
+          } else {
+          ?>
 
-                <li class="nav-item">
-                    <a id="active" class="nav-link active" href="login.php">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="register.php" tabindex="-1" aria-disabled="true">Register</a>
-                </li>
-                <?php
-            }
-            ?>
+            <li class="nav-item">
+              <a id="active" class="nav-link active" href="login.php">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="register.php" tabindex="-1" aria-disabled="true">Register</a>
+            </li>
+          <?php
+          }
+          ?>
 
 
         </ul>
       </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-              <script type="text/javascript">
-                  $(document).ready(function() {
-                      setInterval(function() {
-                          $.get("active_logins.php", {
-                                  auswahl: 1 * new Date()
-                              },
-                              function(daten) {
-                                  $('#active-users').html(daten);
-                              });
-                      }, 1000);
-                  });
-        </script>
-        <button class="btn btn-outline-success" style="margin-right: 10px;"><div><i class="fas fa-users"></i> Users Online: <div id="active-users" style="display: inline;"></div></button>
-        <a href="profile.php" class="btn btn-outline-success left" role="button" aria-pressed="true" style="margin-right: 10px;">
-          <i class="fas fa-user"></i>&nbsp Account</a>
-        <a href="shopping_cart.php" class="btn btn-outline-success" role="button" aria-pressed="true">
-          <i class="fas fa-shopping-cart"></i>&nbsp Shopping Cart</a>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          setInterval(function() {
+            $.get("active_logins.php", {
+                auswahl: 1 * new Date()
+              },
+              function(daten) {
+                $('#active-users').html(daten);
+              });
+          }, 1000);
+        });
+      </script>
+      <button class="btn btn-outline-success" style="margin-right: 10px;">
+        <div><i class="fas fa-users"></i> Users Online: <div id="active-users" style="display: inline;"></div>
+      </button>
+      <a href="profile.php" class="btn btn-outline-success left" role="button" aria-pressed="true" style="margin-right: 10px;">
+        <i class="fas fa-user"></i>&nbsp Account</a>
+      <a href="shopping_cart.php" class="btn btn-outline-success" role="button" aria-pressed="true">
+        <i class="fas fa-shopping-cart"></i>&nbsp Shopping Cart</a>
     </div>
   </nav>
   <div class="container">

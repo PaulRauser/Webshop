@@ -189,7 +189,7 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
                     </label>
                     <label class="form-check form-check-inline">
                         <input name="gender-input" required class="form-check-input" type="radio" name="gender"
-                               value="option2">
+                               value="option3">
                         <span class="form-check-label"> Other</span>
                     </label>
                 </div> <!-- form-group end.// -->
