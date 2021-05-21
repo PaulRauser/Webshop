@@ -23,6 +23,4 @@ $count = $stmt->fetchColumn();
 echo $count;
 
 
-
-
 ?>
