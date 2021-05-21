@@ -1,10 +1,10 @@
 <?php
-    $empfaenger_mail = "p.rauser@outlook.com";
-    $betreff = "Neue Mail";
-    $nachricht = "Das hier ist eine Test Mail";
-    $from = "From: Absender p.rauser@outlook.com";
+require("../PHPMailer-master/src/PHPMailer.php");
+require("../PHPMailer-master/src/SMTP.php");
 
-    mail($empfaenger_mail, $betreff, $nachricht, $from);
+$mail = new PHPMailer\PHPMailer\PHPMailer();
+
+$mail = new PHPMailer();
+$mail->isSMTP();
 
 
-?>
