@@ -19,7 +19,6 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
     // tring(11) "ghhjghjh@dg" ["gender-input"]=> string(7) "option2" ["city-input"]=> string(4) "jghh"
     // ["country-input"]=> string(6) "France" }
 
-
     try {
         // Datenbank settings
         $datenbankname = "timl";
@@ -35,6 +34,7 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
         $sCountry = $_POST['country-input'];
         // $sZip = $_POST['zip-input'];
         // $sStreet = $_POST['street-input'];
+        $sDuplicate = true;
 
 
         // Verbindung zur Datenbank
@@ -52,7 +52,7 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
 
         if ((int)($rowCount["c"]) != 0) {
             echo "Email gibt es schon";
-            exit();
+            $sDuplicate = false;
         }
 
         $generatedPassword = randomPassword();
@@ -62,9 +62,13 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
 
 
         // Login-Daten werden ausgegeben
-        $sqlUpdateUser = "INSERT into user (email, first_name, last_name, gender, city, country, pwd, first_login) VALUES (?,?,?,?,?,?,?,?)";
-        $stmt = $conn->prepare($sqlUpdateUser);
-        $stmt->execute([$sEmail, $sFirstName, $sLastName, $sGender, $sCity, $sCountry, hash("sha512", $generatedPassword), 1]);
+        if($sDuplicate == true) {
+            $sqlUpdateUser = "INSERT into user (email, first_name, last_name, gender, city, country, pwd, first_login) VALUES (?,?,?,?,?,?,?,?)";
+            $stmt = $conn->prepare($sqlUpdateUser);
+            $stmt->execute([$sEmail, $sFirstName, $sLastName, $sGender, $sCity, $sCountry, hash("sha512", $generatedPassword), 1]);
+        }
+
+
 
         // header('Location: products.php');
         // header('Location: products.php');
@@ -153,7 +157,8 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
                 <div class="form-group spacer">
                     <label>Email address *</label>
                     <input required type="email" name="email-input" class="form-control" placeholder="">
-                    <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <small class="form-text text-muted"><?php echo"Diese Email wird schon verwendet"; ?></small>
+                    
                 </div> <!-- form-group end.// -->
                 <div class="form-group spacer">
                     <div class="gender-div">Gender *</div>

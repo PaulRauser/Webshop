@@ -9,8 +9,7 @@ session_start();
 
 ?>
 <?php
-echo $_SESSION['email'];
-echo $_POST['new-password-input'];
+
 if ((isset($_POST['new-password-input']))) {
   try {
     // Datenbank settings
@@ -21,10 +20,7 @@ if ((isset($_POST['new-password-input']))) {
 
     $sNewPassword = $_POST['new-password-input'];
 
-
-
     $sEmail = $_SESSION['email'];
-
 
     // Verbindung zur Datenbank
     $conn = new PDO("mysql:host=$servername;dbname=$datenbankname", $benutzername, $benutzerpasswort);
@@ -33,10 +29,6 @@ if ((isset($_POST['new-password-input']))) {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // SQL
-    // Login Daten überprüfen
-    //Was machen wenn das der Fall ist?
-    //Was bei falscher Email?
-
     $sNewPasswordHash = hash("sha512", $sNewPassword); 
 
     // Login-Daten werden ausgegeben
@@ -128,11 +120,11 @@ if ((isset($_POST['new-password-input']))) {
             <div class="change-password-section">
               <h3 class="change-password-heading">Change your Password</h3>
               <form class="change-password-form" action="" method="POST">
-                <div class="input-description" id="g">Enter old Password:</div>
+                <!-- <div class="input-description" id="g">Enter old Password:</div>
                 <div class="input-group flex-nowrap change-password">
                     <input type="password" class="form-control input-md old-password" aria-label="Username" aria-describedby="addon-wrapping">
                 </div>
-                <div class="old-password-info pw-info"></div>
+                <div class="old-password-info pw-info"></div> -->
 
                 <div class="input-description" id="g">Enter new Password:</div>
                 <div class="input-group flex-nowrap change-password">

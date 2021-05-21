@@ -1,5 +1,5 @@
 <?php
-
+// Verhindern, dass man auf die Seite kommt wenn man schonmal eingeloggt war
 if ((isset($_POST['new-password-input']))) {
   try {
     // Datenbank settings
