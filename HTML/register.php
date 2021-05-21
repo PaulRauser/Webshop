@@ -10,7 +10,7 @@ function randomPassword()
         $pass[] = $alphabet[$n];
     }
     return implode($pass); //turn the array into a string
-}
+}   
 
 if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isset($_POST['last-name-input'])
     and isset($_POST['gender-input']) and isset($_POST['city-input']) and isset($_POST['country-input']))) {
@@ -172,7 +172,7 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
                 <div class="form-group spacer">
                     <label>Email address *</label>
                     <input required type="email" name="email-input" id="email-input" value="" class="form-control" placeholder="">
-                    <small class="form-text text-muted"> <div id="duplicate-user"></div> </small>
+                    <small class="form-text text-muted"> <div id="duplicate-user" style="margin-top: 10px; color:#d00000;"></div> </small>
                     
                 </div> <!-- form-group end.// -->
                 <div class="form-group spacer">

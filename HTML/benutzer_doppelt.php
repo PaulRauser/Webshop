@@ -19,6 +19,6 @@ $stmt->execute([$_GET["email"]]);
 $rowCount = $stmt->fetch();
 
 if ((int)($rowCount["c"]) != 0) {
-    echo "This email is already in use";
+    echo "<i class=\"fas fa-ban\"></i> This email is already in use"; 
     $sDuplicate = true;
 }
