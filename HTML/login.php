@@ -41,7 +41,7 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     $userRow = $stmt -> fetch();
 
     if($userRow["pwd"] != $sPwdHash) {
-      echo "Pasword stimmt nicht überein!";
+      echo "Password stimmt nicht überein!";
       exit();
     }
 
