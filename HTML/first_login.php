@@ -44,6 +44,7 @@ if ((isset($_POST['new-password-input']))) {
     }
 
     $_SESSION['logged_in'] = false;
+    $_SESSION['first_login'] = 0;
     //Close connection
     $conn = null;
 
