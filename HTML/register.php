@@ -1,5 +1,8 @@
 <?php
 
+session_name("timlshop");
+session_start();
+
 function randomPassword()
 {
     $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
@@ -76,8 +79,6 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
         echo "Das generierte Passwort ist " . $generatedPassword;
 
          //Hier probier ich in mail_test.php zu übergeben, klappt aber noch nicht. Checkt mal warum
-        session_name("timlshop");
-        session_start();
         $_SESSION['generatedPassword'] = $generatedPassword;
         $_SESSION['first_login'] = true;
 
