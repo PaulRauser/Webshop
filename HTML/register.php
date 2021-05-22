@@ -81,7 +81,7 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
          //Hier probier ich in mail_test.php zu übergeben, klappt aber noch nicht. Checkt mal warum
         $_SESSION['generatedPassword'] = $generatedPassword;
         $_SESSION['first_login'] = true;
-
+        $_SESSION['email'] = $sEmail;
         //Close connection
         $conn = null;
 

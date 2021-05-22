@@ -221,7 +221,7 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
             <?php 
             if(isset($_SESSION['first_login']) and $_SESSION['first_login'] == 1) {
               echo "We have send you an email with your first password. <br> You can choose a new one directly after the first login";
-              //$_SESSION['first_login'] = false;
+              $_SESSION['first_login'] = false;
             } else{
               echo "Login";
             }
