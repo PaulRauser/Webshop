@@ -1,8 +1,5 @@
 <?php
 
-session_name("timlshop");
-session_start();
-
 function randomPassword()
 {
     $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
@@ -59,6 +56,9 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
             $sDuplicate = true;
         }
 
+        
+        session_name("timlshop");
+        session_start();
         $generatedPassword = randomPassword();
         // SQL
         // Login Daten überprüfen
