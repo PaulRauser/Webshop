@@ -6,8 +6,10 @@ session_start();
 
 // include('register.php');
 // echo $generatedPassword;
-$generatedPassword = $_SESSION["generatedPassword"];
+$generatedPassword = $_SESSION['generatedPassword'];
 echo $generatedPassword;
+$testAusgabe = $_SESSION['email'];
+echo $testAusgabe;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

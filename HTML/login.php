@@ -78,7 +78,7 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
 
 
     // Hier alle Daten sammeln
-    $sqlGetSessionInfo = "SELECT email, pwd, first_name, last_name, gender FROM user WHERE email=?";
+    $sqlGetSessionInfo = "SELECT email, pwd, first_name, last_name, gender, first_login FROM user WHERE email=?";
     $t = $conn->prepare($sqlGetSessionInfo);
     $t->execute([$sEmail]);
 
@@ -219,12 +219,12 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
             <!-- Form Name -->
             <legend class="login-legend">
             <?php 
-            // if($_SESSION['first_login'] == true) {
-            //   echo "We have send you an email with your first password. <br> You can choose a new one directly after the first login";
-            //   $_SESSION['first_login'] = false;
-            // } else{
-            //   echo "Login";
-            // }
+            if($_SESSION['first_login'] == true) {
+              echo "We have send you an email with your first password. <br> You can choose a new one directly after the first login";
+              $_SESSION['first_login'] = false;
+            } else{
+              echo "Login";
+            }
             ?>
              </legend>
 
