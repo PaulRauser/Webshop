@@ -33,7 +33,7 @@ if ((isset($_POST['new-password-input']))) {
     //Prüfen ob User schonmal logged in war
     $firstLogin = "SELECT email,first_login FROM user WHERE email=?";
     $stmt = $conn->prepare($firstLogin);
-    $stmt->execute([$sEmail]); //--> Der Fehler ist hier! Ich bekomme nicht den Wert!
+    $stmt->execute([$sEmail]); 
   
     $userRow = $stmt -> fetch();
     

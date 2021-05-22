@@ -1,16 +1,37 @@
 <?php
 session_name("timlshop");
 session_start();
-  //Check if user is logged in
-  // $logged_in = $_SESSION['logged_in'];
-  // if($logged_in != true) {
-  //   header('Location: no_access.php');
-  // }
+  
+  if(isset($_POST['usermail'])){
+    try{
+    $datenbankname = "timl";
+    $benutzername = "tim";
+    $benutzerpasswort = "q9Xlx6Hk7Vpl";
+    $servername = "chelex.life";
+
+   
+    $sCheckedMail = $_POST["usermail"];
+
+
+    // Verbindung zur Datenbank
+    $conn = new PDO("mysql:host=$servername;dbname=$datenbankname", $benutzername, $benutzerpasswort);
+
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $sqlDoesUserExist = "SELECT 1 from user WHERE email=?";
+    $stmt = $conn->prepare($sqlDoesUserExist);
+    $stmt->execute([$sCheckedMail]);
+    
+    $res = $stmt ->fetch();
+
+    echo $res;
+    }
+  }
 ?>
 
 <?php
-  //Hier die Mail die ins Formular eingegeben, speichern und an reset_password_mail übergeben!
-  // Neues Passwort generieren, hashen und in DB speichern
+  //Hier die Mail die ins Formular eingegeben wird Speichern und an reset_password_mail übergeben!
 ?> 
 
 <!DOCTYPE html>
@@ -79,7 +100,7 @@ session_start();
 
             </div>
             <div class="col-10">
-            <form class="form-horizontal login-form" action="reset_password_mail.php" onsubmit="return false">
+            <form class="form-horizontal login-form" action="" method="POST">
                 <fieldset>
                 
                 <!-- Form Name -->
