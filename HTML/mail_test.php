@@ -49,8 +49,7 @@ try {
     $mail->Subject = "Your Password";
 
     //Mail Body
-    $mail->Body = "Welcome to Skibble, use the following password
-                   for your first Login ".$generatedPassword;
+    $mail->Body = "Welcome to Skibble, use the following password for your first Login ".$generatedPassword;
 
     $mail->send();
 }
