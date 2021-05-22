@@ -63,5 +63,6 @@ catch(\Exception $e) {
     echo $e->getMessage();
 }
 
-
+// Mail versenden und dann an Login weitergeben
+//header("Location: login.php");
 ?>

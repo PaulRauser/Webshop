@@ -79,6 +79,8 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
         session_name("timlshop");
         session_start();
         $_SESSION['generatedPassword'] = $generatedPassword;
+        $_SESSION['first_login'] = true;
+
         //Close connection
         $conn = null;
 

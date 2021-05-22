@@ -216,7 +216,16 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
           <fieldset>
 
             <!-- Form Name -->
-            <legend class="login-legend">Login </legend>
+            <legend class="login-legend">
+            <?php 
+            if($_SESSION['first_login'] == true) {
+              echo "We have send you an email with your first password. <br> You can choose a new one directly after the first login";
+              $_SESSION['first_login'] = false;
+            } else{
+              echo "Login";
+            }
+            ?>
+             </legend>
 
             <!-- Text input-->
             <div class="form-group">
