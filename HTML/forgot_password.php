@@ -26,6 +26,12 @@ session_start();
     $res = $stmt ->fetch();
 
     echo $res;
+    
+    }catch (PDOException $e) {
+      echo $e -> getMessage();
+      $handle = fopen("error_addfriend.txt", "w");
+      fwrite($handle, $e->getMessage());
+      fclose($handle);
     }
   }
 ?>
