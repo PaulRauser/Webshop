@@ -76,12 +76,13 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
         echo "Das generierte Passwort ist " . $generatedPassword;
 
          //Hier probier ich in mail_test.php zu übergeben, klappt aber noch nicht. Checkt mal warum
+        session_name("timlshop");
         session_start();
         $_SESSION['generatedPassword'] = $generatedPassword;
         //Close connection
         $conn = null;
 
-        //header("Location: index.php");
+        header("Location: mail_test.php");
     } catch (PDOException $e) {
         $handle = fopen("error_addfriend.txt", "w");
         fwrite($handle, $e->getMessage());
