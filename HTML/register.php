@@ -85,7 +85,7 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
         //Close connection
         $conn = null;
 
-        header("Location: mail_test.php");
+        header("Location: registration_mail.php");
     } catch (PDOException $e) {
         $handle = fopen("error_addfriend.txt", "w");
         fwrite($handle, $e->getMessage());

@@ -46,12 +46,12 @@ try {
     $mail->addAddress($sEmail, 'Paul');
 
     //Set subject
-    $mail->Subject = "Your Password";
+    $mail->Subject = "Your Password - Skibble";
 
     //Mail Body
-    $mail->Body = "Welcome to Skibble. Hereby we confirm your registration. Use the following password for your first Login ".$generatedPassword;
+    $mail->Body = "Welcome to Skibble. Hereby we confirm your registration. Use the following password for your first Login ".$generatedPassword."After this you'll have to change the password";
 
-    $mail->send();
+    // $mail->send();
 }
 
 catch(Exception $e) {

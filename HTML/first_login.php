@@ -79,7 +79,7 @@ if ((isset($_POST['new-password-input']))) {
     <link rel="stylesheet" href="../CSS/general_frontend_styles.css">
 </head>
 <body>
-    <h1>Please change your password for first Login</h1>
+    <h1>You need to change your password before you log in</h1>
     <form method="POST" action="">
         <div class="password-section">
             <input type="password" name="new-password-input" class="first-password"  placeholder="Enter new Password" required>
