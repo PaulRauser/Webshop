@@ -90,6 +90,7 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
       $_SESSION['first_name'] = $row["first_name"];
       $_SESSION['last_name'] = $row["last_name"];
       $_SESSION['gender'] = $row["gender"];
+      $_SESSION['first_login'] = $row["first_login"];
       // Weitere Daten können hier hinzugefügt werden
     }
 
