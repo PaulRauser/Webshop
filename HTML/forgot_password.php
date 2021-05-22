@@ -9,7 +9,8 @@ session_start();
 ?>
 
 <?php
-  //Hier die Mail die ins Formular eingegeben wird Speichern und an reset_password_mail übergeben!
+  //Hier die Mail die ins Formular eingegeben, speichern und an reset_password_mail übergeben!
+  // Neues Passwort generieren, hashen und in DB speichern
 ?> 
 
 <!DOCTYPE html>
