@@ -88,7 +88,7 @@ session_start();
                 <div class="form-group">
                   <label class=" control-label" for="textinput">Enter your Username:</label>  
                   <div class="">
-                  <input id="textinput" name="textinput" type="text" placeholder="email-address" class="form-control input-md custom-login-input">
+                  <input id="usermail" name="usermail" type="text" placeholder="email-address" class="form-control input-md custom-login-input">
                     
                   </div>
                 </div>
