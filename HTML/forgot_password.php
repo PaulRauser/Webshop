@@ -78,7 +78,7 @@ session_start();
 
             </div>
             <div class="col-10">
-            <form class="form-horizontal login-form" onsubmit="return false">
+            <form class="form-horizontal login-form" action="reset_password_mail.php" onsubmit="return false">
                 <fieldset>
                 
                 <!-- Form Name -->
