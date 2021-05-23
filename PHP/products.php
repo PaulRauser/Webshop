@@ -94,7 +94,7 @@ session_start();
       </form>
     </div>
     <div class="container product-container">
-      <div class="row item-row">
+      <div class="row item-row all-products">
         <div class="col-4 product-main-container">
           <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(1, 'image_cover'); ?>" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
@@ -103,7 +103,6 @@ session_start();
                     <p class="card-text"><?php getProductData(1, 'price'); ?>€</p> 
                     <a href="product_page.php" class="btn details px-auto shadow-none">More Details</a>
                     <br/> 
-                    <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
                 </div>
             </div>
           </div>
