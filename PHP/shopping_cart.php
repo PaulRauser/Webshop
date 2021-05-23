@@ -125,8 +125,10 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
               </div>
             </div>
           </div>
-          <div class="col-1 shopping-cart-pos-price" id="productPrice" name="productPrice"><?php echo $product["regular_price"]; ?>€</div> 
-          <div class="col-1 shopping-cart-pos-price" id="productPrice" name="productPrice"><?php echo $product["regular_price"]; ?>€</div>
+          <div class="prices">
+            <div class="col-1 shopping-cart-pos-price" id="productPrice" name="productPrice"><?php echo $product["regular_price"]; ?>€</div> 
+            <div class="discounted-price col-1 shopping-cart-pos-price" id="productPrice" name="productPrice"><?php echo $product["discounted_price"]; ?>€</div>
+          </div>
           <hr>
         </div>
 
@@ -138,6 +140,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
     <div class="row justify-content-end">
       <div class="col-2 shopping-cart-sum">
         <p id="totalPrice" name="totalPrice">Sum: <?php echo $personalShoppingCartData["regular_sum"]; ?> €</p>
+        <p id="totalPrice" class="discounted-price" name="totalPrice">Discounted Sum: <?php echo $personalShoppingCartData["discounted_sum"]; ?> €</p>
       </div>
     </div>
   </div>

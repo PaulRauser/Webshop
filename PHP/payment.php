@@ -542,8 +542,7 @@ session_start();
                 </li>
                 <li class="list-group-item d-flex justify-content-between bg-light">
                   <div class="text-success">
-                    <h6 class="my-0">Promo code</h6>
-                    <small>EXAMPLECODE</small>
+                    <h6 class="my-0">Discount</h6>
                   </div>
                   <span class="text-success">−$5</span>
                 </li>
@@ -560,12 +559,12 @@ session_start();
                 </li>
               </ul>
       
-              <form class="card p-2">
+              <!-- <form class="card p-2">
                 <div class="input-group">
                   <input type="text" class="form-control" placeholder="Promo code">
                   <button type="submit" class="btn btn-outline-success">Redeem</button>
                 </div>
-              </form>
+              </form> -->
 
             <div class="card p-2 buynowpromo sidebutton">
               <!-- Hier wird ein Buy now hingeschrieben -->

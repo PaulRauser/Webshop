@@ -69,4 +69,14 @@
     text-align: right;    
 }
 
+.prices {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.discounted-price {
+    color: #d9534f;
+}
+
 
