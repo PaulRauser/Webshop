@@ -107,6 +107,150 @@ session_start();
             </div>
           </div>
         </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(2, 'image_cover'); ?>" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name"><?php getProductData(2, 'name');?></h5>
+                    <p class="card-text"><?php getProductData(2, 'price'); ?>€</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">More Details</a>
+                    <br/> 
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(3, 'image_cover'); ?>" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name"><?php getProductData(3, 'name');?></h5>
+                    <p class="card-text"><?php getProductData(3, 'price'); ?>€</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">More Details</a>
+                    <br/> 
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(4, 'image_cover'); ?>" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name"><?php getProductData(4, 'name');?></h5>
+                    <p class="card-text"><?php getProductData(4, 'price'); ?>€</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">More Details</a>
+                    <br/> 
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(5, 'image_cover'); ?>" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name"><?php getProductData(5, 'name');?></h5>
+                    <p class="card-text"><?php getProductData(5, 'price'); ?>€</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">More Details</a>
+                    <br/> 
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(6, 'image_cover'); ?>" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name"><?php getProductData(6, 'name');?></h5>
+                    <p class="card-text"><?php getProductData(6, 'price'); ?>€</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">More Details</a>
+                    <br/> 
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(7, 'image_cover'); ?>" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name"><?php getProductData(7, 'name');?></h5>
+                    <p class="card-text"><?php getProductData(7, 'price'); ?>€</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">More Details</a>
+                    <br/> 
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(8, 'image_cover'); ?>" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name"><?php getProductData(8, 'name');?></h5>
+                    <p class="card-text"><?php getProductData(8, 'price'); ?>€</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">More Details</a>
+                    <br/> 
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(9, 'image_cover'); ?>" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name"><?php getProductData(9, 'name');?></h5>
+                    <p class="card-text"><?php getProductData(9, 'price'); ?>€</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">More Details</a>
+                    <br/> 
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(10, 'image_cover'); ?>" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name"><?php getProductData(10, 'name');?></h5>
+                    <p class="card-text"><?php getProductData(10, 'price'); ?>€</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">More Details</a>
+                    <br/> 
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(11, 'image_cover'); ?>" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name"><?php getProductData(11, 'name');?></h5>
+                    <p class="card-text"><?php getProductData(11, 'price'); ?>€</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">More Details</a>
+                    <br/> 
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(12, 'image_cover'); ?>" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name"><?php getProductData(12, 'name');?></h5>
+                    <p class="card-text"><?php getProductData(12, 'price'); ?>€</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">More Details</a>
+                    <br/> 
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 product-main-container">
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(13, 'image_cover'); ?>" width="auto" height="auto" />
+            <div class="card-body text-center mx-auto">
+                <div class='cvp'>
+                    <h5 class="card-title font-weight-bold product-search-name"><?php getProductData(13, 'name');?></h5>
+                    <p class="card-text"><?php getProductData(13, 'price'); ?>€</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">More Details</a>
+                    <br/> 
+                </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
