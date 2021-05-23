@@ -24,7 +24,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
   <link href="../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
 
-  
+
 
   <link rel="stylesheet" href="../CSS/payment.css">
   <link rel="stylesheet" href="../CSS/general_frontend_styles.css">
@@ -424,20 +424,37 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
 
             <div class="my-3">
               <div class="form-check">
-                <input id="dpd" name="shippingMethod" type="radio" class="form-check-input value="3.99"  required>
+                <input id="fedex" name="shippingMethod" type="radio" class="form-check-input shipping-method" value="3.99" required>
                 <label class="form-check-label" for="dpd"><i class="fab fa-fedex"></i> FedEx (3.99€)
                   <!-- DPD hat leider kein Symbol -->
                 </label>
               </div>
               <div class="form-check">
-                <input id="dhl" name="shippingMethod" type="radio" class="form-check-input" checked required value="8.99">
+                <input id="dhl" name="shippingMethod" type="radio" class="form-check-input shipping-method" required value="8.99">
                 <label class="form-check-label" for="dhl"><i class="fab fa-dhl"></i> DHL (8.99€)</label>
               </div>
               <div class="form-check">
-                <input id="dhl-express" name="shippingMethod" type="radio" class="form-check-input" required value="23.99">
+                <input id="dhl-express" name="shippingMethod" type="radio" class="form-check-input shipping-method" required value="23.99">
                 <label class="form-check-label" for="dhl-express"><i class="fab fa-dhl"></i> DHL Express (23.99€)</label>
               </div>
             </div>
+
+            <script type="text/javascript">
+              $(function() {
+                $('#dhl').change(function() {
+                  $test = $(this).val();
+                  $('#shipping-price').html($test);
+                });
+                $('#fedex').change(function() {
+                  $test = $(this).val();
+                  $('#shipping-price').html($test);
+                });
+                $('#dhl-express').change(function() {
+                  $test = $(this).val();
+                  $('#shipping-price').html($test);
+                });
+              });
+            </script>
 
             <hr class="my-4">
 
@@ -532,37 +549,63 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
                 </h4>
                 <ul class="list-group mb-3">
 
-                <?php
-                foreach ($personalShoppingCartData["pData"] as $product) { ?>
-                  <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                      <h6 class="my-0"><?php echo $product["amount"]; echo "x "; echo $product["name"];  ?></h6>
-                      <small class="text-muted"><?php echo $product["header"]; ?></small>
-                    </div>
-                    <span class="text-muted"><?php echo $product["regular_price"]; ?>€ </span>
-                  </li>
-                <?php } ?>
-               
+                  <?php
+                  foreach ($personalShoppingCartData["pData"] as $product) { ?>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                      <div>
+                        <h6 class="my-0"><?php echo $product["amount"];
+                                          echo "x ";
+                                          echo $product["name"];  ?></h6>
+                        <small class="text-muted"><?php echo $product["header"]; ?></small>
+                      </div>
+                      <span class="text-muted"><?php echo $product["regular_price"]; ?>€ </span>
+                    </li>
+                  <?php } ?>
+
                   <li class="list-group-item d-flex justify-content-between bg-light">
                     <div class="text-success">
-                      <h6 class="my-0">Discount <br> <small> Buy 10 or more products of one kind to get 15% off  </small> </h6>
+                      <h6 class="my-0">Discount <br> <small> Buy 10 or more products of one kind to get 15% off </small> </h6>
                     </div>
-                    <span class="text-success"><?php $Discount = $personalShoppingCartData["regular_sum"] - $personalShoppingCartData["discounted_sum"]; echo $Discount; ?>€</span>
+                    <span class="text-success"><?php $Discount = $personalShoppingCartData["regular_sum"] - $personalShoppingCartData["discounted_sum"];
+                                                echo $Discount; ?>€</span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between lh-sm">
                     <div>
                       <h6 class="my-0">Shipping</h6>
                       <!-- <small class="text-muted">Hier soll die ausgewählte Shippingmethode auftauchen</small> -->
                     </div>
-                    <span class="text-muted" id="shipping-price">€
+                    <span class="text-muted" style="position: absolute; right: 30px;" id="shipping-price">
                       <!-- Hier stehen die Kosten der ausgewählten Zahlungsmethode  -->
                     </span>
+                    <div>€</div>
                   </li>
                   <li class="list-group-item d-flex justify-content-between">
                     <span>Total (EUR)</span>
-                    <strong><?php echo $personalShoppingCartData["discounted_sum"];?>€
-                    
-                    
+                    <strong>
+                      <div id="total-price" style="position: absolute; right: 30px">
+
+                      </div> €
+                      <script>
+                        // $('')
+                        // let shippingPrice = document.querySelector('#shipping-price').val();
+                        // let totalPrice = priceWithoutShipping + shippingPrice;
+                        $(function() {
+                          $('#dhl').change(function() {
+            
+                            $totalPrice = parseFloat(<?php echo $personalShoppingCartData["discounted_sum"]; ?>) + parseFloat($(this).val());
+                            $('#total-price').html($totalPrice);
+                          });
+                          $('#dhl-express').change(function() {
+                            $totalPrice = parseFloat(<?php echo $personalShoppingCartData["discounted_sum"]; ?>) + parseFloat($(this).val());
+                            $('#total-price').html($totalPrice);
+                          });
+                          $('#fedex').change(function() {
+                            $totalPrice = parseFloat(<?php echo $personalShoppingCartData["discounted_sum"]; ?>) + parseFloat($(this).val());
+                            $('#total-price').html($totalPrice);
+                          });
+                        });
+                      </script>
+
                     </strong>
                   </li>
                 </ul>
