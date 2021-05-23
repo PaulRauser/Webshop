@@ -23,19 +23,12 @@
     font-weight: bold;
 }
 
-.product-page-rating {
-    margin-top: 20px;
-}
-
-.fa-star {
-    color: #42ba96;
-}
-
 .product-description-heading {
     margin-top: 20px;
     margin-bottom: 10px;
     font-weight: bold;
     font-style: italic;
+    color: #42ba96;
 }
 
 .product-description-text {

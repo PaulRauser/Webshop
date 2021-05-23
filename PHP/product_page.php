@@ -118,14 +118,6 @@ session_start();
                 <div class="product-section-content">
                     <h3 class="product-section-header">Product Name</h3>
                     <div class="product-page-price">$29.99</div>
-                    <div class="product-page-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <span class="page-rating-text">123 Reviews</span>
-                    </div>
                     <div class="product-description-heading">
                         The best shit you can buy.
                     </div>
