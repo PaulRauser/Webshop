@@ -8,7 +8,7 @@ session_start();
   //   header('Location: index.php');
   // }
 
-$product_number = 12;
+$product_number = 1;
 ?>
 
 
