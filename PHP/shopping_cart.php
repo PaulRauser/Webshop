@@ -18,7 +18,7 @@ if ((isset($_POST["updated_amount"]) or isset($_POST["product_delete"])) and iss
   $email = $_SESSION["email"];
   $pId = $_POST["product_id"];
 
-  if((bool)$_POST['product_delete']) {
+  if(json_decode($_POST['product_delete'])) {
     $amount = 0;
   }
 

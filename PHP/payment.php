@@ -402,11 +402,6 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
               <label class="form-check-label" for="same-address">By placing your order you agree to Skibble´s Conditions of Use & Sale. <br> Please see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.</label>
             </div>
 
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="save-info">
-              <label class="form-check-label" for="save-info">Save this information for next time</label>
-            </div>
-
             <hr class="my-4">
 
             <h4 class="mb-3">Select your shipping method</h4>
@@ -582,18 +577,21 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
                           $('#dhl').change(function() {
             
                             $totalPrice = parseFloat(<?php echo $personalShoppingCartData["discounted_sum"]; ?>) + parseFloat($(this).val());
+                            $totalPrice = Math.round($totalPrice * 100) / 100
                             $('#total-price').html($totalPrice);
                             $('#post-total-price').val($totalPrice);
                             $('#post-shipping-method').val('DHL');
                           });
                           $('#dhl-express').change(function() {
                             $totalPrice = parseFloat(<?php echo $personalShoppingCartData["discounted_sum"]; ?>) + parseFloat($(this).val());
+                            $totalPrice = Math.round($totalPrice * 100) / 100
                             $('#total-price').html($totalPrice);
                             $('#post-total-price').val($totalPrice);
                             $('#post-shipping-method').val('DHL-Express');
                           });
                           $('#fedex').change(function() {
                             $totalPrice = parseFloat(<?php echo $personalShoppingCartData["discounted_sum"]; ?>) + parseFloat($(this).val());
+                            $totalPrice = Math.round($totalPrice * 100) / 100
                             $('#total-price').html($totalPrice);
                             $('#post-total-price').val($totalPrice);
                             $('#post-shipping-method').val('FedEx');

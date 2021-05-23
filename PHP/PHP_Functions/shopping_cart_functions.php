@@ -65,12 +65,12 @@ function addItemToOrder($order_id, $product_id, $amount, $price) {
 }
 
 
-function deleteFromShoppingCart($userId) {
+function deleteFromShoppingCart($email) {
     $conn = openDatabase();
 
-    $sqlclearShoppingCart = "DELETE FROM shopping_cart WHERE id=?";
+    $sqlclearShoppingCart = "DELETE FROM shopping_cart WHERE email_fk=?";
     $stmt = $conn->prepare($sqlclearShoppingCart);
-    $stmt->execute([$userId]);
+    $stmt->execute([$email]);
 
     closeDatabase($conn);
 }

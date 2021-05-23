@@ -71,9 +71,12 @@ try {
     //Set subject
     $mail->Subject = "Order confirmation - Skibble";
 
+    
     //Mail Body
-    $mail->Body = "Thank you for your order. You ordered: " . $orderedProducts . " with " . $shippingMethod . " for totally " . $totalPrice . "€"; //Number of product/name of product, number of product... with Versandoption for Gesamtsumme (reduziert)";
-
+    $mail->Body = "<div>" . htmlentities(" Thank you for your order. You ordered:" . $orderedProducts . " with " . $shippingMethod . " for totally " . $totalPrice . "€") . "</div>"; //Number of product/name of product, number of product... with Versandoption for Gesamtsumme (reduziert)";
+    
+    $mail->isHTML(true);
+    
     $mail->send();
 }
 
@@ -99,12 +102,11 @@ foreach($personalShoppingCartData["pData"] as $product) {
     addItemToOrder(getRecentOrderIdFromUser($userId), $product["product_id"], $product["amount"], $product["discounted_price"]);
 }
 
-deleteFromShoppingCart($userId);
+deleteFromShoppingCart($sEmail);
 
 
 
 
 // Mail versenden und dann an Login weitergeben
 header("Location: raccoon.php");
-// TODO irgend ne seite mit danke und ein Waschbär
 ?>
