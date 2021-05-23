@@ -11,7 +11,8 @@ $sLastName = $_SESSION['last_name'];
 $sEmail = $_SESSION['email'];
 
 
-foreach()
+$totalPrice = $_POST['post-total-price']; 
+$shippingMethod = $_POST['post-shipping-method']; 
 
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -55,7 +56,7 @@ try {
     $mail->Subject = "Order confirmation - Skibble";
 
     //Mail Body
-    $mail->Body = "Thank you for your order. You ordered:".   Number of product/name of product, number of product... with Versandoption for Gesamtsumme (reduziert)";
+    $mail->Body = "Thank you for your order. You ordered:".   //Number of product/name of product, number of product... with Versandoption for Gesamtsumme (reduziert)";
 
     $mail->send();
 }

@@ -594,19 +594,30 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
             
                             $totalPrice = parseFloat(<?php echo $personalShoppingCartData["discounted_sum"]; ?>) + parseFloat($(this).val());
                             $('#total-price').html($totalPrice);
+                            $('#post-total-price').val($totalPrice);
+                            $('#post-shipping-method').val('DHL');
                           });
                           $('#dhl-express').change(function() {
                             $totalPrice = parseFloat(<?php echo $personalShoppingCartData["discounted_sum"]; ?>) + parseFloat($(this).val());
                             $('#total-price').html($totalPrice);
+                            $('#post-total-price').val($totalPrice);
+                            $('#post-shipping-method').val('DHL Express');
                           });
                           $('#fedex').change(function() {
                             $totalPrice = parseFloat(<?php echo $personalShoppingCartData["discounted_sum"]; ?>) + parseFloat($(this).val());
                             $('#total-price').html($totalPrice);
+                            $('#post-total-price').val($totalPrice);
+                            $('#post-shipping-method').val('FedEx');
+
                           });
                         });
                       </script>
 
                     </strong>
+                    <!-- total price -->
+                    <input type="hidden" id="post-total-price" name="post-total-price" value="">
+                    <!-- shipping method -->
+                    <input type="hidden" id="post-shipping-method" name="post-shipping-method" value="">
                   </li>
                 </ul>
 
