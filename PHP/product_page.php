@@ -121,6 +121,7 @@ session_start();
                     <div class="product-description-heading">
                         The best shit you can buy.
                     </div>
+                    <div class="product-description-text condition">Condition: </div>
                     <div class="product-description-text">
                         Lorem ipsum dolor sit amet consectetur adipisicing
                         elit. Corporis quis voluptas aspernatur sed autem 
