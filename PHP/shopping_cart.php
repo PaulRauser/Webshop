@@ -109,7 +109,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
               <div class="card-body">
                 <h5 class="card-title"><?php echo $product["name"]; ?></h5>
                 <h6 class="card-subtitle mb-2 text-muted">Condition: <?php echo $product["conds"]; ?></h6>
-                <p class="card-text"><?php echo $product["description"]; ?></p>
+                <p class="card-text"><?php echo $product["header"]; ?></p>
 
                 <ul class="nav nav-pills">
                   <li class="nav-item">

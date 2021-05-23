@@ -9,7 +9,7 @@ function getShoppingCartData($email) {
 
 
 
-    $sqlGetAllShoppingCartInfos = "SELECT amount, name, REPLACE(FORMAT(ROUND(price * amount,2),2),',','') as regular_price, REPLACE(FORMAT(ROUND(price * amount * (1- IF(amount>=10,0.15,0)),2),2),',','') as discounted_price, description, image_cover, conds FROM shopping_cart INNER JOIN user ON (user.email=email_fk) INNER JOIN products ON (products.id=product_id_fk) WHERE user.email=?";
+    $sqlGetAllShoppingCartInfos = "SELECT amount, name, REPLACE(FORMAT(ROUND(price * amount,2),2),',','') as regular_price, REPLACE(FORMAT(ROUND(price * amount * (1- IF(amount>=10,0.15,0)),2),2),',','') as discounted_price, header, image_cover, conds FROM shopping_cart INNER JOIN user ON (user.email=email_fk) INNER JOIN products ON (products.id=product_id_fk) WHERE user.email=?";
     $stmt = $conn->prepare($sqlGetAllShoppingCartInfos);
     $stmt->execute([$email]);
 
