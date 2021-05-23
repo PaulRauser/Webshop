@@ -1,5 +1,7 @@
 <?php
 
+include_once "shopping_cart_functions.php";
+
 function getProductData($id, $specificData, $conn) {
     
     $sqlGetProductData = "SELECT $specificData FROM products WHERE id=?";
@@ -95,6 +97,11 @@ function addToShoppingCart($connection, $amount, $email, $product_number) {
 }
 
 function updateShoppingCart($connection, $amount, $email_fk, $product_id_fk) {
+    if ((int)$amount == 0) {
+        removeFromShoppingCartByUserIdAndProductId ($email_fk, $product_id_fk);
+        return;
+    }
+
     $sqlUpdateShoppingCartAmount = "UPDATE shopping_cart SET amount=? WHERE email_fk=? AND product_id_fk=?";
     $stmt = $connection->prepare($sqlUpdateShoppingCartAmount);
     $stmt->execute([$amount, $email_fk, $product_id_fk]);

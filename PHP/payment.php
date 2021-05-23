@@ -86,7 +86,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
       <div class="row g-5">
         <div class="col-md-7 col-lg-8">
           <h4 class="mb-3">Billing & shipping address</h4>
-          <form class="needs-validation" novalidate>
+          <form class="needs-validation" novalidate method="post" action="send_confirmation_mail.php">
             <div class="row g-3">
               <div class="col-sm-6">
                 <label for="firstName" class="form-label">First name</label>
@@ -101,17 +101,6 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
                 <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   Valid last name is required.
-                </div>
-              </div>
-
-              <div class="col-12">
-                <label for="username" class="form-label">Username (Kann man ja dann automatisch einfügen) </label>
-                <div class="input-group has-validation">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" id="username" placeholder="Username" required>
-                  <div class="invalid-feedback">
-                    Your username is required.
-                  </div>
                 </div>
               </div>
 
@@ -601,7 +590,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
                             $totalPrice = parseFloat(<?php echo $personalShoppingCartData["discounted_sum"]; ?>) + parseFloat($(this).val());
                             $('#total-price').html($totalPrice);
                             $('#post-total-price').val($totalPrice);
-                            $('#post-shipping-method').val('DHL Express');
+                            $('#post-shipping-method').val('DHL-Express');
                           });
                           $('#fedex').change(function() {
                             $totalPrice = parseFloat(<?php echo $personalShoppingCartData["discounted_sum"]; ?>) + parseFloat($(this).val());

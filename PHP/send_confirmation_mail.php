@@ -1,18 +1,34 @@
 <?php
 
+session_name("timlshop");
+session_start();
+
 // Array[Array[Produktname, Bilderlink(Small), Preis, Amount, description], Summe]
 include_once "PHP_Functions/shopping_cart_functions.php";
 $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
-
-session_name("timlshop");
-session_start();
 
 $sLastName = $_SESSION['last_name'];
 $sEmail = $_SESSION['email'];
 
 
-$totalPrice = $_POST['post-total-price']; 
+// $totalPrice = $_POST['post-total-price']; 
 $shippingMethod = $_POST['post-shipping-method']; 
+
+$totalPrice = null;
+if($shippingMethod == "DHL") {
+    $totalPrice = $personalShoppingCartData["discounted_sum"] + 8.99;
+} elseif ($shippingMethod == "DHL-Express") {
+    $totalPrice = $personalShoppingCartData["discounted_sum"] + 23.99;
+} elseif ($shippingMethod == "FedEx") {
+    $totalPrice = $personalShoppingCartData["discounted_sum"] + 3.99;
+}
+
+$orderedProducts = "";
+
+foreach($personalShoppingCartData["pData"] as $product) {
+    $orderedProducts .= " " . $product["amount"] . "x " .  $product["name"] . ",";
+}
+
 
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -56,7 +72,7 @@ try {
     $mail->Subject = "Order confirmation - Skibble";
 
     //Mail Body
-    $mail->Body = "Thank you for your order. You ordered:".   //Number of product/name of product, number of product... with Versandoption for Gesamtsumme (reduziert)";
+    $mail->Body = "Thank you for your order. You ordered: " . $orderedProducts . " with " . $shippingMethod . " for totally " . $totalPrice . "€"; //Number of product/name of product, number of product... with Versandoption for Gesamtsumme (reduziert)";
 
     $mail->send();
 }
@@ -71,6 +87,24 @@ catch(\Exception $e) {
     echo $e->getMessage();
 }
 
+
+$userId = getIdFromUserByEmail($sEmail);
+
+
+
+completeOrder($userId, $totalPrice, $shippingMethod);
+
+
+foreach($personalShoppingCartData["pData"] as $product) {
+    addItemToOrder(getRecentOrderIdFromUser($userId), $product["product_id"], $product["amount"], $product["discounted_price"]);
+}
+
+deleteFromShoppingCart($userId);
+
+
+
+
 // Mail versenden und dann an Login weitergeben
-header("Location: login.php");
+header("Location: raccoon.php");
+// TODO irgend ne seite mit danke und ein Waschbär
 ?>
