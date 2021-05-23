@@ -91,6 +91,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
 
   <div class="container">
     <h1 class="shopping-cart-heading">Your Shopping Cart</h1>
+
     <div class="row">
       <div class="col-12 legend">Preis</div>
 
@@ -124,7 +125,8 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
               </div>
             </div>
           </div>
-          <div class="col-1 shopping-cart-pos-price" id="productPrice" name="productPrice"><?php echo $product["price"]; ?>€</div>
+          <div class="col-1 shopping-cart-pos-price" id="productPrice" name="productPrice"><?php echo $product["regular_price"]; ?>€</div> 
+          <div class="col-1 shopping-cart-pos-price" id="productPrice" name="productPrice"><?php echo $product["regular_price"]; ?>€</div>
           <hr>
         </div>
 
@@ -135,7 +137,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
   <div class="container">
     <div class="row justify-content-end">
       <div class="col-2 shopping-cart-sum">
-        <p id="totalPrice" name="totalPrice">Sum: <?php echo $personalShoppingCartData["sum"]; ?> €</p>
+        <p id="totalPrice" name="totalPrice">Sum: <?php echo $personalShoppingCartData["regular_sum"]; ?> €</p>
       </div>
     </div>
   </div>

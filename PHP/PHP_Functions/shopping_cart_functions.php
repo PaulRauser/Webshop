@@ -8,16 +8,20 @@ function getShoppingCartData($email) {
     $shoppingCartData = array();
 
 
-    $sqlGetAllShoppingCartInfos = "SELECT amount, name, round(price * amount,2) as price, description, image_cover, conds FROM shopping_cart INNER JOIN user ON (user.email=email_fk) INNER JOIN products ON (products.id=product_id_fk) WHERE user.email=?";
+
+    $sqlGetAllShoppingCartInfos = "SELECT amount, name, FORMAT(ROUND(price * amount,2),2) as regular_price, FORMAT(ROUND(price * amount * (1- IF(amount>=10,0.15,0)),2),2) as discounted_price, description, image_cover, conds FROM shopping_cart INNER JOIN user ON (user.email=email_fk) INNER JOIN products ON (products.id=product_id_fk) WHERE user.email=?";
     $stmt = $conn->prepare($sqlGetAllShoppingCartInfos);
     $stmt->execute([$email]);
 
     $shoppingCartData["pData"] = $stmt->fetchAll();
 
 
-    $shoppingCartData["sum"] = 0.0;
+    $shoppingCartData["regular_sum"] = 0.0;
+    $shoppingCartData["discounted_sum"] = 0.0;
+
     foreach($shoppingCartData["pData"] as $product) {
-        $shoppingCartData["sum"] += (float)$product["price"];
+        $shoppingCartData["regular_sum"] += (float)$product["regular_price"];
+        $shoppingCartData["discounted_sum"] += (float)$product["discounted_price"];
     }
     
     return $shoppingCartData;

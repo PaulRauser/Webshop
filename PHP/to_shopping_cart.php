@@ -1,5 +1,8 @@
-<?php 
-    session_name("timlshop");
+<?php
+
+use GuzzleHttp\Psr7\Header;
+
+session_name("timlshop");
     session_start();
     //Check if user is logged in
     $logged_in = $_SESSION['logged_in'];
@@ -16,4 +19,5 @@
     $email = $_SESSION['email'];
 
     addToShoppingCartLogic($amount, $email, $product_number);
+    Header("Location: products.php");
 ?>
