@@ -1,4 +1,5 @@
 <?php
+include 'PHP_Functions/product_functions.php';
 session_name("timlshop");
 session_start();
   //Check if user is logged in
@@ -6,6 +7,8 @@ session_start();
   // if($logged_in == true) {
   //   header('Location: index.php');
   // }
+
+$product_number = 12;
 ?>
 
 
@@ -94,13 +97,13 @@ session_start();
                   </div>
                   <div class="carousel-inner">
                     <div class="carousel-item product-carousel-item active">
-                      <img src="../images/Bild1.jpg" class="d-block w-100 product-page-image" alt="">
+                      <img src="../images/<?php getProductData($product_number, 'image_slide_1'); ?>" class="d-block w-100 product-page-image" alt="">
                     </div>
                     <div class="carousel-item product-carousel-item">
-                      <img src="../images/Bild2.jpg" class="d-block w-100 product-page-image" alt="">
+                      <img src="../images/<?php getProductData($product_number, 'image_slide_2'); ?>" class="d-block w-100 product-page-image" alt="">
                     </div>
                     <div class="carousel-item product-carousel-item">
-                      <img src="../images/Bild3.jpg" class="d-block w-100 product-page-image" alt="">
+                      <img src="../images/<?php getProductData($product_number, 'image_slide_3'); ?>" class="d-block w-100 product-page-image" alt="">
                     </div>
                   </div>
                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -116,18 +119,14 @@ session_start();
             </div>
             <div class="col-5">
                 <div class="product-section-content">
-                    <h3 class="product-section-header">Product Name</h3>
-                    <div class="product-page-price">$29.99</div>
+                    <h3 class="product-section-header"><?php getProductData($product_number, 'name');?></h3>
+                    <div class="product-page-price"><?php getProductData($product_number, 'price');?>€</div>
                     <div class="product-description-heading">
-                        The best shit you can buy.
+                      <?php getProductData($product_number, 'header');?> 
                     </div>
-                    <div class="product-description-text condition">Condition: </div>
+                    <div class="product-description-text condition">Condition: <?php getProductData($product_number, 'conds');?></div>
                     <div class="product-description-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Corporis quis voluptas aspernatur sed autem 
-                        <br><br> obcaecati optio neque minima laudantium ad repellendus
-                        porro laboriosam alias, natus minus error adipisci 
-                        accusamus? A esse culpa veritatis repudiandae porro
+                    <?php getProductData($product_number, 'description');?>
                     </div>
                     <form class="product-quantity" action="#">
                         <span class="quantity-text">Quantity:</span>

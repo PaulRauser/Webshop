@@ -25,6 +25,42 @@ function getProductData($id, $specificData) {
             echo $b['image_cover'];
         }
     }
+    elseif($specificData == 'image_slide_1') {
+        foreach ($stmt->fetchAll() as $row) {
+            $b['image_slide_1'] =  $row['image_slide_1'];
+            echo $b['image_slide_1'];
+        }
+    }
+    elseif($specificData == 'image_slide_2') {
+        foreach ($stmt->fetchAll() as $row) {
+            $b['image_slide_2'] =  $row['image_slide_2'];
+            echo $b['image_slide_2'];
+        }
+    }
+    elseif($specificData == 'image_slide_3') {
+        foreach ($stmt->fetchAll() as $row) {
+            $b['image_slide_3'] =  $row['image_slide_3'];
+            echo $b['image_slide_3'];
+        }
+    }
+    elseif($specificData == 'description') {
+        foreach ($stmt->fetchAll() as $row) {
+            $b['description'] =  $row['description'];
+            echo $b['description'];
+        }
+    }
+    elseif($specificData == 'conds') {
+        foreach ($stmt->fetchAll() as $row) {
+            $b['conds'] =  $row['conds'];
+            echo $b['conds'];
+        }
+    }
+    elseif($specificData == 'header') {
+        foreach ($stmt->fetchAll() as $row) {
+            $b['header'] =  $row['header'];
+            echo $b['header'];
+        }
+    }
     
     closeDatabase($conn);
 }
