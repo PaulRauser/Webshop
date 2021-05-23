@@ -1,0 +1,14 @@
+body {
+    font-family: sans-serif;
+    display: flex; 
+    justify-content:center; 
+    align-items:center; 
+    flex-direction: column;
+    background-image: url('../images/Pet-Raccoons.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.return-link {
+    font-size: 30px;
+}
