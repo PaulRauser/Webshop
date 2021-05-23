@@ -1,5 +1,5 @@
 <?php
-
+//für paul
 //Start Session
 session_name("timlshop");
 session_start();
