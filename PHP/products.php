@@ -1,4 +1,5 @@
 <?php
+// ist uns selbst aufgefallen, dass es so sehr langsam ist, laden nächstes mal alles in ein array
 include 'PHP_Functions/product_functions.php'; 
 session_name("timlshop");
 session_start();
