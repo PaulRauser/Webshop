@@ -4,11 +4,22 @@
 session_name("timlshop");
 session_start();
 
-// include('register.php');
-// echo $generatedPassword;
+function randomPassword()
+{
+    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    $pass = array(); //remember to declare $pass as an array
+    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+    for ($i = 0; $i < 8; $i++) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
+    }
+    return implode($pass); //turn the array into a string
+}
 
-$newGeneratedPassword = "Hallo";
-$newEmail = "Hallo";
+$sNewGeneratedPassword = randomPassword();
+$sForgotPasswordEmail = $_SESSION['forgot_password_email'];
+$sLastName = $_SESSION['last_name'];
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -19,13 +30,6 @@ $datenbankname = "timl";
 $benutzername = "tim";
 $benutzerpasswort = "q9Xlx6Hk7Vpl";
 $servername = "chelex.life";
-
-$sEmail = $_POST['email-input'];
-$sResolution = $_POST['resolution-input'];
-$sOs = $_POST['os-input'];
-$sDatetime = $_POST['datetime-input'];
-$sPwdHash = $_POST["hash-input"];
-$sActive = 1;
 
 
 // Verbindung zur Datenbank
@@ -38,7 +42,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //Password in Datenbank zu $generatedPassword machen
 $sqlUpdatePasswordAndFirstLogin = "UPDATE user SET pwd=?, first_login=?  WHERE email=?";
 $update = $conn->prepare($sqlUpdatePasswordAndFirstLogin);
-$update->execute([$newGeneratedPassword,1,$newEmail]);
+$update->execute([hash('sha512',$sNewGeneratedPassword),1,$sForgotPasswordEmail]);
 
 $mail = new PHPMailer(TRUE);
 
@@ -66,15 +70,14 @@ try {
 
     //Set recipient
 
-    $mail->addAddress($sEmail, 'Paul');
-
+    $mail->addAddress($sForgotPasswordEmail, $sLastName);
     //Set subject
     $mail->Subject = "Reset Password - Skibble";
 
     //Mail Body
-    $mail->Body = "Please log in with this password:".$generatedPassword."After this you'll have to change it.";
+    $mail->Body = "Please log in with this password: " . $sNewGeneratedPassword . " After this you'll have to change it.";
 
-    // $mail->send();
+    $mail->send();
 }
 
 catch(Exception $e) {
