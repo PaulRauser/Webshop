@@ -1,4 +1,5 @@
 <?php
+include 'PHP_Functions/product_functions.php'; 
 session_name("timlshop");
 session_start();
   //Check if user is logged in
@@ -95,12 +96,12 @@ session_start();
     <div class="container product-container">
       <div class="row item-row">
         <div class="col-4 product-main-container">
-          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="<?php ?>" width="auto" height="auto" />
+          <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(1, 'image_cover'); ?>" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
-                    <h5 class="card-title font-weight-bold product-search-name"><?php ?> //Name</h5>
-                    <p class="card-text"><?php ?> //Preis</p> 
-                    <a href="product_page.php" class="btn details px-auto shadow-none"><?php ?> //Eigenschaft</a>
+                    <h5 class="card-title font-weight-bold product-search-name"><?php getProductData(1, 'name');?></h5>
+                    <p class="card-text"><?php getProductData(1, 'price'); ?>€</p> 
+                    <a href="product_page.php" class="btn details px-auto shadow-none">More Details</a>
                     <br/> 
                     <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
                 </div>

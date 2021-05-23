@@ -1,7 +1,32 @@
 <?php
 
 function getProductData($id, $specificData) {
+    $conn = openDatabase();
     
+    $sqlGetProductData = "SELECT $specificData FROM products WHERE id=?";
+    $stmt = $conn->prepare($sqlGetProductData);
+    $stmt->execute([$id]);
+
+    if($specificData == 'name') {
+        foreach ($stmt->fetchAll() as $row) {
+            $b['name'] =  $row['name'];
+            echo $b['name'];
+        }
+    }
+    elseif($specificData == 'price') {
+        foreach ($stmt->fetchAll() as $row) {
+            $b['price'] =  $row['price'];
+            echo $b['price'];
+        }
+    }
+    elseif($specificData == 'image_cover') {
+        foreach ($stmt->fetchAll() as $row) {
+            $b['image_cover'] =  $row['image_cover'];
+            echo $b['image_cover'];
+        }
+    }
+    
+    closeDatabase($conn);
 }
 
 function openDatabase() {
@@ -17,6 +42,7 @@ function openDatabase() {
     
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $conn;
     }
 
     catch (PDOException $e) {
@@ -26,8 +52,8 @@ function openDatabase() {
     }
 }
 
-function closeDatabase() {
-    $conn = null;
+function closeDatabase($closeArgument) {
+    $closeArgument = null;
 }
 
 
