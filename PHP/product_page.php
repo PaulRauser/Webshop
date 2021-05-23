@@ -7,8 +7,8 @@ session_start();
   // if($logged_in == true) {
   //   header('Location: index.php');
   // }
-
-$product_number = 1;
+$product_number = $_GET['number'];
+$conn = openDatabase();
 ?>
 
 
@@ -97,13 +97,13 @@ $product_number = 1;
                   </div>
                   <div class="carousel-inner">
                     <div class="carousel-item product-carousel-item active">
-                      <img src="../images/<?php getProductData($product_number, 'image_slide_1'); ?>" class="d-block w-100 product-page-image" alt="">
+                      <img src="../images/<?php getProductData($product_number, 'image_slide_1', $conn); ?>" class="d-block w-100 product-page-image" alt="">
                     </div>
                     <div class="carousel-item product-carousel-item">
-                      <img src="../images/<?php getProductData($product_number, 'image_slide_2'); ?>" class="d-block w-100 product-page-image" alt="">
+                      <img src="../images/<?php getProductData($product_number, 'image_slide_2', $conn); ?>" class="d-block w-100 product-page-image" alt="">
                     </div>
                     <div class="carousel-item product-carousel-item">
-                      <img src="../images/<?php getProductData($product_number, 'image_slide_3'); ?>" class="d-block w-100 product-page-image" alt="">
+                      <img src="../images/<?php getProductData($product_number, 'image_slide_3', $conn); ?>" class="d-block w-100 product-page-image" alt="">
                     </div>
                   </div>
                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -119,21 +119,22 @@ $product_number = 1;
             </div>
             <div class="col-5">
                 <div class="product-section-content">
-                    <h3 class="product-section-header"><?php getProductData($product_number, 'name');?></h3>
-                    <div class="product-page-price"><?php getProductData($product_number, 'price');?>€</div>
+                    <h3 class="product-section-header"><?php getProductData($product_number, 'name', $conn);?></h3>
+                    <div class="product-page-price"><?php getProductData($product_number, 'price', $conn);?>€</div>
                     <div class="product-description-heading">
-                      <?php getProductData($product_number, 'header');?> 
+                      <?php getProductData($product_number, 'header', $conn);?> 
                     </div>
-                    <div class="product-description-text condition">Condition: <?php getProductData($product_number, 'conds');?></div>
+                    <div class="product-description-text condition">Condition: <?php getProductData($product_number, 'conds', $conn);?></div>
                     <div class="product-description-text">
-                    <?php getProductData($product_number, 'description');?>
+                    <?php getProductData($product_number, 'description', $conn);?>
                     </div>
-                    <form class="product-quantity" action="#">
+                    <form class="product-quantity" method="POST" action="to_shopping_cart.php">
                         <span class="quantity-text">Quantity:</span>
                         <div class="form-outline number-input">
-                            <input type="number" id="typeNumber" class="form-control shadow-none" value="1" min="1" max="100" 
+                            <input type="number" name="amount-input" id="amount-input" class="form-control shadow-none" value="1" min="1" max="100" 
                               onkeydown="if(event.key==='.' | event.key===','){event.preventDefault();}"
                               oninput="if (this.value.length > 2) {this.value = this.value.slice(0,2);}"/>
+                            <input name="product-number" type="hidden" value="<?php $product_number; echo $product_number;?>">
                           </div>
                         <button type="submit" class="product-submit-button">Add to cart</button>
                     </form>
@@ -141,7 +142,9 @@ $product_number = 1;
             </div>
           </div>
       </div>
-
+      <?php 
+        closeDatabase($conn);
+      ?>
 
       <script src="../node_modules/jquery/dist/jquery.js"></script>
       <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>

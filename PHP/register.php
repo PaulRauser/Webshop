@@ -147,7 +147,7 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
                               function(daten) {
                                   $('#active-users').html(daten);
                               });
-                      }, 100);
+                      }, 2000);
                   });
 
                 // function reload() {

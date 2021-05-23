@@ -1,7 +1,6 @@
 <?php
 
-function getProductData($id, $specificData) {
-    $conn = openDatabase();
+function getProductData($id, $specificData, $conn) {
     
     $sqlGetProductData = "SELECT $specificData FROM products WHERE id=?";
     $stmt = $conn->prepare($sqlGetProductData);
@@ -62,7 +61,43 @@ function getProductData($id, $specificData) {
         }
     }
     
+}
+
+function addToShoppingCartLogic($amount, $email, $product_number) {
+    $conn = openDatabase();
+
+    $product_amount = null;
+
+    $sqlGetProductFromEmail = "SELECT amount FROM shopping_cart WHERE email_fk=? AND product_id_fk=?";
+    $t2 = $conn->prepare($sqlGetProductFromEmail);
+    $t2->execute([$email, $product_number]);
+
+    foreach ($t2->fetchAll() as $row) {
+      $product_amount =  $row['amount'];
+    }
+
+    if($product_amount == null) {
+        addToShoppingCart($conn, $amount, $email, $product_number);
+    }
+    
+    else {
+        $newProductAmount = $product_amount + $amount;
+        updateShoppingCart($conn, $newProductAmount, $email, $product_number);    
+    }
+
     closeDatabase($conn);
+}
+
+function addToShoppingCart($connection, $amount, $email, $product_number) {
+    $sqlAddToShoppingCart = "INSERT into shopping_cart (amount, email_fk, product_id_fk) VALUES (?,?,?)";
+    $stmt = $connection->prepare($sqlAddToShoppingCart);
+    $stmt->execute([$amount, $email, $product_number]);
+}
+
+function updateShoppingCart($connection, $amount, $email_fk, $product_id_fk) {
+    $sqlUpdateShoppingCartAmount = "UPDATE shopping_cart SET amount=? WHERE email_fk=? AND product_id_fk=?";
+    $stmt = $connection->prepare($sqlUpdateShoppingCartAmount);
+    $stmt->execute([$amount, $email_fk, $product_id_fk]);
 }
 
 function openDatabase() {
