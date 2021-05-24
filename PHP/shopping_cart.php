@@ -8,8 +8,34 @@ if ($logged_in != true) {
 }
 
 // Array[Array[Produktname, Bilderlink(Small), Preis, Amount, description], Summe]
+include_once "PHP_Functions/product_functions.php";
 include_once "PHP_Functions/shopping_cart_functions.php";
+
+
+if ((isset($_POST["updated_amount"]) or isset($_POST["product_delete"])) and isset($_POST["product_id"])) {
+  
+  $amount = $_POST["updated_amount"];
+  $email = $_SESSION["email"];
+  $pId = $_POST["product_id"];
+
+  if(json_decode($_POST['product_delete'])) {
+    $amount = 0;
+  }
+
+  $conn = openDatabase();
+  
+
+
+  updateShoppingCart($conn, $amount, $email, $pId);
+
+  closeDatabase($conn);
+}
+
 $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -114,11 +140,15 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
                 <ul class="nav nav-pills">
                   <li class="nav-item">
                     <div class="input-group mb-3">
-                      <form action="">
-                        <input type="number" class="form-control" style="width: 80px; float: left;" placeholder="3" aria-label="amount" aria-describedby="updateAmount" value="<?php echo $product["amount"]; ?>" min="0" max="100" onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}" oninput="if (this.value.length > 2) {this.value = this.value.slice(0,2);}">
+                      <!-- // TODO also hier muss man noch den amount aufgeben, aus dem value, schwierig, weil php ja zuvor ausgeführt wird -->
+                      <form action="shopping_cart.php" method="post">
+                        <input type="number" class="form-control" name="updated_amount" id="updated_amount" style="width: 80px; float: left;" placeholder="3" aria-label="amount" aria-describedby="updateAmount" value="<?php echo $product["amount"]; ?>" min="0" max="100" onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}" oninput="if (this.value.length > 2) {this.value = this.value.slice(0,2);}">
+                        <input type="hidden" name="product_id" id="product_id" value="<?php echo $product["product_id"]; ?>">
+                        <input type="hidden" name="product_delete" id="product_delete" value="false">
                         <button class="btn btn-outline-success" type="submit" id="updateAmount" name="updateAmount">Update Amount</button>
-                        <button class="btn btn-outline-success" type="button">Remove</button>
+                        <button class="btn btn-outline-success" type="submit" onclick="$('#product_delete').val('true')">Remove</button>
                       </form>
+
                     </div>
                   </li>
                 </ul>
@@ -126,7 +156,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
             </div>
           </div>
           <div class="prices">
-            <div class="col-1 shopping-cart-pos-price" id="productPrice" name="productPrice"><?php echo $product["regular_price"]; ?>€</div> 
+            <div class="col-1 shopping-cart-pos-price" id="productPrice" name="productPrice"><?php echo $product["regular_price"]; ?>€</div>
             <div class="discounted-price col-1 shopping-cart-pos-price" id="productPrice" name="productPrice"><?php echo $product["discounted_price"]; ?>€</div>
           </div>
           <hr>

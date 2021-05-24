@@ -86,7 +86,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
       <div class="row g-5">
         <div class="col-md-7 col-lg-8">
           <h4 class="mb-3">Billing & shipping address</h4>
-          <form class="needs-validation" novalidate>
+          <form class="needs-validation" novalidate method="post" action="send_confirmation_mail.php">
             <div class="row g-3">
               <div class="col-sm-6">
                 <label for="firstName" class="form-label">First name</label>
@@ -101,17 +101,6 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
                 <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   Valid last name is required.
-                </div>
-              </div>
-
-              <div class="col-12">
-                <label for="username" class="form-label">Username (Kann man ja dann automatisch einfügen) </label>
-                <div class="input-group has-validation">
-                  <span class="input-group-text">@</span>
-                  <input type="text" class="form-control" id="username" placeholder="Username" required>
-                  <div class="invalid-feedback">
-                    Your username is required.
-                  </div>
                 </div>
               </div>
 
@@ -413,11 +402,6 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
               <label class="form-check-label" for="same-address">By placing your order you agree to Skibble´s Conditions of Use & Sale. <br> Please see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.</label>
             </div>
 
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="save-info">
-              <label class="form-check-label" for="save-info">Save this information for next time</label>
-            </div>
-
             <hr class="my-4">
 
             <h4 class="mb-3">Select your shipping method</h4>
@@ -593,20 +577,34 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
                           $('#dhl').change(function() {
             
                             $totalPrice = parseFloat(<?php echo $personalShoppingCartData["discounted_sum"]; ?>) + parseFloat($(this).val());
+                            $totalPrice = Math.round($totalPrice * 100) / 100
                             $('#total-price').html($totalPrice);
+                            $('#post-total-price').val($totalPrice);
+                            $('#post-shipping-method').val('DHL');
                           });
                           $('#dhl-express').change(function() {
                             $totalPrice = parseFloat(<?php echo $personalShoppingCartData["discounted_sum"]; ?>) + parseFloat($(this).val());
+                            $totalPrice = Math.round($totalPrice * 100) / 100
                             $('#total-price').html($totalPrice);
+                            $('#post-total-price').val($totalPrice);
+                            $('#post-shipping-method').val('DHL-Express');
                           });
                           $('#fedex').change(function() {
                             $totalPrice = parseFloat(<?php echo $personalShoppingCartData["discounted_sum"]; ?>) + parseFloat($(this).val());
+                            $totalPrice = Math.round($totalPrice * 100) / 100
                             $('#total-price').html($totalPrice);
+                            $('#post-total-price').val($totalPrice);
+                            $('#post-shipping-method').val('FedEx');
+
                           });
                         });
                       </script>
 
                     </strong>
+                    <!-- total price -->
+                    <input type="hidden" id="post-total-price" name="post-total-price" value="">
+                    <!-- shipping method -->
+                    <input type="hidden" id="post-shipping-method" name="post-shipping-method" value="">
                   </li>
                 </ul>
 

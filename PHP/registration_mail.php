@@ -43,7 +43,7 @@ try {
     //Set recipient
     $sEmail = $_SESSION['email']; 
 
-    $mail->addAddress($sEmail, 'Paul');
+    $mail->addAddress($sEmail, 'Lieblingsuser');
 
     //Set subject
     $mail->Subject = "Your Password - Skibble";
