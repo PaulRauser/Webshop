@@ -58,6 +58,11 @@ if ((isset($_POST['new-password-input']))) {
   }
 }
 
+
+//array[order.id, array[name, condition, header, recent_amount, discounted_price], discounted_sum, date]
+// echo var_dump($personalOrderData);
+// exit;
+
 ?>
 
 <!DOCTYPE html>
@@ -178,71 +183,88 @@ if ((isset($_POST['new-password-input']))) {
       Order recent products again
     </div>
 
-  
+
     <div class="container">
-    <h1 class="shopping-cart-heading">Your Previous Orders</h1>
+      <h1 class="shopping-cart-heading">Your Previous Orders</h1>
 
-    <div class="row">
-      <div class="col-12 legend">Preis</div>
-
-      <!-- Ein Produkt -->
+      // Über gesamte Bestellungen iterieren
       <?php
-      foreach ($personalShoppingCartData["pData"] as $product) { ?>
+      // PHP um die Recent products zu laden
+      include_once "PHP_Functions/recent_products_functions.php";
+      $email = $_SESSION["email"];
+      $userId = getIdFromUserByEmail($email);
+      $personalOrderData = getAllOrderDataByUserId($userId);
 
-        <div class="container-fluid col-12 shopping-cart-pos">
-          <hr>
-          <div class="col-3 shopping-cart-pos-img-box" id="productImage" name="productImage">
-            <img class="img-thumbnail shopping-cart-pos-img" src="../images/<?php echo $product["image_cover"]; ?>" alt="Tolles Produkt" />
-          </div>
-          <div class="col-8" id="productText" name="productDescription">
-            <div class="card shopping-cart-pos-description">
-              <div class="card-body">
-                <h5 class="card-title"><?php echo $product["name"]; ?></h5>
-                <h6 class="card-subtitle mb-2 text-muted">Condition: <?php echo $product["conds"]; ?></h6>
-                <p class="card-text"><?php echo $product["header"]; ?></p>
 
-                <ul class="nav nav-pills">
-                  <li class="nav-item">
-                    <div class="input-group mb-3">
-                      <!-- // TODO also hier muss man noch den amount aufgeben, aus dem value, schwierig, weil php ja zuvor ausgeführt wird -->
-                      <form action="shopping_cart.php" method="post">
-                        <div class="amount-bought">Recently bought: <?php echo $product["amount"]; ?></div>
-                      </form>
+      // wir können nicht über die orders (wir haben z.B. ["id"] probiert) iterieren...
+      foreach ($personalOrderData as $order) { ?>
+        <div>Ihre Bestellung am: <?php echo $order["date"]; ?></div>
+        getOrderProducts($orderId);
+      <?php } ?>
 
-                    </div>
-                  </li>
-                </ul>
+
+
+      <div class="row">
+        <div class="col-12 legend">Preis</div>
+
+        <!-- Diese Produkte haben sie gekauft -->
+        <?php
+        foreach ($personalShoppingCartData["pData"] as $product) { ?>
+
+          <div class="container-fluid col-12 shopping-cart-pos">
+            <hr>
+            <div class="col-3 shopping-cart-pos-img-box" id="productImage" name="productImage">
+              <img class="img-thumbnail shopping-cart-pos-img" src="../images/<?php echo $product["image_cover"]; ?>" alt="Tolles Produkt" />
+            </div>
+            <div class="col-8" id="productText" name="productDescription">
+              <div class="card shopping-cart-pos-description">
+                <div class="card-body">
+                  <h5 class="card-title"><?php echo $product["name"]; ?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Condition: <?php echo $product["conds"]; ?></h6>
+                  <p class="card-text"><?php echo $product["header"]; ?></p>
+
+                  <ul class="nav nav-pills">
+                    <li class="nav-item">
+                      <div class="input-group mb-3">
+                        <!-- // TODO also hier muss man noch den amount aufgeben, aus dem value, schwierig, weil php ja zuvor ausgeführt wird -->
+                        <form action="shopping_cart.php" method="post">
+                          <div class="amount-bought">Recently bought: <?php echo $product["amount"]; ?></div>
+                        </form>
+
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
+            <div class="prices">
+              <div class="col-1 shopping-cart-pos-price" id="productPrice" name="productPrice"><?php echo $product["regular_price"]; ?>€</div>
+              <div class="discounted-price col-1 shopping-cart-pos-price" id="productPrice" name="productPrice"><?php echo $product["discounted_price"]; ?>€</div>
+            </div>
+            <hr>
           </div>
-          <div class="prices">
-            <div class="col-1 shopping-cart-pos-price" id="productPrice" name="productPrice"><?php echo $product["regular_price"]; ?>€</div>
-            <div class="discounted-price col-1 shopping-cart-pos-price" id="productPrice" name="productPrice"><?php echo $product["discounted_price"]; ?>€</div>
-          </div>
-          <hr>
-        </div>
 
-      <?php } ?>
+        <?php } ?>
+      </div>
+
     </div>
-
-  </div>
-  <div class="buy-again">Buy again</div>
-  <div class="container">
-    <div class="row justify-content-end final-price">
-      <div class="col-2 shopping-cart-sum profile-price">
-        <p id="totalPrice" class="price" name="totalPrice">Sum: <?php echo $personalShoppingCartData["regular_sum"]; ?> €</p>
-        <p id="discountedPrice" class="discounted-price price" name="discountedPrice">Discounted Sum: <?php echo $personalShoppingCartData["discounted_sum"]; ?> €</p>
+    <div class="buy-again">Buy again</div>
+    <div class="container">
+      <div class="row justify-content-end final-price">
+        <div class="col-2 shopping-cart-sum profile-price">
+          <p id="totalPrice" class="price" name="totalPrice">Sum: <?php echo $personalShoppingCartData["regular_sum"]; ?> €</p>
+          <p id="discountedPrice" class="discounted-price price" name="discountedPrice">Discounted Sum: <?php echo $personalShoppingCartData["discounted_sum"]; ?> €</p>
+        </div>
       </div>
     </div>
-  </div>
 
 
-  <div class="copyright">©Dolly-Dawn Barnpusher 2021</div>
+    <div class="copyright">©Dolly-Dawn Barnpusher 2021</div>
 
-  <script src="../node_modules/jquery/dist/jquery.js"></script>
-  <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
-  <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="../JavaScript/change_password.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../JavaScript/change_password.js"></script>
 </body>
 
 </html>
