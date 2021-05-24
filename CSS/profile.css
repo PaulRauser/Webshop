@@ -139,3 +139,49 @@ body {
     display: flex;
     justify-content: flex-start;
 }
+
+.amount-bought {
+    position: relative;
+    top: 0px;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #42ba96;
+}
+
+.final-price::after {
+    position: absolute;
+    content: '';
+    bottom: -360px;;
+    left: 5%; 
+    width: 90%;
+    height: 2px;
+    background-color: black;
+}
+
+.price {
+    width: 300px;
+    position: relative;
+    left: -160px;
+}
+
+.buy-again {
+    padding: 10px;
+    border: 1px solid white;
+    background-color: #42ba96;
+    color: white;
+    position: absolute;
+    width: 200px; 
+    font-weight: 600;
+    left: 52px;
+    top: 1300px;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    transition: color .3s, background-color .3s;
+}
+
+.buy-again:hover {
+    color: black;
+    background-color: transparent;
+    border-color: black;
+}

@@ -180,7 +180,7 @@ if ((isset($_POST['new-password-input']))) {
 
   
     <div class="container">
-    <h1 class="shopping-cart-heading">Your Shopping Cart</h1>
+    <h1 class="shopping-cart-heading">Your Previous Orders</h1>
 
     <div class="row">
       <div class="col-12 legend">Preis</div>
@@ -206,11 +206,7 @@ if ((isset($_POST['new-password-input']))) {
                     <div class="input-group mb-3">
                       <!-- // TODO also hier muss man noch den amount aufgeben, aus dem value, schwierig, weil php ja zuvor ausgeführt wird -->
                       <form action="shopping_cart.php" method="post">
-                        <input type="number" class="form-control" name="updated_amount" id="updated_amount" style="width: 80px; float: left;" placeholder="3" aria-label="amount" aria-describedby="updateAmount" value="<?php echo $product["amount"]; ?>" min="0" max="100" onkeydown="if(event.key==='.' | event.key===',' | event.key==='-' | event.key==='+'){event.preventDefault();}" oninput="if (this.value.length > 2) {this.value = this.value.slice(0,2);}">
-                        <input type="hidden" name="product_id" id="product_id" value="<?php echo $product["product_id"]; ?>">
-                        <input type="hidden" name="product_delete" id="product_delete" value="false">
-                        <button class="btn btn-outline-success" type="submit" id="updateAmount" name="updateAmount">Update Amount</button>
-                        <button class="btn btn-outline-success" type="submit" onclick="$('#product_delete').val('true')">Remove</button>
+                        <div class="amount-bought">Recently bought: <?php echo $product["amount"]; ?></div>
                       </form>
 
                     </div>
@@ -230,11 +226,12 @@ if ((isset($_POST['new-password-input']))) {
     </div>
 
   </div>
+  <div class="buy-again">Buy again</div>
   <div class="container">
-    <div class="row justify-content-end">
-      <div class="col-2 shopping-cart-sum">
-        <p id="totalPrice" name="totalPrice">Sum: <?php echo $personalShoppingCartData["regular_sum"]; ?> €</p>
-        <p id="totalPrice" class="discounted-price" name="totalPrice">Discounted Sum: <?php echo $personalShoppingCartData["discounted_sum"]; ?> €</p>
+    <div class="row justify-content-end final-price">
+      <div class="col-2 shopping-cart-sum profile-price">
+        <p id="totalPrice" class="price" name="totalPrice">Sum: <?php echo $personalShoppingCartData["regular_sum"]; ?> €</p>
+        <p id="discountedPrice" class="discounted-price price" name="discountedPrice">Discounted Sum: <?php echo $personalShoppingCartData["discounted_sum"]; ?> €</p>
       </div>
     </div>
   </div>
