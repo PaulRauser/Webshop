@@ -28,7 +28,8 @@ function getShoppingCartData($email)
     return $shoppingCartData;
 }
 
-function getRecentOrderIdFromUser($userId) {
+function getRecentOrderIdFromUser($userId)
+{
     $conn = openDatabase();
 
     $getRecentOrderIdFromUser = "SELECT id FROM orders WHERE fk_user=? ORDER BY date DESC LIMIT 1";
@@ -48,13 +49,11 @@ function completeOrder($userId, $total_price, $shipping_method)
     $stmt = $conn->prepare($sqlInsertOrder);
     $stmt->execute([$userId, $total_price, $shipping_method]);
 
-    
-
-    
     closeDatabase($conn);
 }
 
-function addItemToOrder($order_id, $product_id, $amount, $price) {
+function addItemToOrder($order_id, $product_id, $amount, $price)
+{
     $conn = openDatabase();
 
     $sqlAddItemToOrder = "INSERT INTO orders_products (order_id, product_id, amount, price) VALUES (?,?,?,?)";
@@ -65,7 +64,8 @@ function addItemToOrder($order_id, $product_id, $amount, $price) {
 }
 
 
-function deleteFromShoppingCart($email) {
+function deleteFromShoppingCart($email)
+{
     $conn = openDatabase();
 
     $sqlclearShoppingCart = "DELETE FROM shopping_cart WHERE email_fk=?";
