@@ -80,7 +80,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
       <div class="py-5 text-center">
         <!-- Hier könnte ein Bild stehen! -->
         <h2>Checkout</h2>
-        <p class="lead">Please fill in the </p>
+        <p class="lead">Please fill in the necessary Informations</p>
       </div>
 
       <div class="row g-5">
