@@ -195,7 +195,16 @@ if ((isset($_POST['new-password-input']))) {
       $userId = getIdFromUserByEmail($email);
       $personalOrderData = getAllOrderDataByUserId($userId);
 
+      $test = $personalOrderData[0];
+      echo $test["id"];
+      var_dump($test);
 
+
+      echo getType($personalOrderData);
+      // var_dump($personalOrderData);
+      exit();  
+
+      
       // wir können nicht über die orders (wir haben z.B. ["id"] probiert) iterieren...
       foreach ($personalOrderData as $order) { ?>
         <div>Ihre Bestellung am: <?php echo $order["date"]; ?></div>
