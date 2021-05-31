@@ -2,17 +2,16 @@
     include_once 'product_functions.php';
     include_once 'shopping_cart_functions.php';
 
-    function getAllOrderDataByUserId($user_id) {
+    function getAllOrderDataByUserId($order_id) {
         //array[order.id, discounted_sum, date, array[name, condition, header, recent_amount, discounted_price]]
         $orderArray = array();
 
         $conn = openDatabase();
-        $getAllOrderDataByUserId = 'SELECT orders.id, name, orders_products.price as price, conds, orders_products.amount, total_price, orders.date as date 
-        FROM orders_products INNER JOIN orders ON (orders.id = orders_products.order_id) 
-        INNER JOIN products ON (products.id = orders_products.product_id) 
-        WHERE fk_user=? ORDER BY date DESC';
+        $getAllOrderDataByUserId = 'SELECT name, orders_products.price as price, conds, orders_products.amount, header, products.id as id, image_cover 
+        FROM orders_products INNER JOIN products ON (products.id = orders_products.product_id) 
+        WHERE order_id=?';
         $stmt = $conn->prepare($getAllOrderDataByUserId);
-        $stmt->execute([$user_id]);
+        $stmt->execute([$order_id]);
 
         $orderArray = $stmt->fetchAll();
 
@@ -27,7 +26,7 @@
         //array[order.id, discounted_sum, date]
 
         $conn = openDatabase();
-        $sqlGetOrdersByUserId = "SELECT id, total_price as price, date FROM orders WHERE fk_user=?";
+        $sqlGetOrdersByUserId = "SELECT id, total_price, date FROM orders WHERE fk_user=?";
         $stmt = $conn->prepare($sqlGetOrdersByUserId);
         $stmt->execute([$user_id]);
 
