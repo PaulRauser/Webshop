@@ -248,14 +248,16 @@ if ((isset($_POST['new-password-input']))) {
             </div>
             <hr>
           </div>
-          <?php
-          $orderedProducts .= " " . $product["amount"] . "x " .  $product["name"] . ",";
-          ?>
+
         <?php } ?>
-
+        
     </div>
-
-    <form action="order_again_mail.php" method="POST">
+    
+    <?php 
+    $_SESSION["ordered-products"] = $orderedProducts
+    ?>
+    <form action="order_again.php" method="POST">
+      <input type="hidden" name="order_id" value="<?php  echo $order_id; ?>">
       <button class="buy-again" type="submit">Buy again</button>
     </form>
   <?php } ?>
@@ -271,10 +273,7 @@ if ((isset($_POST['new-password-input']))) {
     </div>
   </div>
 
-<?php 
-$_SESSION["ordered-products"] = $orderedProducts
 
-?>
 
 
 
