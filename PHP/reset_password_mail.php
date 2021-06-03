@@ -19,6 +19,7 @@ function randomPassword()
 $sNewGeneratedPassword = randomPassword();
 $sForgotPasswordEmail = $_SESSION['forgot_password_email'];
 $sLastName = $_SESSION['last_name'];
+$sFirstName = $_SESSION['first_name'];
 
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -63,6 +64,8 @@ $mail->Username = "skibble987@gmail.com";
 //App Password for access from other application
 $mail->Password = "aiajdpnceltqnbcq";
 
+
+$sName = $sFirstName.' '.$sLastName; 
 // Open try Catch
 try {
     //Set mail sender
@@ -70,7 +73,7 @@ try {
 
     //Set recipient
 
-    $mail->addAddress($sForgotPasswordEmail, $sLastName);
+    $mail->addAddress($sForgotPasswordEmail, $name);
     //Set subject
     $mail->Subject = "Reset Password - Skibble";
 

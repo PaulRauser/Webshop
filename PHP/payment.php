@@ -88,7 +88,8 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
           <h4 class="mb-3">Billing & shipping address</h4>
           <form class="needs-validation" novalidate method="post" action="send_confirmation_mail.php">
             <div class="row g-3">
-              <div class="col-sm-6">
+              <!-- Basically nicht nötig, weil man ja schon angemeldet ist mit nem Namen -->
+              <!-- <div class="col-sm-6">
                 <label for="firstName" class="form-label">First name</label>
                 <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
                 <div class="invalid-feedback">
@@ -102,7 +103,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
                 <div class="invalid-feedback">
                   Valid last name is required.
                 </div>
-              </div>
+              </div> -->
 
               <div class="col-12">
                 <label for="email" class="form-label">Email
@@ -116,7 +117,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
 
               <div class="col-12">
                 <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" placeholder="Baker St 5" required>
+                <input type="text" class="form-control" id="address" required>
                 <div class="invalid-feedback">
                   Please enter your shipping address.
                 </div>
@@ -191,7 +192,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
                   <option value="Dominican Republic">Dominican Republic</option>
                   <option value="Ecuador">Ecuador</option>
                   <option value="Egypt">Egypt</option>
-                  <option value="Egypt">Ein Ford Focus</option>
+                  <option value="Ein Ford Focus">Ein Ford Focus</option>
                   <option value="El Salvador">El Salvador</option>
                   <option value="Equatorial Guinea">Equatorial Guinea</option>
                   <option value="Eritrea">Eritrea</option>
@@ -333,6 +334,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
                   <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option>
                   <option value="Spain">Spain</option>
                   <option value="Sri Lanka">Sri Lanka</option>
+                  <option value="Steinsohn">Steinsohn</option>
                   <option value="Sudan">Sudan</option>
                   <option value="Suriname">Suriname</option>
                   <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
@@ -380,7 +382,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
 
               <div class="col-md-4">
                 <label for="city" class="form-label">City</label>
-                <input type="text" class="form-control" id="city" placeholder="Munich" required>
+                <input type="text" class="form-control" id="city" required>
                 <div class="invalid-feedback">
                   Please provide a valid state.
                 </div>
@@ -388,7 +390,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
 
               <div class="col-md-3">
                 <label for="zip" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="zip" placeholder="80331" required>
+                <input type="text" class="form-control" id="zip" required>
                 <div class="invalid-feedback">
                   Zip code required.
                 </div>
@@ -529,7 +531,6 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
               <div class="col-md-5 col-lg-4 order-md-last side-thing">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                   <span class="text-success">Your cart</span>
-                  <span class="badge bg-success rounded-pill">3</span>
                 </h4>
                 <ul class="list-group mb-3">
 

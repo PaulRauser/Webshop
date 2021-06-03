@@ -24,6 +24,8 @@ if ($logged_in != true) {
 
   <link rel="stylesheet" href="../CSS/homepage.css">
   <link rel="stylesheet" href="../CSS/general_frontend_styles.css">
+
+  <link rel="icon" type="image/png" href="../images/Tartuffo_Small.jpg"/>
 </head>
 
 <body>
@@ -94,28 +96,27 @@ if ($logged_in != true) {
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="../images/Wald.jpg" class="d-block w-100" alt="Wald">
+        <img src="../images/Sword_Slide Cropped.jpg" class="d-block w-100" alt="Wald">
       </div>
       <div class="carousel-caption d-none d-md-block">
-        <h5><a href="">Check this out</a></h5>
       </div>
       <div class="carousel-item">
-        <img src="../images/Wand.jpg" class="d-block w-100" alt="Wand">
+        <img src="../images/Trueffel_Slide Cropped.jpg" class="d-block w-100" alt="Wand">
         <div class="carousel-caption d-none d-md-block">
         </div>
       </div>
       <div class="carousel-item">
-        <img src="../images/Bäume.jpg" class="d-block w-100" alt="Bäume">
+        <img src="../images/Büroklammer_Slide Cropped.jpg" class="d-block w-100" alt="Bäume">
         <div class="carousel-caption d-none d-md-block">
         </div>
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span id="dark-2" class="carousel-control-prev-icon dark" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span id="dark-2" class="carousel-control-next-icon dark" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
   </div>
@@ -153,40 +154,37 @@ if ($logged_in != true) {
     </div>
     <div class="row">
       <div class="col-4 ">
-        <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+        <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Klammer_Small.jpeg" width="auto" height="auto" />
           <div class="card-body text-center mx-auto">
             <div class='cvp'>
-              <h5 class="card-title font-weight-bold">Very nice Product</h5>
-              <p class="card-text">$299</p>
-              <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+              <h5 class="card-title font-weight-bold">Paperclipper</h5>
+              <p class="card-text">2.99€</p>
+              <a href="product_page.php?number=4" class="btn details px-auto shadow-none">view details</a>
               <br />
-              <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
             </div>
           </div>
         </div>
       </div>
       <div class="col-4">
-        <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+        <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Tartuffo_Small.jpg" width="auto" height="auto" />
           <div class="card-body text-center mx-auto">
             <div class='cvp'>
-              <h5 class="card-title font-weight-bold">Very nice Product</h5>
-              <p class="card-text">$299</p>
-              <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+              <h5 class="card-title font-weight-bold">Tartufo</h5>
+              <p class="card-text">4.99€</p>
+              <a href="product_page.php?number=7" class="btn details px-auto shadow-none">view details</a>
               <br />
-              <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
             </div>
           </div>
         </div>
       </div>
       <div class="col-4">
-        <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/square.jpg" width="auto" height="auto" />
+        <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Papier_small_picture.jpg" width="auto" height="auto" />
           <div class="card-body text-center mx-auto">
             <div class='cvp'>
-              <h5 class="card-title font-weight-bold">Very nice Product</h5>
-              <p class="card-text">$299</p>
-              <a href="product_page.php" class="btn details px-auto shadow-none">view details</a>
+              <h5 class="card-title font-weight-bold">Tear-off strip</h5>
+              <p class="card-text">1.99€</p>
+              <a href="product_page.php?number=11" class="btn details px-auto shadow-none">view details</a>
               <br />
-              <a href="product_page.php" class="btn cart px-auto shadow-none no-hover">ADD TO CART</a>
             </div>
           </div>
         </div>

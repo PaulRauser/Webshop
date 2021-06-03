@@ -41,15 +41,14 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     $stmt->execute([$sEmail]);
 
     if ($stmt->rowCount() == 0) {
-      echo "user gibt es nciht";
+      echo '<script>alert("This user doesn\'t exist.")</script>';
       exit();
     }
 
     $userRow = $stmt->fetch();
 
     if ($userRow["pwd"] != $sPwdHash) {
-      echo "Password stimmt nicht überein!";
-      header('Location: login.php');
+      echo '<script>alert("The password isn\'t correct")</script>';
       exit();
     }
 
@@ -116,7 +115,7 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
       exit();
     }
 
-    header("Location: index.php");
+      header("Location: index.php");
   } catch (PDOException $e) {
     $handle = fopen("error_addfriend.txt", "w");
     fwrite($handle, $e->getMessage());
@@ -232,7 +231,7 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
             <div class="form-group">
               <label class=" control-label" for="email-input">Enter your Email:</label>
               <div class="">
-                <input id="email-input" required name="email-input" type="email" placeholder="email-address" class="form-control input-md custom-login-input">
+                <input id="email-input" name="email-input" type="text" placeholder="email-address" class="form-control input-md custom-login-input">
               </div>
             </div>
 
@@ -240,7 +239,7 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
             <div class="form-group">
               <label class=" control-label" for="passwordinput">Enter your Password:</label>
               <div class="">
-                <input id="password-input" required type="password" placeholder="password" class="form-control input-md custom-login-input">
+                <input id="password-input" type="password" placeholder="password" class="form-control input-md custom-login-input">
               </div>
             </div>
 
@@ -277,6 +276,7 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
   <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="../JavaScript/sha512.js"></script>
   <script src="../JavaScript/login.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
 
