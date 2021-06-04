@@ -257,7 +257,13 @@ if ((isset($_POST['new-password-input']))) {
                 <hr>
               </div>
 
-              <div class="container">
+
+
+            <?php } ?>
+
+        </div>
+        
+        <div class="container">
                 <div class="row justify-content-end final-price">
                   <div class="col-2 shopping-cart-sum profile-price" id="sumPrevOrder">
                     <p id="discountedPrice" class="discounted-price price" name="discountedPrice">Discounted Sum:
@@ -276,11 +282,6 @@ if ((isset($_POST['new-password-input']))) {
                 </div>
               </div>
 
-            <?php } ?>
-
-        </div>
-
-
         <?php
             $_SESSION["ordered-products"] = $orderedProducts
         ?>
@@ -294,26 +295,7 @@ if ((isset($_POST['new-password-input']))) {
       <div class="col-1">
 
       </div>
-    </div>
-    <!-- Hier muss mit click auf buy again  -->
-    <div class="container">
-      <div class="row justify-content-end final-price">
-        <div class="col-2 shopping-cart-sum profile-price" id="sumPrevOrder">
-          <p id="discountedPrice" class="discounted-price price" name="discountedPrice">Discounted Sum:
-            <?php
-            if (isset($order["total_price"])) {
-              echo $order["total_price"];
-            } else {
-              echo "<script type='text/javascript'>
-              document.getElementById('sumPrevOrder').hidden = true;
-              document.getElementById('prevOrdersHeading').hidden = true;
-              document.getElementById('noPrevOrdersHeading').hidden = false;              
-              </script>";
-            }
-            ?> €</p>
-        </div>
-      </div>
-    </div>
+ 
 
 
 
