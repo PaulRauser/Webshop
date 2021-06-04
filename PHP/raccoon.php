@@ -1,3 +1,7 @@
+<!-- BONUS HIERFÜR??? -->
+
+
+
 <?php
 session_name("timlshop");
 session_start();

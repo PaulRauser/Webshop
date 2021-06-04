@@ -65,4 +65,20 @@
 
         return $orderArray;
     }
+
+    function getOrderProductName($productId) {
+        $conn = openDatabase();
+
+        $getOrderProductName = "SELECT name FROM products WHERE id=?";
+        $stmt = $conn->prepare($getOrderProductName);
+        $stmt->execute([$productId]);
+
+        $productName = $stmt->fetch();
+
+        $result = $productName['name'];
+
+        closeDatabase($conn);
+
+        return $result;
+    }
 ?>
