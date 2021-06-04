@@ -183,130 +183,148 @@ if ((isset($_POST['new-password-input']))) {
       Order recent products again
     </div>
     <div class="row">
-    <div class="col-1">
-    
-    </div>
-    <div class="row-10">
-    
-    
+      <div class="col-1">
+
+      </div>
+      <div class="row-10">
 
 
-    <div class="container">
-      <h1 class="shopping-cart-heading" id="prevOrdersHeading">Your Previous Orders</h1>
-      <h1 class="shopping-cart-heading" id="noPrevOrdersHeading" hidden>You have no previous orders</h1>
-
-      <!-- // Über gesamte Bestellungen iterieren -->
-      <?php
-      // PHP um die Recent products zu laden
-      include_once "PHP_Functions/recent_products_functions.php";
-      $email = $_SESSION["email"];
-      $userId = getIdFromUserByEmail($email);
-      
-      $orderedProducts = "";
-
-      $personalNumberOfOrders = getOrdersByUserId($userId);
 
 
-      // wir können nicht über die orders (wir haben z.B. ["id"] probiert) iterieren...
-      foreach ($personalNumberOfOrders as $order) { ?>
-        <div>Ihre Bestellung am: <?php echo $order["date"]; ?>
+        <div class="container">
+          <h1 class="shopping-cart-heading" id="prevOrdersHeading">Your Previous Orders</h1>
+          <h1 class="shopping-cart-heading" id="noPrevOrdersHeading" hidden>You have no previous orders</h1>
 
+          <!-- // Über gesamte Bestellungen iterieren -->
           <?php
-          $_SESSION["total_price"] = $order["total_price"];
+          // PHP um die Recent products zu laden
+          include_once "PHP_Functions/recent_products_functions.php";
+          $email = $_SESSION["email"];
+          $userId = getIdFromUserByEmail($email);
 
-          ?>
+          $orderedProducts = "";
+
+          $personalNumberOfOrders = getOrdersByUserId($userId);
+
+
+          // wir können nicht über die orders (wir haben z.B. ["id"] probiert) iterieren...
+          foreach ($personalNumberOfOrders as $order) { ?>
+            <div>Ihre Bestellung am: <?php echo $order["date"]; ?>
+
+              <?php
+              $_SESSION["total_price"] = $order["total_price"];
+
+              ?>
+
+            </div>
+
+            <!-- Hier nochmal über alle einzelnen Bestellungen iterieren -->
+
+
+
+
+            <?php
+            $order_id = $order["id"];
+            $personalOrderData = getAllOrderDataByUserId($order_id);
+            foreach ($personalOrderData as $product) {  ?>
+
+              <div class="container-fluid col-12 shopping-cart-pos">
+                <hr>
+                <div class="col-3 shopping-cart-pos-img-box" id="productImage" name="productImage">
+                  <img class="img-thumbnail shopping-cart-pos-img" src="../images/<?php echo $product["image_cover"]; ?>" alt="Tolles Produkt" />
+                </div>
+                <div class="col-8" id="productText" name="productDescription">
+                  <div class="card shopping-cart-pos-description">
+                    <div class="card-body">
+                      <h5 class="card-title"><?php echo $product["name"]; ?></h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Condition: <?php echo $product["conds"]; ?></h6>
+                      <p class="card-text"><?php echo $product["header"]; ?></p>
+
+                      <ul class="nav nav-pills">
+                        <li class="nav-item">
+                          <div class="input-group mb-3">
+                            <!-- // TODO also hier muss man noch den amount aufgeben, aus dem value, schwierig, weil php ja zuvor ausgeführt wird -->
+                            <form action="shopping_cart.php" method="post">
+                              <div class="amount-bought">Recently bought: <?php echo $product["amount"]; ?></div>
+                            </form>
+
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+              </div>
+
+              <div class="container">
+                <div class="row justify-content-end final-price">
+                  <div class="col-2 shopping-cart-sum profile-price" id="sumPrevOrder">
+                    <p id="discountedPrice" class="discounted-price price" name="discountedPrice">Discounted Sum:
+                      <?php
+                      if (isset($order["total_price"])) {
+                        echo $order["total_price"];
+                      } else {
+                        echo "<script type='text/javascript'>
+              document.getElementById('sumPrevOrder').hidden = true;
+              document.getElementById('prevOrdersHeading').hidden = true;
+              document.getElementById('noPrevOrdersHeading').hidden = false;              
+              </script>";
+                      }
+                      ?> €</p>
+                  </div>
+                </div>
+              </div>
+
+            <?php } ?>
 
         </div>
 
-        <!-- Hier nochmal über alle einzelnen Bestellungen iterieren -->
-
-
-
 
         <?php
-        $order_id = $order["id"];
-        $personalOrderData = getAllOrderDataByUserId($order_id);
-        foreach ($personalOrderData as $product) {  ?>
+            $_SESSION["ordered-products"] = $orderedProducts
+        ?>
+        <form action="order_again.php" method="POST">
+          <input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
+          <button class="buy-again" type="submit">Buy again</button>
+        </form>
+      <?php } ?>
 
-          <div class="container-fluid col-12 shopping-cart-pos">
-            <hr>
-            <div class="col-3 shopping-cart-pos-img-box" id="productImage" name="productImage">
-              <img class="img-thumbnail shopping-cart-pos-img" src="../images/<?php echo $product["image_cover"]; ?>" alt="Tolles Produkt" />
-            </div>
-            <div class="col-8" id="productText" name="productDescription">
-              <div class="card shopping-cart-pos-description">
-                <div class="card-body">
-                  <h5 class="card-title"><?php echo $product["name"]; ?></h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Condition: <?php echo $product["conds"]; ?></h6>
-                  <p class="card-text"><?php echo $product["header"]; ?></p>
+      </div>
+      <div class="col-1">
 
-                  <ul class="nav nav-pills">
-                    <li class="nav-item">
-                      <div class="input-group mb-3">
-                        <!-- // TODO also hier muss man noch den amount aufgeben, aus dem value, schwierig, weil php ja zuvor ausgeführt wird -->
-                        <form action="shopping_cart.php" method="post">
-                          <div class="amount-bought">Recently bought: <?php echo $product["amount"]; ?></div>
-                        </form>
-
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <hr>
-          </div>
-
-        <?php } ?>
-        
-    </div> 
-    
-    
-    <?php 
-    $_SESSION["ordered-products"] = $orderedProducts
-    ?>
-    <form action="order_again.php" method="POST">
-      <input type="hidden" name="order_id" value="<?php  echo $order_id; ?>">
-      <button class="buy-again" type="submit">Buy again</button>
-    </form>
-    <?php } ?>
-
-  </div>
-  <div class="col-1">
-  
-  </div>
-  </div>
-  <!-- Hier muss mit click auf buy again  -->
-  <div class="container">
-    <div class="row justify-content-end final-price">
-      <div class="col-2 shopping-cart-sum profile-price" id="sumPrevOrder">
-        <p id="discountedPrice" class="discounted-price price" name="discountedPrice">Discounted Sum: 
-          <?php 
-            if(isset($order["total_price"])){
-              echo $order["total_price"];              
-            }
-            else{
+      </div>
+    </div>
+    <!-- Hier muss mit click auf buy again  -->
+    <div class="container">
+      <div class="row justify-content-end final-price">
+        <div class="col-2 shopping-cart-sum profile-price" id="sumPrevOrder">
+          <p id="discountedPrice" class="discounted-price price" name="discountedPrice">Discounted Sum:
+            <?php
+            if (isset($order["total_price"])) {
+              echo $order["total_price"];
+            } else {
               echo "<script type='text/javascript'>
               document.getElementById('sumPrevOrder').hidden = true;
               document.getElementById('prevOrdersHeading').hidden = true;
               document.getElementById('noPrevOrdersHeading').hidden = false;              
-              </script>";              
-            } 
-          ?> €</p>
+              </script>";
+            }
+            ?> €</p>
+        </div>
       </div>
     </div>
-  </div>
 
 
 
 
 
-  <div class="copyright">©Dolly-Dawn Barnpusher 2021</div>
+    <div class="copyright">©Dolly-Dawn Barnpusher 2021</div>
 
-  <script src="../node_modules/jquery/dist/jquery.js"></script>
-  <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
-  <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="../JavaScript/change_password.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../JavaScript/change_password.js"></script>
 </body>
 
 </html>

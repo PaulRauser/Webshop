@@ -2,6 +2,19 @@
 
 include_once "shopping_cart_functions.php";
 
+function getTotalPriceByOrderId($orderId) {
+    $conn = openDatabase();
+
+    $sqlGetProductFromEmail = "SELECT total_price FROM orders WHERE id=?";
+    $stmt = $conn->prepare($sqlGetProductFromEmail);
+    $stmt->execute([$orderId]);
+
+    $totalPrice = $stmt->fetch()["total_price"];
+    closeDatabase($conn);
+    return $totalPrice;
+}
+
+
 function getProductData($id, $specificData, $conn) {
     
     $sqlGetProductData = "SELECT $specificData FROM products WHERE id=?";
