@@ -45,7 +45,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webshop</title>
+  <title>Skibble</title>
 
   <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
@@ -57,7 +57,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.php">Webshop</a>
+      <a class="navbar-brand" href="index.php">Skibble</a>
       <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -125,8 +125,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
       <?php
       if(sizeof($personalShoppingCartData["pData"]) == 0){
         echo "<div class='alert alert-warning proceed-to-checkout' role='alert'>Your Cart is empty go to <a href='products.php' class='link-danger'>Products </a>instead</div>";
-        echo "<h1 class='shopping-cart-heading'>Your Shopping Cart is currently rocking no items</h1>";
-        echo "<img src='../images/racoon_guitar.jpg' class='img-fluid' alt='Racoon'>";
+        echo "<h1 class='shopping-cart-heading'>Your Shopping Cart is currently rocking no items</h1>";        
       }
       foreach ($personalShoppingCartData["pData"] as $product) { ?>
 
