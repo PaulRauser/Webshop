@@ -55,12 +55,15 @@
 
         $_SESSION["shipping_method"] = $shipping_method;
         $_SESSION["total_price"] = $total_price;
+        $product_amount = 0;
 
         foreach($products as $product) {
             $ordered_products .= $product['amount'] . 'x ' .  getOrderProductName($product['product_id']) . ', ';
+            $product_amount = $product_amount + 1;
         }
 
         $_SESSION["ordered_products"] = $ordered_products;
+        $_SESSION["product_amount"]  = $product_amount ;
 
         closeDatabase($conn);
         header("Location: order_again_mail.php");
