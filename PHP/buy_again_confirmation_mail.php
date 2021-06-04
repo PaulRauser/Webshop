@@ -8,6 +8,7 @@ include_once "PHP_Functions/shopping_cart_functions.php";
 $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
 
 $sLastName = $_SESSION['last_name'];
+$sFirstName = $_SESSION['first_name'];
 $sEmail = $_SESSION['email'];
 
 
@@ -60,6 +61,8 @@ $mail->Username = "skibble987@gmail.com";
 //App Password for access from other application
 $mail->Password = "aiajdpnceltqnbcq";
 
+
+$sName = $sFirstName.' '.$sLastName; 
 // Open try Catch
 try {
     //Set mail sender
@@ -67,7 +70,7 @@ try {
 
     //Set recipient
 
-    $mail->addAddress($sEmail, $sLastName);
+    $mail->addAddress($sEmail, $sName);
     //Set subject
     $mail->Subject = "Order confirmation - Skibble";
 

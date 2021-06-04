@@ -4,13 +4,15 @@ const passwordInput = document.querySelectorAll('.custom-login-input')[1];
 const loginSubmit = document.querySelector('.custom-login-button');
 const legend = document.querySelector('.login-legend');
 
-loginSubmit.addEventListener('click', () => {
+loginSubmit.addEventListener('click', (event) => {
     if(usernameInput.value.length < 3 || !usernameInput.value.includes("@")) {
-        legend.innerHTML = "Fick dich: Mindestens 3 Buchstaben und ein @, du Hurensohn.";
+        legend.innerHTML = "At least 3 letters and an @ for username.";
+        event.preventDefault();
     }    
     else if(passwordInput.value.length == 0) {
-        legend.innerHTML = "Fick dich: Mindestens 1 Zeichen für Passwort";
-    }
+        legend.innerHTML = "At least 1 character for password.";
+        event.preventDefault();
+      }
     else {
         legend.innerHTML = "Login";
     }
@@ -24,7 +26,6 @@ loginSubmit.addEventListener('click', () => {
     document.getElementById("datetime-input").setAttribute("value", today);
 
     var sd = sha512($("#password-input").val());
-    console.log(sd);
 
     $('#hash-input').val(sha512($("#password-input").val())); // In Ehren von Michael Zink
     

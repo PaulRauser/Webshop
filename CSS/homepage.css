@@ -15,9 +15,9 @@
     width: 100%;
 }
 
-.carousel-inner, .carousel {
+/* .carousel-inner, .carousel {
     max-height: 300px;
-}
+} */
 
 .details {
     border: 1.5px solid #42ba96;
@@ -74,5 +74,25 @@
 
 .home-heading {
     margin-top: 50px;
+}
+
+#dark-1 {
+    background-color: rgba(0,0,0,.6);
+    border-radius: 10px;
+}
+
+#dark-2 {
+    background-color: rgba(0,0,0,.6);
+    border-radius: 10px;
+
+}
+
+.visually-hidden {
+    color: black;
+}
+
+.carousel-indicators {
+    background-color: rgba(0,0,0,.4);
+    border-radius: 10px;
 }
 

@@ -287,7 +287,7 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
                                 <option value="Dominican Republic">Dominican Republic</option>
                                 <option value="Ecuador">Ecuador</option>
                                 <option value="Egypt">Egypt</option>
-                                <option value="Egypt">Ein Ford Focus</option>
+                                <option value="Ein Ford Focus">Ein Ford Focus</option>
                                 <option value="El Salvador">El Salvador</option>
                                 <option value="Equatorial Guinea">Equatorial Guinea</option>
                                 <option value="Eritrea">Eritrea</option>
