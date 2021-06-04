@@ -81,8 +81,7 @@
 .product-carousel {
     top: 80px;
     position: relative;
-    width: 70%;
-    left: 15%;
+    width: 100%;
 }
 
 .carousel-item {
@@ -92,4 +91,9 @@
 .condition {
     font-weight: 600;
     margin-bottom: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
 }
