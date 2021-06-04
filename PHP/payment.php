@@ -7,6 +7,11 @@ if ($logged_in != true) {
   header('Location: no_access.php');
 }
 
+$cart_empty = $_SESSION['emptyCart'];
+if(isset($cart_empty) and $cart_empty == true){
+  header('Location: shopping_cart.php');  
+}
+
 include_once "PHP_Functions/shopping_cart_functions.php";
 $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
 ?>

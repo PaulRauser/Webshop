@@ -191,6 +191,10 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
                 document.getElementById('shoppingCartSum').hidden = true;
                 document.getElementById('priceLegend').hidden = true;
               </script>";
+        $_SESSION['emptyCart'] = true;
+      } 
+      else{
+        $_SESSION['emptyCart'] = false;
       }
     ?>
   </div>
