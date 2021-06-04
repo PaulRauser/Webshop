@@ -90,7 +90,7 @@ session_start();
     <div class="container">
       <h1 class="products-heading">View all of our insane products</h1>
       <form action="">
-        <div class="input-group mb-3 search-input">
+        <div class="input-group mb-3 search-input" style="width: 80%; position: relative; left: 10%;">
           <input id="bumsen" type="text" class="form-control shadow-none search-text-input" placeholder="Search in Products">
         </div>
       </form>
