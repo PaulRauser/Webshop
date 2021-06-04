@@ -119,10 +119,13 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
     <h1 class="shopping-cart-heading">Your Shopping Cart</h1>
 
     <div class="row">
-      <div class="col-12 legend">Preis</div>
+      <div class="col-12 legend" id="priceLegend">Preis</div>
 
       <!-- Ein Produkt -->
       <?php
+      if(sizeof($personalShoppingCartData["pData"]) == 0){
+        echo "<div class='alert alert-warning proceed-to-checkout' role='alert'>Your Cart is empty go to <a href='products.php' class='link-danger'>Products </a>instead</div>";
+      }
       foreach ($personalShoppingCartData["pData"] as $product) { ?>
 
         <div class="container-fluid col-12 shopping-cart-pos">
@@ -165,24 +168,33 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
       <?php } ?>
     </div>
 
-  </div>
-  <div class="container">
-    <div class="row justify-content-end">
-      <div class="col-2 shopping-cart-sum">
-        <p id="totalPrice" name="totalPrice">Sum: <?php echo $personalShoppingCartData["regular_sum"]; ?> €</p>
-        <p id="totalPrice" class="discounted-price" name="totalPrice">Discounted Sum: <?php echo $personalShoppingCartData["discounted_sum"]; ?> €</p>
+    </div>
+    <div class="container">
+      <div class="row justify-content-end">
+        <div class="col-2 shopping-cart-sum" id="shoppingCartSum">
+          <p id="totalPrice" name="totalPrice">Sum: <?php echo $personalShoppingCartData["regular_sum"]; ?> €</p>
+          <p id="totalPrice" class="discounted-price" name="totalPrice">Discounted Sum: <?php echo $personalShoppingCartData["discounted_sum"]; ?> €</p>
+        </div>
       </div>
     </div>
+    
+    <div class="proceed-to-checkout" id="checkoutButton">
+              <a href="payment.php" class="btn btn-warning" role="button" aria-pressed="true">
+              <i class="far fa-credit-card"></i>&nbsp Proceed to Checkout</a>
+    </div>
+      
+
+    <?php
+      if(sizeof($personalShoppingCartData["pData"]) == 0){ 
+        echo "<script type='text/javascript'>
+                document.getElementById('checkoutButton').hidden = true;
+                document.getElementById('shoppingCartSum').hidden = true;
+                document.getElementById('priceLegend').hidden = true;
+              </script>";
+      }
+    ?>
   </div>
-
-
-  <div class="proceed-to-checkout">
-    <a href="payment.php" class="btn btn-warning" role="button" aria-pressed="true">
-      <i class="far fa-credit-card"></i>&nbsp Proceed to Checkout</a>
-  </div>
-
-  </div>
-
+      
 
   <script src="../node_modules/jquery/dist/jquery.js"></script>
   <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
