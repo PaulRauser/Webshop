@@ -7,9 +7,10 @@ session_start();
 // include('register.php');
 // echo $generatedPassword;
 $generatedPassword = $_SESSION['generatedPassword'];
-echo $generatedPassword;
 $testAusgabe = $_SESSION['email'];
-echo $testAusgabe;
+$sLastName = $_SESSION['last_name'];
+$sFirstName = $_SESSION['first_name'];
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -35,6 +36,8 @@ $mail->Username = "skibble987@gmail.com";
 //App Password for access from other application
 $mail->Password = "aiajdpnceltqnbcq";
 
+$sName = $sFirstName.' '.$sLastName; 
+
 // Open try Catch
 try {
     //Set mail sender
@@ -43,7 +46,7 @@ try {
     //Set recipient
     $sEmail = $_SESSION['email']; 
 
-    $mail->addAddress($sEmail, 'Lieblingsuser');
+    $mail->addAddress($sEmail, $name);
 
     //Set subject
     $mail->Subject = "Your Password - Skibble";
