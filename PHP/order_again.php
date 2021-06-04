@@ -26,15 +26,20 @@
 
         $order = $peter->fetch();
 
-        $newId = $order_id + 1;
+        
         $fk_user = $order['fk_user'];
         $shipping_method = $order['shipping_method'];
         $total_price = $order['total_price'];
 
-        $sqlAddNewOrder = "INSERT into orders (id, fk_user, shipping_method, total_price) VALUES (?,?,?,?)";
+        $sqlAddNewOrder = "INSERT into orders (fk_user, shipping_method, total_price) VALUES (?,?,?)";
         $peter = $conn->prepare($sqlAddNewOrder);
-        $peter->execute([$newId, $fk_user, $shipping_method, $total_price]);
+        $peter->execute([$fk_user, $shipping_method, $total_price]);
 
+        $sqlGetPreviousOrderID = "SELECT id FROM orders WHERE fk_user=? ORDER BY id DESC";
+        $frank = $conn->prepare($sqlGetPreviousOrderID);
+        $frank->execute([$fk_user, $shipping_method, $total_price]);
+
+        $newId = $stmt->fetch();
 
         //Products hinzufügen
         foreach($products as $product) {
