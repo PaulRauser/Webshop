@@ -182,6 +182,13 @@ if ((isset($_POST['new-password-input']))) {
     <div class="buy-again-header">
       Order recent products again
     </div>
+    <div class="row">
+    <div class="col-1">
+    
+    </div>
+    <div class="row-10">
+    
+    
 
 
     <div class="container">
@@ -262,10 +269,13 @@ if ((isset($_POST['new-password-input']))) {
       <input type="hidden" name="order_id" value="<?php  echo $order_id; ?>">
       <button class="buy-again" type="submit">Buy again</button>
     </form>
-  <?php } ?>
+    <?php } ?>
 
-
-
+  </div>
+  <div class="col-1">
+  
+  </div>
+  </div>
   <!-- Hier muss mit click auf buy again  -->
   <div class="container">
     <div class="row justify-content-end final-price">
