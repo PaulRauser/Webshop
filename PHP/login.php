@@ -27,6 +27,7 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     $sPwdHash = $_POST["hash-input"];
     $sActive = 1;
 
+    
 
     // Verbindung zur Datenbank
     $conn = new PDO("mysql:host=$servername;dbname=$datenbankname", $benutzername, $benutzerpasswort);
@@ -41,14 +42,16 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
     $stmt->execute([$sEmail]);
 
     if ($stmt->rowCount() == 0) {
-      echo '<script>alert("This user doesn\'t exist.")</script>';
-      exit();
+      $_SESSION['userDoesNotExist'] = true;
+      header('Location: login.php');
+      exit();        
     }
 
     $userRow = $stmt->fetch();
 
     if ($userRow["pwd"] != $sPwdHash) {
-      echo '<script>alert("The password isn\'t correct")</script>';
+      $_SESSION['pwIncorrect'] = true;            
+      header('Location: login.php');      
       exit();
     }
 
@@ -233,6 +236,12 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
               <div class="">
                 <input id="email-input" name="email-input" type="text" placeholder="email-address" class="form-control input-md custom-login-input">
               </div>
+                <?php
+                  if (isset($_SESSION['userDoesNotExist']) and $_SESSION['userDoesNotExist'] == true) {
+                  echo '<div class="alert alert-danger" role="alert">User does not exist!</div>';
+                  $_SESSION['userDoesNotExist'] = false;               
+                }
+                ?>                
             </div>
 
             <!-- Password input-->
@@ -240,7 +249,13 @@ if ((isset($_POST['email-input']) and  isset($_POST['resolution-input']) and iss
               <label class=" control-label" for="passwordinput">Enter your Password:</label>
               <div class="">
                 <input id="password-input" type="password" placeholder="password" class="form-control input-md custom-login-input">
-              </div>
+              </div>              
+              <?php
+                  if (isset($_SESSION['pwIncorrect']) and $_SESSION['pwIncorrect'] == true) {
+                  echo '<div class="alert alert-danger" role="alert">Incorrect password!</div>';
+                  $_SESSION['pwIncorrect'] = false;               
+                }
+                ?>
             </div>
 
             <!-- Button -->
