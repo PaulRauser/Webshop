@@ -35,11 +35,13 @@
         $peter = $conn->prepare($sqlAddNewOrder);
         $peter->execute([$fk_user, $shipping_method, $total_price]);
 
-        $sqlGetPreviousOrderID = "SELECT id FROM orders WHERE fk_user=? ORDER BY id DESC";
+        $sqlGetPreviousOrderID = "SELECT id FROM orders WHERE fk_user=? ORDER BY id DESC LIMIT 1";
         $frank = $conn->prepare($sqlGetPreviousOrderID);
         $frank->execute([$fk_user]);
 
-        $newId = $stmt->fetch()['id'];
+        $newId = $frank->fetch()["id"];
+
+    
 
         //Products hinzufügen
         foreach($products as $product) {
