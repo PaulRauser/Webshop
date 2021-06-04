@@ -110,7 +110,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
       </button>
       <a href="profile.php" class="btn btn-outline-success left" role="button" aria-pressed="true" style="margin-right: 10px;">
         <i class="fas fa-user"></i>&nbsp Account</a>
-      <a href="shopping_cart.php" class="btn btn-outline-success" role="button" aria-pressed="true">
+      <a href="shopping_cart.php" class="btn btn-success" role="button" aria-pressed="true">
         <i class="fas fa-shopping-cart"></i>&nbsp Shopping Cart</a>
     </div>
   </nav>

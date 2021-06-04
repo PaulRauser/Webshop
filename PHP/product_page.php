@@ -19,7 +19,7 @@ $conn = openDatabase();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webshop</title>
+    <title>Skibble</title>
 
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
@@ -30,7 +30,7 @@ $conn = openDatabase();
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.php">Webshop</a>
+          <a class="navbar-brand" href="index.php">Skibble</a>
           <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -86,8 +86,10 @@ $conn = openDatabase();
         </div>
       </nav>
       <div class="container">
+      <!-- Header mit dem Namen -->
+      <h3 style="text-align: center; margin-top: 10%;"  class="col-md-12 col-sm-12 d-xl-none d-lg-none"><?php getProductData($product_number, 'name', $conn);?></h3> 
         <div class="row">
-            <div class="col-7">
+            <div class="col-lg-7 col-md-10 col-sm-10">
               <div class="product-image-section ">
                 <div id="carouselExampleIndicators" class="carousel slide product-carousel" data-bs-ride="carousel">
                   <div class="carousel-indicators">
@@ -117,7 +119,7 @@ $conn = openDatabase();
                 </div>
               </div>
             </div>
-            <div class="col-5">
+            <div class="col-lg-5 col-md-10 col-sm-10">
                 <div class="product-section-content">
                     <h3 class="product-section-header"><?php getProductData($product_number, 'name', $conn);?></h3>
                     <div class="product-page-price"><?php getProductData($product_number, 'price', $conn);?>€</div>
