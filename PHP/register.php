@@ -495,8 +495,14 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
                         email: $("#email-input").val()
                     },
                     function(daten) {
-                        $('#duplicate-user').html(daten);
-                        $('#register_now').attr("disabled",true);
+                        if(daten.length > 0){
+                            $('#register_now').attr("disabled",true);
+                            
+                        } 
+                        else{
+                            $('#register_now').attr("disabled",false);
+                        }
+                        $('#duplicate-user').html(daten);                       
                     });
             }, 1000);
         });

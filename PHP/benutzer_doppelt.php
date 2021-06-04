@@ -20,6 +20,4 @@ $rowCount = $stmt->fetch();
 
 if ((int)($rowCount["c"]) != 0) {
     echo "<i class=\"fas fa-ban\"></i> This email is already in use"; 
-
-    $sDuplicate = true;
 }
