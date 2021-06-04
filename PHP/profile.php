@@ -185,7 +185,8 @@ if ((isset($_POST['new-password-input']))) {
 
 
     <div class="container">
-      <h1 class="shopping-cart-heading">Your Previous Orders</h1>
+      <h1 class="shopping-cart-heading" id="prevOrdersHeading">Your Previous Orders</h1>
+      <h1 class="shopping-cart-heading" id="noPrevOrdersHeading" hidden>You have no previous orders</h1>
 
       <!-- // Über gesamte Bestellungen iterieren -->
       <?php
@@ -251,7 +252,8 @@ if ((isset($_POST['new-password-input']))) {
 
         <?php } ?>
         
-    </div>
+    </div> 
+    
     
     <?php 
     $_SESSION["ordered-products"] = $orderedProducts
@@ -267,8 +269,20 @@ if ((isset($_POST['new-password-input']))) {
   <!-- Hier muss mit click auf buy again  -->
   <div class="container">
     <div class="row justify-content-end final-price">
-      <div class="col-2 shopping-cart-sum profile-price">
-        <p id="discountedPrice" class="discounted-price price" name="discountedPrice">Discounted Sum: <?php echo $order["total_price"]; ?> €</p>
+      <div class="col-2 shopping-cart-sum profile-price" id="sumPrevOrder">
+        <p id="discountedPrice" class="discounted-price price" name="discountedPrice">Discounted Sum: 
+          <?php 
+            if(isset($order["total_price"])){
+              echo $order["total_price"];              
+            }
+            else{
+              echo "<script type='text/javascript'>
+              document.getElementById('sumPrevOrder').hidden = true;
+              document.getElementById('prevOrdersHeading').hidden = true;
+              document.getElementById('noPrevOrdersHeading').hidden = false;              
+              </script>";              
+            } 
+          ?> €</p>
       </div>
     </div>
   </div>
