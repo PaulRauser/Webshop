@@ -97,7 +97,7 @@ session_start();
     </div>
     <div class="container product-container">
       <div class="row item-row all-products">
-        <div class="col-4 product-main-container">
+        <div class="col-lg-4 col-md-6 col-sm-12 product-main-container">
           <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(1, 'image_cover', $conn); ?>" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
@@ -109,7 +109,7 @@ session_start();
             </div>
           </div>
         </div>
-        <div class="col-4 product-main-container">
+        <div class="col-lg-4 col-md-6 col-sm-12  product-main-container">
           <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(2, 'image_cover', $conn); ?>" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
@@ -121,7 +121,7 @@ session_start();
             </div>
           </div>
         </div>
-        <div class="col-4 product-main-container">
+        <div class="col-lg-4 col-md-6 col-sm-12 product-main-container">
           <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(3, 'image_cover', $conn); ?>" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
@@ -133,7 +133,7 @@ session_start();
             </div>
           </div>
         </div>
-        <div class="col-4 product-main-container">
+        <div class="col-lg-4 col-md-6 col-sm-12 product-main-container">
           <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(4, 'image_cover', $conn); ?>" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
@@ -145,7 +145,7 @@ session_start();
             </div>
           </div>
         </div>
-        <div class="col-4 product-main-container">
+        <div class="col-lg-4 col-md-6 col-sm-12 product-main-container">
           <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(5, 'image_cover', $conn); ?>" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
@@ -157,7 +157,7 @@ session_start();
             </div>
           </div>
         </div>
-        <div class="col-4 product-main-container">
+        <div class="col-lg-4 col-md-6 col-sm-12 product-main-container">
           <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(6, 'image_cover', $conn); ?>" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
@@ -169,7 +169,7 @@ session_start();
             </div>
           </div>
         </div>
-        <div class="col-4 product-main-container">
+        <div class="col-lg-4 col-md-6 col-sm-12 product-main-container">
           <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(7, 'image_cover', $conn); ?>" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
@@ -181,7 +181,7 @@ session_start();
             </div>
           </div>
         </div>
-        <div class="col-4 product-main-container">
+        <div class="col-lg-4 col-md-6 col-sm-12 product-main-container">
           <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(8, 'image_cover', $conn); ?>" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
@@ -193,7 +193,7 @@ session_start();
             </div>
           </div>
         </div>
-        <div class="col-4 product-main-container">
+        <div class="col-lg-4 col-md-6 col-sm-12 product-main-container">
           <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(9, 'image_cover', $conn); ?>" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
@@ -205,7 +205,7 @@ session_start();
             </div>
           </div>
         </div>
-        <div class="col-4 product-main-container">
+        <div class="col-lg-4 col-md-6 col-sm-12 product-main-container">
           <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(10, 'image_cover', $conn); ?>" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
@@ -217,7 +217,7 @@ session_start();
             </div>
           </div>
         </div>
-        <div class="col-4 product-main-container">
+        <div class="col-lg-4 col-md-6 col-sm-12 product-main-container">
           <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(11, 'image_cover', $conn); ?>" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
@@ -229,7 +229,7 @@ session_start();
             </div>
           </div>
         </div>
-        <div class="col-4 product-main-container">
+        <div class="col-lg-4 col-md-6 col-sm-12 product-main-container">
           <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(12, 'image_cover', $conn); ?>" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
@@ -241,7 +241,7 @@ session_start();
             </div>
           </div>
         </div>
-        <div class="col-4 product-main-container">
+        <div class="col-lg-4 col-md-6 col-sm-12 product-main-container">
           <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/<?php getProductData(13, 'image_cover', $conn); ?>" width="auto" height="auto" />
             <div class="card-body text-center mx-auto">
                 <div class='cvp'>
