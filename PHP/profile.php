@@ -152,11 +152,6 @@ if ((isset($_POST['new-password-input']))) {
         <div class="change-password-section">
           <h3 class="change-password-heading">Change your Password</h3>
           <form class="change-password-form" action="" method="POST">
-            <!-- <div class="input-description" id="g">Enter old Password:</div>
-                <div class="input-group flex-nowrap change-password">
-                    <input type="password" class="form-control input-md old-password" aria-label="Username" aria-describedby="addon-wrapping">
-                </div>
-                <div class="old-password-info pw-info"></div> -->
 
             <div class="input-description" id="g">Enter new Password:</div>
             <div class="input-group flex-nowrap change-password">
@@ -272,10 +267,10 @@ if ((isset($_POST['new-password-input']))) {
                         echo $order["total_price"];
                       } else {
                         echo "<script type='text/javascript'>
-              document.getElementById('sumPrevOrder').hidden = true;
-              document.getElementById('prevOrdersHeading').hidden = true;
-              document.getElementById('noPrevOrdersHeading').hidden = false;              
-              </script>";
+                          document.getElementById('sumPrevOrder').hidden = true;
+                          document.getElementById('prevOrdersHeading').hidden = true;
+                          document.getElementById('noPrevOrdersHeading').hidden = false;              
+                          </script>";
                       }
                       ?> €</p>
                   </div>
