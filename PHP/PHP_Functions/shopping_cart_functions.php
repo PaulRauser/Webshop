@@ -43,13 +43,13 @@ function getRecentOrderIdFromUser($userId)
 }
 
 
-function completeOrder($userId, $total_price, $shipping_method)
+function completeOrder($userId, $total_price, $shipping_method, $zip, $address, $country, $city)
 {
     $conn = openDatabase();
 
-    $sqlInsertOrder = "INSERT INTO orders (fk_user, total_price, shipping_method) VALUES (?,?,?)";
+    $sqlInsertOrder = "INSERT INTO orders (fk_user, total_price, shipping_method, zip, address, country, city) VALUES (?,?,?,?,?,?,?)";
     $stmt = $conn->prepare($sqlInsertOrder);
-    $stmt->execute([$userId, $total_price, $shipping_method]);
+    $stmt->execute([$userId, $total_price, $shipping_method, $zip, $address, $country, $city]);
 
     closeDatabase($conn);
 }

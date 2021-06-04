@@ -137,7 +137,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
 
               <div class="col-12">
                 <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" required>
+                <input type="text" class="form-control" id="address" name="address" required>
                 <div class="invalid-feedback">
                   Please enter your shipping address.
                 </div>
@@ -145,7 +145,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
 
               <div class="col-md-5">
                 <label for="country" class="form-label">Country</label>
-                <select class="form-select" id="country" required>
+                <select class="form-select" id="country" name="country" required>
                   <option value="">Choose...</option>
                   <option> Choose...</option>
                   <option value="Afghanistan">Afghanistan</option>
@@ -402,15 +402,15 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
 
               <div class="col-md-4">
                 <label for="city" class="form-label">City</label>
-                <input type="text" class="form-control" id="city" required>
+                <input type="text" class="form-control" name="city" id="city" required>
                 <div class="invalid-feedback">
-                  Please provide a valid state.
+                  Please provide a valid city.
                 </div>
               </div>
 
               <div class="col-md-3">
                 <label for="zip" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="zip" required>
+                <input type="text" class="form-control" id="zip" name="zip" required>
                 <div class="invalid-feedback">
                   Zip code required.
                 </div>

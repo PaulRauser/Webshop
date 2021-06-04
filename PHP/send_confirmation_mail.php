@@ -99,8 +99,13 @@ catch(\Exception $e) {
 $userId = getIdFromUserByEmail($sEmail);
 
 
+// add delivery address to database
+$address = $_POST["address"];
+$country = $_POST["country"];
+$city = $_POST["city"];
+$zip = $_POST["zip"];
 
-completeOrder($userId, $totalPrice, $shippingMethod);
+completeOrder($userId, $totalPrice, $shippingMethod, $zip, $address, $country, $city);
 
 
 foreach($personalShoppingCartData["pData"] as $product) {
@@ -108,6 +113,17 @@ foreach($personalShoppingCartData["pData"] as $product) {
 }
 
 deleteFromShoppingCart($sEmail);
+
+include_once "PHP_Functions/product_functions.php";
+
+
+
+
+
+
+
+
+
 
 
 

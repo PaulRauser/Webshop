@@ -56,7 +56,7 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
             $sDuplicate = true;
         }
 
-        
+
         session_name("timlshop");
         session_start();
         $generatedPassword = randomPassword();
@@ -64,7 +64,7 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
         // Login Daten überprüfen
         // $sqlGetUserInfo = "SELECT (email,pwd) FROM user WHERE email=?";
 
-        
+
         // Login-Daten werden ausgegeben
         if ($sDuplicate == false) {
             $sqlUpdateUser = "INSERT into user (email, first_name, last_name, gender, city, country, pwd, first_login, active) VALUES (?,?,?,?,?,?,?,?,?)";
@@ -78,7 +78,7 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
         // header('Location: products.php');
         echo "Das generierte Passwort ist " . $generatedPassword;
 
-         //Hier probier ich in mail_test.php zu übergeben, klappt aber noch nicht. Checkt mal warum
+        //Hier probier ich in mail_test.php zu übergeben, klappt aber noch nicht. Checkt mal warum
         $_SESSION['generatedPassword'] = $generatedPassword;
         $_SESSION['first_login'] = 1;
         $_SESSION['email'] = $sEmail;
@@ -139,25 +139,16 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
             </div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script type="text/javascript">
-                  $(document).ready(function() {
-                      setInterval(function() {
-                          $.get("active_logins.php", {
-                                  auswahl: 1 * new Date()
-                              },
-                              function(daten) {
-                                  $('#active-users').html(daten);
-                              });
-                      }, 2000);
-                  });
-
-                // function reload() {
-                //     $.get("active_logins.php", {
-                //             auswahl: 1 * new Date()
-                //         },
-                //         function(daten) {
-                //             $('#active-users').html(daten);
-                //         });
-                // }
+                $(document).ready(function() {
+                    setInterval(function() {
+                        $.get("active_logins.php", {
+                                auswahl: 1 * new Date()
+                            },
+                            function(daten) {
+                                $('#active-users').html(daten);
+                            });
+                    }, 2000);
+                });
             </script>
             <button class="btn btn-outline-success" style="margin-right: 10px;">
                 <div><i class="fas fa-users"></i> Users Online: <div id="active-users" style="display: inline;"></div>
@@ -479,7 +470,12 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
                         </div> <!-- form-group end.// -->
                     </div> <!-- form-row.// -->
                     <div class="form-group spacer">
-                        <button type="submit" class="btn btn-success btn-block"> Register</button>
+                        <button type="submit" class="btn btn-success btn-block" id="register_now" 
+                        
+
+                        
+                        
+                        > Register</button>
                     </div> <!-- form-group// -->
                     <div class="text-muted spacer bottom-spacer">By clicking the 'Sign Up' button, you confirm that you
                         accept our <br> Terms of use and Privacy Policy.
@@ -500,6 +496,7 @@ if ((isset($_POST['email-input']) and isset($_POST['first-name-input']) and isse
                     },
                     function(daten) {
                         $('#duplicate-user').html(daten);
+                        $('#register_now').attr("disabled",true);
                     });
             }, 1000);
         });
