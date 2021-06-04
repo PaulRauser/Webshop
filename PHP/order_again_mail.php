@@ -25,7 +25,7 @@ $totalPrice = $_SESSION["total_price"];
 
 $orderedProducts = $_SESSION["ordered_products"];
 
-
+$product_amount = $_SESSION["product_amount"]
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -69,7 +69,7 @@ try {
 
     
     //Mail Body
-    $mail->Body = "<div>" . htmlentities(" Thank you for ordering again. You ordered: " . $orderedProducts . " with " . $shippingMethod . " for a total of " . $totalPrice . "€") . "</div>"; //Number of product/name of product, number of product... with Versandoption for Gesamtsumme (reduziert)";
+    $mail->Body = "<div>" . htmlentities(" Thank you for ordering again. You ordered: " . $product_amount . "Products:" . $orderedProducts . " with " . $shippingMethod . " for a total of " . $totalPrice . "€") . "</div>"; //Number of product/name of product, number of product... with Versandoption for Gesamtsumme (reduziert)";
     
     $mail->isHTML(true);
     
