@@ -86,8 +86,10 @@ $conn = openDatabase();
         </div>
       </nav>
       <div class="container">
+      <!-- Header mit dem Namen -->
+      <h3 style="text-align: center; margin-top: 10%;"  class="col-md-12 col-sm-12 d-xl-none d-lg-none"><?php getProductData($product_number, 'name', $conn);?></h3> 
         <div class="row">
-            <div class="col-7">
+            <div class="col-lg-7 col-md-10 col-sm-10">
               <div class="product-image-section ">
                 <div id="carouselExampleIndicators" class="carousel slide product-carousel" data-bs-ride="carousel">
                   <div class="carousel-indicators">
@@ -117,7 +119,7 @@ $conn = openDatabase();
                 </div>
               </div>
             </div>
-            <div class="col-5">
+            <div class="col-lg-5 col-md-10 col-sm-10">
                 <div class="product-section-content">
                     <h3 class="product-section-header"><?php getProductData($product_number, 'name', $conn);?></h3>
                     <div class="product-page-price"><?php getProductData($product_number, 'price', $conn);?>€</div>
