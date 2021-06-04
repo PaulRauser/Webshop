@@ -272,10 +272,10 @@ if ((isset($_POST['new-password-input']))) {
                         echo $order["total_price"];
                       } else {
                         echo "<script type='text/javascript'>
-              document.getElementById('sumPrevOrder').hidden = true;
-              document.getElementById('prevOrdersHeading').hidden = true;
-              document.getElementById('noPrevOrdersHeading').hidden = false;              
-              </script>";
+                          document.getElementById('sumPrevOrder').hidden = true;
+                          document.getElementById('prevOrdersHeading').hidden = true;
+                          document.getElementById('noPrevOrdersHeading').hidden = false;              
+                          </script>";
                       }
                       ?> €</p>
                   </div>
