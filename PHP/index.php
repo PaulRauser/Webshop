@@ -153,7 +153,7 @@ if ($logged_in != true) {
       </div>
     </div>
     <div class="row">
-      <div class="col-4 ">
+      <div class="col-lg-4 col-md-12 ">
         <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Klammer_Small.jpeg" width="auto" height="auto" />
           <div class="card-body text-center mx-auto">
             <div class='cvp'>
@@ -165,7 +165,7 @@ if ($logged_in != true) {
           </div>
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-lg-4 col-md-12">
         <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Tartuffo_Small.jpg" width="auto" height="auto" />
           <div class="card-body text-center mx-auto">
             <div class='cvp'>
@@ -177,7 +177,7 @@ if ($logged_in != true) {
           </div>
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-lg-4 col-md-12">
         <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' src="../images/Papier_small_picture.jpg" width="auto" height="auto" />
           <div class="card-body text-center mx-auto">
             <div class='cvp'>

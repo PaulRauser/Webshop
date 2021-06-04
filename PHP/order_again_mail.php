@@ -86,23 +86,6 @@ catch(\Exception $e) {
     echo $e->getMessage();
 }
 
-
-$userId = getIdFromUserByEmail($sEmail);
-
-
-
-completeOrder($userId, $totalPrice, $shippingMethod);
-
-
-foreach($personalShoppingCartData["pData"] as $product) {
-    addItemToOrder(getRecentOrderIdFromUser($userId), $product["product_id"], $product["amount"], $product["discounted_price"]);
-}
-
-deleteFromShoppingCart($sEmail);
-
-
-
-
 // Mail versenden und dann an Login weitergeben
 header("Location: raccoon.php");
 ?>
