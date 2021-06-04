@@ -125,8 +125,7 @@ $personalShoppingCartData = getShoppingCartData($_SESSION["email"] ?? "");
       <?php
       if(sizeof($personalShoppingCartData["pData"]) == 0){
         echo "<div class='alert alert-warning proceed-to-checkout' role='alert'>Your Cart is empty go to <a href='products.php' class='link-danger'>Products </a>instead</div>";
-        echo "<h1 class='shopping-cart-heading'>Your Shopping Cart is currently rocking no items</h1>";
-        echo "<img src='../images/racoon_guitar.jpg' class='img-fluid' alt='Racoon'>";
+        echo "<h1 class='shopping-cart-heading'>Your Shopping Cart is currently rocking no items</h1>";        
       }
       foreach ($personalShoppingCartData["pData"] as $product) { ?>
 
