@@ -69,7 +69,7 @@ try {
 
     
     //Mail Body
-    $mail->Body = "<div>" . htmlentities(" Thank you for ordering again. You ordered: " . $product_amount . "Products:" . $orderedProducts . " with " . $shippingMethod . " for a total of " . $totalPrice . "€") . "</div>"; //Number of product/name of product, number of product... with Versandoption for Gesamtsumme (reduziert)";
+    $mail->Body = "<div>" . htmlentities(" Thank you for ordering again. You ordered: " . $product_amount .  " different products:" . $orderedProducts . " with " . $shippingMethod . " for a total of " . $totalPrice . "€") . "</div>"; //Number of product/name of product, number of product... with Versandoption for Gesamtsumme (reduziert)";
     
     $mail->isHTML(true);
     

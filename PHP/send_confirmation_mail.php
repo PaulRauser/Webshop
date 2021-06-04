@@ -25,9 +25,11 @@ if($shippingMethod == "DHL") {
 }
 
 $orderedProducts = "";
+$ordered_amount = 0;
 
 foreach($personalShoppingCartData["pData"] as $product) {
     $orderedProducts .= " " . $product["amount"] . "x " .  $product["name"] . ",";
+    $ordered_amount = $ordered_amount + 1; 
 }
 
 
@@ -76,7 +78,7 @@ try {
 
     
     //Mail Body
-    $mail->Body = "<div>" . htmlentities(" Thank you for your order. You ordered:" . $orderedProducts . " with " . $shippingMethod . " for a total of " . $totalPrice . "€") . "</div>"; //Number of product/name of product, number of product... with Versandoption for Gesamtsumme (reduziert)";
+    $mail->Body = "<div>" . htmlentities(" Thank you for your order. You ordered " . $ordered_amount . " different products: " . $orderedProducts . " with " . $shippingMethod . " for a total of " . $totalPrice . "€") . "</div>"; //Number of product/name of product, number of product... with Versandoption for Gesamtsumme (reduziert)";
     
     $mail->isHTML(true);
     
