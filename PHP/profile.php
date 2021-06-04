@@ -184,7 +184,7 @@ if ((isset($_POST['new-password-input']))) {
     </div>
 
 
-    <div class="container sub-container">
+    <div class="container">
       <h1 class="shopping-cart-heading" id="prevOrdersHeading">Your Previous Orders</h1>
       <h1 class="shopping-cart-heading" id="noPrevOrdersHeading" hidden>You have no previous orders</h1>
 

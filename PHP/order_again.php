@@ -37,9 +37,9 @@
 
         $sqlGetPreviousOrderID = "SELECT id FROM orders WHERE fk_user=? ORDER BY id DESC";
         $frank = $conn->prepare($sqlGetPreviousOrderID);
-        $frank->execute([$fk_user, $shipping_method, $total_price]);
+        $frank->execute([$fk_user]);
 
-        $newId = $stmt->fetch();
+        $newId = $stmt->fetch()['id'];
 
         //Products hinzufügen
         foreach($products as $product) {
