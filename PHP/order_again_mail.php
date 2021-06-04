@@ -25,7 +25,7 @@ $totalPrice = $_SESSION["total_price"];
 
 $orderedProducts = $_SESSION["ordered_products"];
 
-$product_amount = $_SESSION["product_amount"]
+$product_amount = $_SESSION["product_amount"];
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
